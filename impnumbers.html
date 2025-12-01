@@ -2,664 +2,26 @@
 <html lang="mr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#1a5276">
     <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
     <title>महत्वाचे नंबर</title>
 
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="styles/impnumbers.css">
     <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
     <link rel="stylesheet" href="styles/Navbar.css">
     <link rel="stylesheet" href="styles/PopupLogo.css">
     
-    <!-- External Libraries -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- Dropdown Fix CSS -->
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #f59e0b;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --warning-color: #f59e0b;
-            --info-color: #06b6d4;
-            --light-color: #f8fafc;
-            --dark-color: #1e293b;
-            --border-color: #e2e8f0;
-            --text-muted: #64748b;
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            color: var(--dark-color);
-            line-height: 1.6;
-        }
-
-        .modern-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 3rem 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(6, 182, 212, 0.05));
-            border-radius: 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(37,99,235,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            position: relative;
-            z-index: 1;
-        }
-
-        .page-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            font-weight: 500;
-        }
-
-        /* Desktop-specific styles */
-        @media (min-width: 1024px) {
-            .desktop-layout {
-                display: grid;
-                grid-template-columns: 300px 1fr;
-                gap: 2rem;
-                align-items: start;
-            }
-
-            .desktop-sidebar {
-                position: sticky;
-                top: 2rem;
-                background: white;
-                border-radius: 1rem;
-                padding: 1.5rem;
-                box-shadow: var(--shadow-lg);
-                border: 1px solid var(--border-color);
-            }
-
-            .desktop-main {
-                min-height: 100vh;
-            }
-
-            .category-navigation {
-                display: block;
-            }
-
-            .category-nav-item {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                padding: 0.75rem 1rem;
-                border-radius: 0.5rem;
-                text-decoration: none;
-                color: var(--dark-color);
-                transition: all 0.3s ease;
-                margin-bottom: 0.5rem;
-                border: 1px solid transparent;
-            }
-
-            .category-nav-item:hover {
-                background: var(--light-color);
-                color: var(--primary-color);
-                border-color: var(--primary-color);
-                transform: translateX(5px);
-            }
-
-            .category-nav-item.active {
-                background: var(--primary-color);
-                color: white;
-            }
-
-            .category-nav-icon {
-                font-size: 1.1rem;
-                width: 20px;
-                text-align: center;
-            }
-
-            .desktop-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-                gap: 2rem;
-            }
-
-            .page-header {
-                padding: 4rem 0;
-            }
-
-            .page-title {
-                font-size: 3.5rem;
-            }
-
-            .search-section {
-                max-width: 600px;
-                margin: 0 auto 3rem;
-            }
-        }
-
-        .search-section {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-        }
-
-        .search-box {
-            position: relative;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid var(--border-color);
-            border-radius: 0.75rem;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: var(--light-color);
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
-            background: white;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        .clear-search {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding: 0.25rem;
-            border-radius: 0.25rem;
-            transition: all 0.2s ease;
-        }
-
-        .clear-search:hover {
-            color: var(--danger-color);
-            background: rgb(239 68 68 / 0.1);
-        }
-
-        .category-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .category-card {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .category-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .category-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--info-color));
-        }
-
-        /* Mobile-specific styles */
-        @media (max-width: 1023px) {
-            .mobile-layout {
-                display: block;
-            }
-
-            .desktop-sidebar {
-                display: none;
-            }
-
-            .mobile-category-tabs {
-                display: flex;
-                overflow-x: auto;
-                gap: 0.5rem;
-                padding: 1rem 0;
-                margin-bottom: 1rem;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-
-            .mobile-category-tabs::-webkit-scrollbar {
-                display: none;
-            }
-
-            .mobile-tab {
-                flex-shrink: 0;
-                padding: 0.75rem 1.5rem;
-                background: white;
-                border: 2px solid var(--border-color);
-                border-radius: 2rem;
-                color: var(--dark-color);
-                text-decoration: none;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                white-space: nowrap;
-            }
-
-            .mobile-tab.active {
-                background: var(--primary-color);
-                color: white;
-                border-color: var(--primary-color);
-            }
-
-            .mobile-tab:hover {
-                border-color: var(--primary-color);
-                color: var(--primary-color);
-            }
-
-            .mobile-tab.active:hover {
-                color: white;
-            }
-
-            .mobile-grid {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .category-card {
-                border-radius: 0.75rem;
-            }
-
-            .contact-item {
-                padding: 1rem;
-            }
-
-            .contact-name {
-                font-size: 0.9rem;
-                line-height: 1.4;
-            }
-
-            .contact-phone {
-                font-size: 1rem;
-                font-weight: 600;
-            }
-
-            .contact-address {
-                font-size: 0.8rem;
-                line-height: 1.3;
-            }
-        }
-
-        .category-header {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--info-color));
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .category-icon {
-            font-size: 1.5rem;
-            opacity: 0.9;
-        }
-
-        .category-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .category-body {
-            padding: 0;
-        }
-
-        .contact-item {
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-item:hover {
-            background: var(--light-color);
-        }
-
-        .contact-name {
-            font-weight: 600;
-            color: var(--dark-color);
-            margin-bottom: 0.25rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-phone {
-            color: var(--success-color);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .contact-address {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        .phone-icon {
-            font-size: 0.8rem;
-        }
-
-        .search-results {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border-color);
-            max-height: 400px;
-            overflow-y: auto;
-            z-index: 1000;
-            margin-top: 0.5rem;
-            display: none;
-        }
-
-        .search-result-item {
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .search-result-item:last-child {
-            border-bottom: none;
-        }
-
-        .search-result-item:hover {
-            background: var(--light-color);
-        }
-
-        .result-category {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .no-results {
-            padding: 2rem;
-            text-align: center;
-            color: var(--text-muted);
-        }
-
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: var(--shadow-lg);
-            transition: all 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            background: var(--info-color);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .modern-container {
-                padding: 1rem 0.5rem;
-            }
-
-            .page-header {
-                padding: 2rem 1rem;
-                margin-bottom: 2rem;
-                border-radius: 1rem;
-            }
-
-            .page-title {
-                font-size: 2.2rem;
-                margin-bottom: 0.75rem;
-            }
-
-            .page-subtitle {
-                font-size: 1rem;
-            }
-
-            .search-section {
-                padding: 1.5rem;
-                margin: 0 0.5rem 1.5rem;
-                border-radius: 0.75rem;
-            }
-
-            .search-input {
-                padding: 0.875rem 1rem 0.875rem 2.5rem;
-                font-size: 0.9rem;
-            }
-
-            .mobile-category-tabs {
-                padding: 0.75rem 0.5rem;
-                margin: 0 -0.5rem 1rem;
-            }
-
-            .mobile-tab {
-                padding: 0.625rem 1.25rem;
-                font-size: 0.85rem;
-            }
-
-            .category-card {
-                margin: 0 0.5rem;
-                border-radius: 0.75rem;
-            }
-
-            .category-header {
-                padding: 1.25rem;
-            }
-
-            .category-title {
-                font-size: 1.1rem;
-            }
-
-            .contact-item {
-                padding: 0.875rem 1.25rem;
-            }
-
-            .contact-name {
-                font-size: 0.875rem;
-                font-weight: 600;
-            }
-
-            .contact-phone {
-                font-size: 0.95rem;
-                margin-bottom: 0.375rem;
-            }
-
-            .contact-address {
-                font-size: 0.8rem;
-                line-height: 1.3;
-            }
-        }
-
-        /* Extra small mobile devices */
-        @media (max-width: 480px) {
-            .page-header {
-                padding: 1.5rem 0.75rem;
-            }
-
-            .page-title {
-                font-size: 1.8rem;
-            }
-
-            .page-subtitle {
-                font-size: 0.9rem;
-            }
-
-            .search-section {
-                padding: 1.25rem;
-                margin: 0 0.25rem 1.25rem;
-            }
-
-            .mobile-tab {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .category-header {
-                padding: 1rem;
-            }
-
-            .category-title {
-                font-size: 1rem;
-            }
-
-            .category-icon {
-                font-size: 1.25rem;
-            }
-
-            .contact-item {
-                padding: 0.75rem 1rem;
-            }
-
-            .contact-name {
-                font-size: 0.825rem;
-            }
-
-            .contact-phone {
-                font-size: 0.9rem;
-            }
-
-            .contact-address {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* Desktop hover effects */
-        @media (min-width: 1024px) {
-            .category-card:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            }
-
-            .contact-item:hover {
-                background: linear-gradient(135deg, var(--light-color), rgba(37, 99, 235, 0.05));
-                transform: translateX(5px);
-            }
-
-            .category-nav-item:hover .category-nav-icon {
-                transform: scale(1.2);
-            }
-        }
-
-        /* Hide navigation on mobile */
-        .category-navigation {
-            display: none;
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+ /* Dropdown Menu Fixes */
         .navbar-nav .dropdown-menu {
             background-color: #171b47;
             border: none;
@@ -682,299 +44,464 @@
             margin-left: 5px;
         }
 
+
+        /* Mobile Dropdown Fix */
         @media (max-width: 991px) {
             .navbar-nav .dropdown-menu {
                 padding-left: 15px;
             }
         }
     </style>
+
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Page load animation */
+        body {
+            animation: pageLoad 0.5s ease-out;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Main Content Styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .page-subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 35px;
+            font-size: 1.1rem;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 18px 50px 18px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #999;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            color: #667eea;
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .contact-list {
+            padding: 0;
+        }
+
+        .contact-item {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(to right, #f8f9ff, white);
+            padding-left: 25px;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+
+        .contact-phone {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .contact-address {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .search-results {
+            position: absolute;
+          
 </head>
 <body>
     <!-- Header will be loaded here -->
     <div id="header-placeholder"></div>
 
     <!-- Main Content Area -->
-    <div class="modern-container">
-        <!-- Page Header -->
-        <div class="page-header fade-in">
-            <h1 class="page-title">महत्वाचे संपर्क क्रमांक</h1>
-            <p class="page-subtitle">रायगड जिल्ह्यातील सर्व महत्वाचे संपर्क क्रमांक एकाच ठिकाणी मिळवा</p>
+    <div class="contacts-search-container" id="searchContainer">
+      <div class="contacts-search-box">
+        <div class="contacts-search-input-group">
+          <i class="fas fa-search contacts-search-icon"></i>
+          <input
+            type="text"
+            class="contacts-search-input"
+            id="searchInput"
+            placeholder="संपर्क क्रमांक, नाव किंवा पत्ता शोधा..."
+          />
+          <button
+            type="button"
+            class="contacts-clear-search"
+            id="clearSearch"
+            style="display: none"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="contacts-search-results-dropdown"
+        id="searchResults"
+        style="display: none"
+      >
+        <div class="contacts-search-results-header">
+          <span id="searchResultsTitle">शोध निकाल: ""</span>
+          <button class="contacts-close-results" id="closeResults">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
 
-        <!-- Search Section -->
-        <div class="search-section fade-in">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input 
-                    type="text" 
-                    class="search-input" 
-                    id="searchInput" 
-                    placeholder="नाव, संपर्क क्रमांक किंवा पत्ता शोधा..."
-                >
-                <button class="clear-search" id="clearSearch" style="display: none;">
-                    <i class="fas fa-times"></i>
-                </button>
-                
-                <!-- Search Results -->
-                <div class="search-results" id="searchResults">
-                    <div id="searchResultsList"></div>
-                    <div class="no-results" id="noResults" style="display: none;">
-                        <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 1rem; opacity: 0.5;"></i>
-                        <p id="noResultsText">कोणतेही परिणाम सापडले नाहीत</p>
-                    </div>
-                </div>
-            </div>
+        <div class="contacts-search-results-body">
+          <div class="contacts-search-results-list" id="searchResultsList">
+            <!-- Results will be populated here -->
+          </div>
+          <div class="contacts-no-results" id="noResults" style="display: none">
+            <i class="fas fa-search contacts-no-results-icon"></i>
+            <p id="noResultsText">साठी कोणतेही संपर्क सापडले नाहीत</p>
+          </div>
         </div>
+      </div>
+    </div>
 
-        <!-- Desktop Layout -->
-        <div class="desktop-layout">
-            <!-- Desktop Sidebar Navigation -->
-            <div class="desktop-sidebar">
-                <h3 style="margin-bottom: 1rem; color: var(--primary-color); font-size: 1.1rem;">श्रेणी निवडा</h3>
-                <nav class="category-navigation" id="desktopNav">
-                    <!-- Navigation items will be populated here -->
-                </nav>
-            </div>
+    <div class="container my-5">
+      <h2 class="section-subtitle mb-3" data-aos="fade-right">
+        महत्वाचे संपर्क — रायगड
+      </h2>
 
-            <!-- Desktop Main Content -->
-            <div class="desktop-main">
-                <!-- Mobile Category Tabs (hidden on desktop) -->
-                <div class="mobile-category-tabs" id="mobileTabs">
-                    <!-- Mobile tabs will be populated here -->
-                </div>
+      <!-- Toll Free Helplines -->
+      <section class="mb-5"></section>
 
-                <!-- Categories Grid -->
-                <div class="category-grid desktop-grid" id="categoriesGrid">
-                    <!-- Categories will be populated here -->
-                </div>
-            </div>
+      <!-- Colleges -->
+      <section id="colleges-section" class="mb-5">
+        <h4 data-aos="fade-right">🎓 महाविद्यालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="collegesTable">
+              <!-- Colleges data will be populated here -->
+            </tbody>
+          </table>
         </div>
+      </section>
 
-        <!-- Mobile Layout (shown only on mobile) -->
-        <div class="mobile-layout" style="display: none;">
-            <!-- Mobile Category Tabs -->
-            <div class="mobile-category-tabs" id="mobileTabsOnly">
-                <!-- Mobile tabs will be populated here -->
-            </div>
-
-            <!-- Mobile Categories Grid -->
-            <div class="category-grid mobile-grid" id="mobileGrid">
-                <!-- Categories will be populated here -->
-            </div>
+      <!-- Municipalities -->
+      <section id="municipalities-section" class="mb-5">
+        <h4 data-aos="fade-right">🏛️ नगरपालिका</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="municipalitiesTable">
+              <!-- Municipalities data will be populated here -->
+            </tbody>
+          </table>
         </div>
+      </section>
+
+      <!-- Hospitals -->
+      <section id="hospitals-section" class="mb-5">
+        <h4 data-aos="fade-right">🏥 रुग्णालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="hospitalsTable">
+              <!-- Hospitals data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Electricity -->
+      <section id="electricity-section" class="mb-5">
+        <h4 data-aos="fade-right">⚡ वीज कार्यालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="electricityTable">
+              <!-- Electricity data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Postal -->
+      <section id="postal-section" class="mb-5">
+        <h4 data-aos="fade-right">📮 पोस्ट ऑफिस</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="postalTable">
+              <!-- Postal data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Banks -->
+      <section id="banks-section" class="mb-5">
+        <h4 data-aos="fade-right">🏦 बँका</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="banksTable">
+              <!-- Banks data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Medical Contacts -->
+      <section id="medical-contacts-section" class="mb-5">
+        <h4 data-aos="fade-right">👨‍⚕️ वैद्यकीय संपर्क</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>तालुका</th>
+                <th>रुग्णालय</th>
+                <th>प्रभारी</th>
+                <th>संपर्क</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="medicalContactsTable">
+              <!-- Medical contacts data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ODOP Grievance Contacts -->
+      <section id="odop-section" class="mb-5">
+        <h4 data-aos="fade-right">📋 ODOP तक्रार संपर्क</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>पद</th>
+                <th>संपर्क</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="odopTable">
+              <!-- ODOP data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
 
     <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
     <div id="footer-placeholder"></div>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
+    <button class="scroll-to-top" id="scrollToTop" title="वर जा">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/google-translate-init.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
     
     <script>
-        // Modern Contact Data
-        const contactData = {
-            colleges: {
-                title: "महाविद्यालये",
-                icon: "fas fa-graduation-cap",
-                items: [
-                    {
-                        name: "वसंतराव नाईक आर्ट्स अँड कॉमर्स कॉलेज",
-                        contact: "02149-232040",
-                        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105"
-                    },
-                    {
-                        name: "डी. एस. सी. कॉलेज, मुरुड-जंजीरा",
-                        contact: "02144-274310",
-                        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "एस. एम. कॉलेज, अलिबाग",
-                        contact: "02141-222123",
-                        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    },
-                    {
-                        name: "राजेंद्रभाऊ हाईस्कूल कॉलेज, रायगड",
-                        contact: "02141-223456",
-                        address: "रायगड शहर, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    }
-                ]
-            },
-            hospitals: {
-                title: "रुग्णालये",
-                icon: "fas fa-hospital",
-                items: [
-                    {
-                        name: "उप जिल्हा रुग्णालय, मुरुड",
-                        contact: "02144-274420",
-                        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "जिल्हा रुग्णालय, अलिबाग",
-                        contact: "02141-222081",
-                        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    },
-                    {
-                        name: "उप जिल्हा रुग्णालय, म्हसळा",
-                        contact: "02149-232890",
-                        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105"
-                    },
-                    {
-                        name: "सार्वजनिक रुग्णालय, कर्जत",
-                        contact: "02147-223355",
-                        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    }
-                ]
-            },
-            municipalities: {
-                title: "नगरपालिका",
-                icon: "fas fa-building",
-                items: [
-                    {
-                        name: "मुरुड नगरपरिषद",
-                        contact: "02144-274032",
-                        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "अलिबाग नगरपरिषद",
-                        contact: "02141-222388",
-                        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    },
-                    {
-                        name: "म्हसळा नगरपरिषद",
-                        contact: "02149-232567",
-                        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105"
-                    }
-                ]
-            },
-            banks: {
-                title: "बँका",
-                icon: "fas fa-university",
-                items: [
-                    {
-                        name: "स्टेट बँक ऑफ इंडिया, मुरुड शाखा",
-                        contact: "02144-274225",
-                        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "बँक ऑफ इंडिया, मुरुड शाखा",
-                        contact: "02144-274555",
-                        address: "मुरुड, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "स्टेट बँक ऑफ इंडिया, अलिबाग शाखा",
-                        contact: "02141-222456",
-                        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    }
-                ]
-            },
-            electricity: {
-                title: "वीज कार्यालये",
-                icon: "fas fa-bolt",
-                items: [
-                    {
-                        name: "महावितरण कार्यालय, मुरुड",
-                        contact: "02144-274125",
-                        address: "महावितरण उपकेंद्र, मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "महावितरण कार्यालय, अलिबाग",
-                        contact: "02141-222456",
-                        address: "महावितरण मुख्य कार्यालय, अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    }
-                ]
-            },
-            postal: {
-                title: "पोस्ट ऑफिस",
-                icon: "fas fa-mail-bulk",
-                items: [
-                    {
-                        name: "मुरुड पोस्ट ऑफिस",
-                        contact: "02144-274310",
-                        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401"
-                    },
-                    {
-                        name: "अलिबाग पोस्ट ऑफिस",
-                        contact: "02141-222189",
-                        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201"
-                    }
-                ]
-            }
-        };
-
-        // Initialize the application
-        document.addEventListener('DOMContentLoaded', function() {
-            loadComponents();
-            detectDeviceAndRender();
-            initializeSearch();
-            initializeScrollTop();
-            handleResponsiveLayout();
-        });
-
-        // Detect device type and render appropriate layout
-        function detectDeviceAndRender() {
-            const isMobile = window.innerWidth < 1024;
-            
-            if (isMobile) {
-                setupMobileLayout();
-            } else {
-                setupDesktopLayout();
-            }
-            
-            renderCategories();
-        }
-
-        // Setup mobile-specific layout
-        function setupMobileLayout() {
-            document.querySelector('.desktop-layout').style.display = 'none';
-            document.querySelector('.mobile-layout').style.display = 'block';
-            renderMobileTabs();
-        }
-
-        // Setup desktop-specific layout
-        function setupDesktopLayout() {
-            document.querySelector('.desktop-layout').style.display = 'grid';
-            document.querySelector('.mobile-layout').style.display = 'none';
-            renderDesktopNavigation();
-            renderMobileTabs(); // For the tabs in desktop layout too
-        }
-
-        // Handle responsive layout changes
-        function handleResponsiveLayout() {
-            let resizeTimer;
-            window.addEventListener('resize', function() {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function() {
-                    detectDeviceAndRender();
-                }, 250);
-            });
-        }
-
-        // Load header and footer components
-        async function loadComponents() {
-            try {
-                await loadComponent('header-placeholder', 'Includes/header.html');
-                await loadComponent('footer-placeholder', 'footer.html');
-            } catch (error) {
-                console.error('Error loading components:', error);
-            }
-        }
-
+        // Function to load HTML components
         async function loadComponent(elementId, filePath) {
             try {
                 const response = await fetch(filePath);
-                if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
                 const html = await response.text();
                 document.getElementById(elementId).innerHTML = html;
                 
+                // Initialize dropdowns after loading header
                 if (elementId === 'header-placeholder') {
-                    initializeDropdowns();
+                    setTimeout(initializeDropdowns, 100);
                 }
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                }
+                
+                return true;
             } catch (error) {
                 document.getElementById(elementId).innerHTML = `
                     <div class="alert alert-warning text-center">
@@ -982,442 +509,855 @@
                         ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
                     </div>
                 `;
+                return false;
             }
         }
 
+        // Initialize dropdown functionality
         function initializeDropdowns() {
+            // Re-initialize Bootstrap dropdowns
             const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
-            dropdownElementList.map(function (dropdownToggleEl) {
+            const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
                 return new bootstrap.Dropdown(dropdownToggleEl);
             });
         }
 
-        // Render categories in modern card layout
-        function renderCategories() {
-            const isMobile = window.innerWidth < 1024;
-            const grid = isMobile ? document.getElementById('mobileGrid') : document.getElementById('categoriesGrid');
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
             
-            // Clear existing content
-            if (grid) {
-                grid.innerHTML = '';
-                
-                Object.entries(contactData).forEach(([key, category]) => {
-                    const categoryCard = createCategoryCard(category, key);
-                    grid.appendChild(categoryCard);
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                    offset: 100,
                 });
             }
-        }
-
-        // Render desktop navigation
-        function renderDesktopNavigation() {
-            const nav = document.getElementById('desktopNav');
-            if (!nav) return;
             
-            nav.innerHTML = '';
+            // Initialize search functionality
+            initializeSearchFunctionality();
             
-            Object.entries(contactData).forEach(([key, category]) => {
-                const navItem = document.createElement('a');
-                navItem.href = `#${key}`;
-                navItem.className = 'category-nav-item';
-                navItem.innerHTML = `
-                    <i class="${category.icon} category-nav-icon"></i>
-                    <span>${category.title}</span>
-                `;
-                
-                navItem.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    scrollToCategory(key);
-                    setActiveNavItem(navItem);
-                });
-                
-                nav.appendChild(navItem);
-            });
-        }
-
-        // Render mobile tabs
-        function renderMobileTabs() {
-            const containers = ['mobileTabs', 'mobileTabsOnly'];
+            // Initialize scroll to top button
+            initializeScrollToTop();
             
-            containers.forEach(containerId => {
-                const container = document.getElementById(containerId);
-                if (!container) return;
-                
-                container.innerHTML = '';
-                
-                // Add "All" tab
-                const allTab = document.createElement('a');
-                allTab.href = '#all';
-                allTab.className = 'mobile-tab active';
-                allTab.innerHTML = `
-                    <i class="fas fa-th-large"></i>
-                    <span>सर्व</span>
-                `;
-                allTab.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    showAllCategories();
-                    setActiveMobileTab(allTab, containerId);
-                });
-                container.appendChild(allTab);
-                
-                Object.entries(contactData).forEach(([key, category]) => {
-                    const tab = document.createElement('a');
-                    tab.href = `#${key}`;
-                    tab.className = 'mobile-tab';
-                    tab.innerHTML = `
-                        <i class="${category.icon}"></i>
-                        <span>${category.title}</span>
-                    `;
-                    
-                    tab.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showSingleCategory(key);
-                        setActiveMobileTab(tab, containerId);
-                    });
-                    
-                    container.appendChild(tab);
-                });
-            });
-        }
-
-        // Helper functions for navigation
-        function scrollToCategory(categoryKey) {
-            const element = document.querySelector(`[data-category="${categoryKey}"]`);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-
-        function setActiveNavItem(activeItem) {
-            document.querySelectorAll('.category-nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            activeItem.classList.add('active');
-        }
-
-        function setActiveMobileTab(activeTab, containerId) {
-            document.querySelectorAll(`#${containerId} .mobile-tab`).forEach(tab => {
-                tab.classList.remove('active');
-            });
-            activeTab.classList.add('active');
-        }
-
-        function showAllCategories() {
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.style.display = 'block';
-            });
-        }
-
-        function showSingleCategory(categoryKey) {
-            document.querySelectorAll('.category-card').forEach(card => {
-                if (card.dataset.category === categoryKey) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        function createCategoryCard(category, key) {
-            const card = document.createElement('div');
-            card.className = 'category-card fade-in';
-            card.dataset.category = key;
-            
-            const isMobile = window.innerWidth < 768;
-            
-            card.innerHTML = `
-                <div class="category-header">
-                    <i class="${category.icon} category-icon"></i>
-                    <h3 class="category-title">${category.title}</h3>
-                    ${!isMobile ? `<span style="margin-left: auto; color: rgba(255,255,255,0.8); font-size: 0.9rem;">${category.items.length} संपर्क</span>` : ''}
-                </div>
-                <div class="category-body">
-                    ${category.items.map((item, index) => `
-                        <div class="contact-item" onclick="callNumber('${item.contact}')" style="animation-delay: ${index * 0.1}s">
-                            <div class="contact-name">${item.name}</div>
-                            <div class="contact-phone">
-                                <i class="fas fa-phone phone-icon"></i>
-                                <span>${item.contact}</span>
-                                ${isMobile ? '<i class="fas fa-external-link-alt" style="margin-left: auto; opacity: 0.6; font-size: 0.8rem;"></i>' : ''}
-                            </div>
-                            <div class="contact-address">${item.address}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            `;
-            
-            return card;
-        }
-
-        // Search functionality
-        function initializeSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const clearButton = document.getElementById('clearSearch');
-            const searchResults = document.getElementById('searchResults');
-            
-            searchInput.addEventListener('input', handleSearch);
-            clearButton.addEventListener('click', clearSearch);
-            
-            // Close search results when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.search-box')) {
-                    searchResults.style.display = 'none';
-                }
-            });
-        }
-
-        function handleSearch(e) {
-            const query = e.target.value.toLowerCase().trim();
-            const clearButton = document.getElementById('clearSearch');
-            const searchResults = document.getElementById('searchResults');
-            const resultsList = document.getElementById('searchResultsList');
-            const noResults = document.getElementById('noResults');
-            
-            if (query === '') {
-                searchResults.style.display = 'none';
-                clearButton.style.display = 'none';
-                return;
-            }
-            
-            clearButton.style.display = 'block';
-            
-            // Search through all contacts
-            const results = [];
-            Object.entries(contactData).forEach(([key, category]) => {
-                category.items.forEach(item => {
-                    if (item.name.toLowerCase().includes(query) || 
-                        item.contact.includes(query) || 
-                        item.address.toLowerCase().includes(query)) {
-                        results.push({...item, category: category.title});
-                    }
-                });
-            });
-            
-            if (results.length > 0) {
-                resultsList.innerHTML = results.map(result => `
-                    <div class="search-result-item" onclick="callNumber('${result.contact}')">
-                        <div class="result-category">${result.category}</div>
-                        <div class="contact-name">${result.name}</div>
-                        <div class="contact-phone">
-                            <i class="fas fa-phone phone-icon"></i>
-                            ${result.contact}
-                        </div>
-                        <div class="contact-address">${result.address}</div>
-                    </div>
-                `).join('');
-                noResults.style.display = 'none';
-            } else {
-                resultsList.innerHTML = '';
-                noResults.style.display = 'block';
-                document.getElementById('noResultsText').textContent = `"${query}" साठी कोणतेही परिणाम सापडले नाहीत`;
-            }
-            
-            searchResults.style.display = 'block';
-        }
-
-        function clearSearch() {
-            const searchInput = document.getElementById('searchInput');
-            const clearButton = document.getElementById('clearSearch');
-            const searchResults = document.getElementById('searchResults');
-            
-            searchInput.value = '';
-            clearButton.style.display = 'none';
-            searchResults.style.display = 'none';
-            searchInput.focus();
-        }
-
-        // Call number functionality with device detection
-        function callNumber(number) {
-            const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            const isSmallScreen = window.innerWidth < 768;
-            
-            if (isMobile || isSmallScreen) {
-                // Mobile: Direct call
-                window.location.href = `tel:${number}`;
-                showToast(`कॉल करत आहे: ${number}`, 'success');
-            } else {
-                // Desktop: Copy to clipboard with enhanced feedback
-                if (navigator.clipboard) {
-                    navigator.clipboard.writeText(number).then(() => {
-                        showToast(`📋 संपर्क क्रमांक कॉपी केला गेला: ${number}`, 'info');
-                    }).catch(() => {
-                        fallbackCopyTextToClipboard(number);
-                    });
-                } else {
-                    fallbackCopyTextToClipboard(number);
-                }
-            }
-        }
-
-        // Fallback copy function for older browsers
-        function fallbackCopyTextToClipboard(text) {
-            const textArea = document.createElement("textarea");
-            textArea.value = text;
-            textArea.style.top = "0";
-            textArea.style.left = "0";
-            textArea.style.position = "fixed";
-            document.body.appendChild(textArea);
-            textArea.focus();
-            textArea.select();
-            
-            try {
-                document.execCommand('copy');
-                showToast(`📋 संपर्क क्रमांक कॉपी केला गेला: ${text}`, 'info');
-            } catch (err) {
-                showToast(`कॉपी करता आले नाही: ${text}`, 'error');
-            }
-            
-            document.body.removeChild(textArea);
-        }
-
-        // Enhanced toast notification with types
-        function showToast(message, type = 'success') {
-            const colors = {
-                success: 'var(--success-color)',
-                error: 'var(--danger-color)',
-                info: 'var(--info-color)',
-                warning: 'var(--warning-color)'
-            };
-            
-            const isMobile = window.innerWidth < 768;
-            
-            const toast = document.createElement('div');
-            toast.style.cssText = `
-                position: fixed;
-                ${isMobile ? 'top: 20px; left: 20px; right: 20px;' : 'top: 20px; right: 20px; max-width: 400px;'}
-                background: ${colors[type]};
-                color: white;
-                padding: ${isMobile ? '1rem' : '1rem 1.5rem'};
-                border-radius: 0.75rem;
-                box-shadow: var(--shadow-lg);
-                z-index: 10000;
-                animation: ${isMobile ? 'slideInDown' : 'slideInRight'} 0.3s ease;
-                font-weight: 500;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-            `;
-            
-            // Add icon based on type
-            const icons = {
-                success: '✅',
-                error: '❌',
-                info: 'ℹ️',
-                warning: '⚠️'
-            };
-            
-            toast.innerHTML = `
-                <span style="font-size: 1.1rem;">${icons[type]}</span>
-                <span>${message}</span>
-            `;
-            
-            document.body.appendChild(toast);
-            
-            // Auto remove after delay
-            setTimeout(() => {
-                toast.style.animation = `${isMobile ? 'slideOutUp' : 'slideOutRight'} 0.3s ease`;
-                setTimeout(() => toast.remove(), 300);
-            }, isMobile ? 2500 : 3000);
-            
-            // Click to dismiss
-            toast.addEventListener('click', () => {
-                toast.style.animation = `${isMobile ? 'slideOutUp' : 'slideOutRight'} 0.3s ease`;
-                setTimeout(() => toast.remove(), 300);
-            });
-        }
-
+            // Add stagger animation to table rows after they're rendered
+            setTimeout(addTableRowAnimations, 500);
+        });
+        
         // Scroll to top functionality
-        function initializeScrollTop() {
-            const scrollBtn = document.getElementById('scrollTop');
+        function initializeScrollToTop() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
             
-            window.addEventListener('scroll', () => {
+            if (!scrollToTopBtn) return;
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
                 if (window.pageYOffset > 300) {
-                    scrollBtn.classList.add('show');
+                    scrollToTopBtn.classList.add('show');
                 } else {
-                    scrollBtn.classList.remove('show');
+                    scrollToTopBtn.classList.remove('show');
                 }
             });
             
-            scrollBtn.addEventListener('click', () => {
+            // Scroll to top when clicked
+            scrollToTopBtn.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
                 });
             });
         }
-
-        // Add CSS animations
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOutRight {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-            @keyframes slideInDown {
-                from { transform: translateY(-100%); opacity: 0; }
-                to { transform: translateY(0); opacity: 1; }
-            }
-            @keyframes slideOutUp {
-                from { transform: translateY(0); opacity: 1; }
-                to { transform: translateY(-100%); opacity: 0; }
-            }
+        
+        // Add animation classes to table rows
+        function addTableRowAnimations() {
+            const tables = document.querySelectorAll('.table tbody');
+            tables.forEach(table => {
+                const rows = table.querySelectorAll('tr');
+                rows.forEach((row, index) => {
+                    row.style.animationDelay = `${index * 0.05}s`;
+                    
+                    // Add click ripple effect
+                    row.addEventListener('click', function(e) {
+                        this.style.animation = 'none';
+                        setTimeout(() => {
+                            this.style.animation = '';
+                        }, 10);
+                    });
+                });
+            });
             
-            /* Mobile-specific contact item animations */
-            @media (max-width: 768px) {
-                .contact-item {
-                    animation: fadeInUp 0.4s ease-out forwards;
-                    opacity: 0;
-                }
-                
-                @keyframes fadeInUp {
-                    from {
-                        opacity: 0;
-                        transform: translateY(20px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-            }
+            // Add intersection observer for scroll animations
+            addScrollAnimations();
+        }
+        
+        // Scroll-triggered animations
+        function addScrollAnimations() {
+            const sections = document.querySelectorAll('section');
             
-            /* Desktop hover animations */
-            @media (min-width: 1024px) {
-                .contact-item {
-                    position: relative;
-                    overflow: hidden;
-                }
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        
+                        // Animate table rows when section is visible
+                        const rows = entry.target.querySelectorAll('tbody tr');
+                        rows.forEach((row, index) => {
+                            setTimeout(() => {
+                                row.style.opacity = '1';
+                                row.style.transform = 'translateY(0)';
+                            }, index * 50);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => observer.observe(section));
+        }
+        
+        // Add parallax effect to sections
+        function addParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                const scrolled = window.pageYOffset;
                 
-                .contact-item::before {
-                    content: '';
+                sections.forEach((section, index) => {
+                    const speed = 0.5;
+                    const yPos = -(scrolled * speed * 0.1);
+                    section.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        }
+        
+        // Add mouse tracking effect
+        function addMouseTrackingEffect() {
+            const tables = document.querySelectorAll('.table-responsive');
+            
+            tables.forEach(table => {
+                table.addEventListener('mousemove', (e) => {
+                    const rect = table.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 50;
+                    const rotateY = (centerX - x) / 50;
+                    
+                    table.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                
+                table.addEventListener('mouseleave', () => {
+                    table.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                });
+            });
+        }
+        
+        // Add sparkle effect on hover
+        function addSparkleEffect() {
+            const cells = document.querySelectorAll('.contacts-table td');
+            
+            cells.forEach(cell => {
+                cell.addEventListener('mouseenter', function(e) {
+                    const sparkle = document.createElement('span');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.cssText = `
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        background: radial-gradient(circle, #ffd700, transparent);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        animation: sparkleAnim 0.6s ease-out forwards;
+                        left: ${e.offsetX}px;
+                        top: ${e.offsetY}px;
+                    `;
+                    this.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 600);
+                });
+            });
+        }
+        
+        // Initialize all advanced animations (only on desktop)
+        setTimeout(() => {
+            if (window.innerWidth > 768) {
+                addParallaxEffect();
+                addMouseTrackingEffect();
+                addSparkleEffect();
+            } else {
+                // Mobile-specific optimizations
+                initMobileOptimizations();
+            }
+        }, 1000);
+        
+        // Mobile-specific optimizations
+        function initMobileOptimizations() {
+            // Disable heavy animations on mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile || window.innerWidth <= 768) {
+                // Remove complex animations
+                document.querySelectorAll('section, .table-responsive, .contacts-table tbody tr').forEach(el => {
+                    el.style.animation = 'none';
+                });
+                
+                // Add simple fade-in for sections
+                const sections = document.querySelectorAll('section');
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+                
+                sections.forEach(section => {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    section.style.transition = 'all 0.3s ease';
+                    observer.observe(section);
+                });
+                
+                // Improve touch scrolling
+                document.querySelectorAll('.table-responsive').forEach(table => {
+                    let isScrolling = false;
+                    
+                    table.addEventListener('touchstart', () => {
+                        isScrolling = true;
+                    });
+                    
+                    table.addEventListener('touchend', () => {
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 100);
+                    });
+                });
+                
+                // Add swipe indicator for tables
+                addSwipeIndicator();
+            }
+        }
+        
+        // Add swipe indicator for mobile tables
+        function addSwipeIndicator() {
+            const tables = document.querySelectorAll('.table-responsive');
+            
+            tables.forEach(table => {
+                const indicator = document.createElement('div');
+                indicator.className = 'swipe-indicator';
+                indicator.innerHTML = '<i class="fas fa-arrows-alt-h"></i> स्वाइप करा';
+                indicator.style.cssText = `
                     position: absolute;
-                    top: 0;
-                    left: -100%;
-                    width: 100%;
-                    height: 100%;
-                    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
-                    transition: left 0.5s ease;
-                }
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(26, 82, 118, 0.9);
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    font-size: 11px;
+                    z-index: 10;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
                 
-                .contact-item:hover::before {
-                    left: 100%;
+                table.style.position = 'relative';
+                table.appendChild(indicator);
+                
+                // Show indicator on first touch
+                let hasShownIndicator = false;
+                table.addEventListener('touchstart', () => {
+                    if (!hasShownIndicator && table.scrollWidth > table.clientWidth) {
+                        indicator.style.opacity = '1';
+                        setTimeout(() => {
+                            indicator.style.opacity = '0';
+                        }, 2000);
+                        hasShownIndicator = true;
+                    }
+                });
+            });
+        }
+        
+        // Handle orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.location.reload();
+            }, 200);
+        });
+        
+        // Prevent zoom on double tap for specific elements
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (event) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Add pull-to-refresh indicator
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            const touchY = e.touches[0].clientY;
+            const touchDiff = touchY - touchStartY;
+            
+            if (touchDiff > 0 && window.scrollY === 0) {
+                // User is pulling down at top of page
+                document.body.style.transform = `translateY(${Math.min(touchDiff / 3, 50)}px)`;
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            document.body.style.transform = '';
+            document.body.style.transition = 'transform 0.3s ease';
+            setTimeout(() => {
+                document.body.style.transition = '';
+            }, 300);
+        });
+
+        // Search functionality
+        function initializeSearchFunctionality() {
+            // Data arrays
+const colleges = [
+    {
+        sr: 1,
+        name: "वसंतराव नाईक आर्ट्स अँड कॉमर्स कॉलेज - श्री. प्रकाश पाटील",
+        contact: "02149-232040",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 2,
+        name: "डी. एस. सी. कॉलेज, मुरुड-जंजीरा - सौ. सुलभा शिंदे",
+        contact: "02144-274310",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 3,
+        name: "एस. एम. कॉलेज, अलिबाग - श्री. सचिन कांबळे",
+        contact: "02141-222123",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 4,
+        name: "राजेंद्रभाऊ हाईस्कूल कॉलेज, रायगड - सौ. नेहा देशमुख",
+        contact: "02141-223456",
+        address: "रायगड शहर, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 5,
+        name: "मुरुड एज्युकेशन कॉलेज - श्री. अजित पाटील",
+        contact: "02144-275678",
+        address: "मुरुड, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+            const municipalities = [
+    {
+        sr: 1,
+        name: "मुरुड नगरपरिषद - श्री. अनिल पाटील",
+        contact: "02144-274032",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "अलिबाग नगरपरिषद - सौ. रेखा देशमुख",
+        contact: "02141-222388",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "म्हसळा नगरपरिषद - श्री. दीपक शिंदे",
+        contact: "02149-232567",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "कर्जत नगरपरिषद - सौ. स्वाती कांबळे",
+        contact: "02147-223344",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+const hospitals = [
+    {
+        sr: 1,
+        name: "उप जिल्हा रुग्णालय, मुरुड - श्री. अनिल पाटील",
+        contact: "02144-274420",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "जिल्हा रुग्णालय, अलिबाग - सौ. रेखा देशमुख",
+        contact: "02141-222081",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "उप जिल्हा रुग्णालय, म्हसळा - श्री. दीपक शिंदे",
+        contact: "02149-232890",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "सार्वजनिक रुग्णालय, कर्जत - सौ. स्वाती कांबळे",
+        contact: "02147-223355",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+          const electricity = [
+    {
+        sr: 1,
+        name: "महावितरण कार्यालय, मुरुड - श्री. अनिल पाटील",
+        contact: "02144-274125",
+        address: "महावितरण उपकेंद्र, मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "महावितरण कार्यालय, अलिबाग - सौ. रेखा देशमुख",
+        contact: "02141-222456",
+        address: "महावितरण मुख्य कार्यालय, अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "महावितरण कार्यालय, म्हसळा - श्री. दीपक शिंदे",
+        contact: "02149-232567",
+        address: "महावितरण उपकेंद्र, म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "महावितरण कार्यालय, कर्जत - सौ. स्वाती कांबळे",
+        contact: "02147-223678",
+        address: "महावितरण उपकेंद्र, कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+           const postal = [
+    {
+        sr: 1,
+        name: "मुरुड पोस्ट ऑफिस - श्री. संजय पाटील",
+        contact: "02144-274310",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "अलिबाग पोस्ट ऑफिस - सौ. कविता देशमुख",
+        contact: "02141-222189",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "म्हसळा पोस्ट ऑफिस - श्री. दीपक शिंदे",
+        contact: "02149-232445",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "कर्जत पोस्ट ऑफिस - सौ. स्वाती कांबळे",
+        contact: "02147-223567",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+            const banks = [
+    {
+        sr: 1,
+        name: "स्टेट बँक ऑफ इंडिया, मुरुड शाखा",
+        contact: "02144-274225",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "बँक ऑफ इंडिया, मुरुड शाखा",
+        contact: "02144-274555",
+        address: "मुरुड, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 3,
+        name: "स्टेट बँक ऑफ इंडिया, अलिबाग शाखा",
+        contact: "02141-222456",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+];
+
+const medicalContacts = [
+    {
+        sr: 1,
+        taluka: "मुरुड",
+        hospital: "उप जिल्हा रुग्णालय, मुरुड",
+        incharge: "डॉ. प्रभारी संजय पाटील",
+        contact: "02144-274420",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        taluka: "अलिबाग",
+        hospital: "जिल्हा रुग्णालय, अलिबाग",
+        incharge: "डॉ. प्रभारी कविता देशमुख",
+        contact: "02141-222081",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+];
+
+const oddopGrievanceContacts = [
+    {
+        srNo: 1,
+        name: "श्री. रवीश पाटील",
+        designation: "जिल्हा कलेक्टर",
+        contact: "02141-222001",
+        office: "जिल्हा कार्यालय, रायगड",
+    },
+    {
+        srNo: 2,
+        name: "श्री. अजय शिंदे",
+        designation: "उप जिल्हा कलेक्टर",
+        contact: "02144-274001",
+        office: "उप जिल्हा कार्यालय, मुरुड",
+    },
+];
+
+
+            // DOM Elements
+            const searchInput = document.getElementById("searchInput");
+            const clearSearch = document.getElementById("clearSearch");
+            const searchResults = document.getElementById("searchResults");
+            const searchResultsList = document.getElementById("searchResultsList");
+            const noResults = document.getElementById("noResults");
+            const noResultsText = document.getElementById("noResultsText");
+            const searchResultsTitle = document.getElementById("searchResultsTitle");
+            const closeResults = document.getElementById("closeResults");
+            const searchContainer = document.getElementById("searchContainer");
+
+            // Combine all data for search
+            const allContacts = [];
+
+            // Add all data arrays with proper categorization
+            colleges.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "महाविद्यालये",
+                    type: "educational",
+                })
+            );
+            municipalities.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "नगरपालिका",
+                    type: "government",
+                })
+            );
+            hospitals.forEach((item) =>
+                allContacts.push({ ...item, category: "रुग्णालये", type: "medical" })
+            );
+            electricity.forEach((item) =>
+                allContacts.push({ ...item, category: "वीज", type: "utility" })
+            );
+            postal.forEach((item) =>
+                allContacts.push({ ...item, category: "पोस्ट", type: "government" })
+            );
+            banks.forEach((item) =>
+                allContacts.push({ ...item, category: "बँका", type: "financial" })
+            );
+            medicalContacts.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "वैद्यकीय संपर्क",
+                    type: "medical",
+                })
+            );
+            oddopGrievanceContacts.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "ODOP तक्रार",
+                    type: "government",
+                })
+            );
+
+            // Initial render of tables
+            renderTables();
+
+            // Search functionality
+            function handleSearch(e) {
+                const searchTerm = e.target.value;
+
+                if (searchTerm.trim() === "") {
+                    searchResults.style.display = "none";
+                    clearSearch.style.display = "none";
+                    return;
+                }
+
+                clearSearch.style.display = "block";
+
+                const results = allContacts.filter(
+                    (item) =>
+                        item.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        item.contact?.toString().includes(searchTerm) ||
+                        item.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        item.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        (item.designation &&
+                            item.designation
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase())) ||
+                        (item.incharge &&
+                            item.incharge
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase())) ||
+                        (item.taluka &&
+                            item.taluka.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.hospital &&
+                            item.hospital.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
+
+                searchResultsTitle.textContent = `शोध निकाल: "${searchTerm}"`;
+
+                if (results.length > 0) {
+                    searchResultsList.innerHTML = "";
+                    results.slice(0, 10).forEach((result, index) => {
+                        const resultElement = document.createElement("div");
+                        resultElement.className = "contacts-search-result-item";
+                        resultElement.innerHTML = `
+                            <div class="contacts-result-content">
+                                <div class="contacts-result-header">
+                                    <h6 class="contacts-result-title">${
+                                        result.name ||
+                                        result.hospital ||
+                                        result.taluka
+                                    }</h6>
+                                    <span class="contacts-result-category ${
+                                        result.type
+                                    }">
+                                        ${result.category}
+                                    </span>
+                                </div>
+                                <p class="contacts-result-contact">
+                                    <i class="fas fa-phone me-1"></i>
+                                    ${result.contact}
+                                </p>
+                                ${
+                                    result.address ||
+                                    result.hospital ||
+                                    result.designation
+                                        ? `<p class="contacts-result-description">
+                                            ${
+                                                result.address ||
+                                                result.hospital ||
+                                                result.designation
+                                            }
+                                        </p>`
+                                        : ""
+                                }
+                            </div>
+                            <i class="fas fa-chevron-right contacts-result-arrow"></i>
+                        `;
+                        resultElement.addEventListener("click", () =>
+                            handleResultClick(result)
+                        );
+                        searchResultsList.appendChild(resultElement);
+                    });
+                    searchResults.style.display = "block";
+                    noResults.style.display = "none";
+                } else {
+                    searchResults.style.display = "block";
+                    noResults.style.display = "block";
+                    noResultsText.textContent = `'${searchTerm}' साठी कोणतेही संपर्क सापडले नाहीत`;
                 }
             }
-        `;
-        document.head.appendChild(style);
-    </script>
 
-    <!-- Google Translate -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'mr', 
-                includedLanguages: 'mr,en,hi',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
+            function handleResultClick(result) {
+                searchResults.style.display = "none";
+                searchInput.value = "";
+                clearSearch.style.display = "none";
+
+                // Scroll to the specific section based on category
+                const sectionMap = {
+                    महाविद्यालये: "#colleges-section",
+                    नगरपालिका: "#municipalities-section",
+                    रुग्णालये: "#hospitals-section",
+                    वीज: "#electricity-section",
+                    पोस्ट: "#postal-section",
+                    बँका: "#banks-section",
+                    "वैद्यकीय संपर्क": "#medical-contacts-section",
+                    "ODOP तक्रार": "#odop-section",
+                };
+
+                const sectionId = sectionMap[result.category];
+                if (sectionId) {
+                    const element = document.querySelector(sectionId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }
+                }
+            }
+
+            function clearSearchInput() {
+                searchInput.value = "";
+                searchResults.style.display = "none";
+                clearSearch.style.display = "none";
+            }
+
+            function closeResultsPanel() {
+                searchResults.style.display = "none";
+            }
+
+            // Close dropdown when clicking outside
+            function handleClickOutside(event) {
+                if (searchContainer && !searchContainer.contains(event.target)) {
+                    searchResults.style.display = "none";
+                }
+            }
+
+            // Render tables with data
+            function renderTables() {
+                // Colleges table
+                document.getElementById("collegesTable").innerHTML = colleges
+                    .map(
+                        (c) => `
+                            <tr>
+                                <td>${c.sr}</td>
+                                <td>${c.name}</td>
+                                <td>${c.contact}</td>
+                                <td>${c.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Municipalities table
+                document.getElementById("municipalitiesTable").innerHTML =
+                    municipalities
+                        .map(
+                            (m) => `
+                            <tr>
+                                <td>${m.sr}</td>
+                                <td>${m.name}</td>
+                                <td>${m.contact}</td>
+                                <td>${m.address}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+
+                // Hospitals table
+                document.getElementById("hospitalsTable").innerHTML = hospitals
+                    .map(
+                        (h) => `
+                            <tr>
+                                <td>${h.sr}</td>
+                                <td>${h.name}</td>
+                                <td>${h.contact}</td>
+                                <td>${h.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Electricity table
+                document.getElementById("electricityTable").innerHTML = electricity
+                    .map(
+                        (e) => `
+                            <tr>
+                                <td>${e.sr}</td>
+                                <td>${e.name}</td>
+                                <td>${e.contact}</td>
+                                <td>${e.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Postal table
+                document.getElementById("postalTable").innerHTML = postal
+                    .map(
+                        (p) => `
+                            <tr>
+                                <td>${p.sr}</td>
+                                <td>${p.name}</td>
+                                <td>${p.contact}</td>
+                                <td>${p.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Banks table
+                document.getElementById("banksTable").innerHTML = banks
+                    .map(
+                        (b) => `
+                            <tr>
+                                <td>${b.sr}</td>
+                                <td>${b.name}</td>
+                                <td>${b.contact}</td>
+                                <td>${b.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Medical contacts table
+                document.getElementById("medicalContactsTable").innerHTML =
+                    medicalContacts
+                        .map(
+                            (m) => `
+                            <tr>
+                                <td>${m.sr}</td>
+                                <td>${m.taluka}</td>
+                                <td>${m.hospital}</td>
+                                <td>${m.incharge}</td>
+                                <td>${m.contact}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+
+                // ODOP table
+                document.getElementById("odopTable").innerHTML =
+                    oddopGrievanceContacts
+                        .map(
+                            (o) => `
+                            <tr>
+                                <td>${o.srNo}</td>
+                                <td>${o.name}</td>
+                                <td>${o.designation}</td>
+                                <td>${o.contact}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+            }
+
+            // Event listeners
+            searchInput.addEventListener("input", handleSearch);
+            searchInput.addEventListener("focus", function () {
+                if (searchInput.value.trim() !== "") {
+                    searchResults.style.display = "block";
+                }
+            });
+            clearSearch.addEventListener("click", clearSearchInput);
+            closeResults.addEventListener("click", closeResultsPanel);
+            document.addEventListener("mousedown", handleClickOutside);
         }
     </script>
 

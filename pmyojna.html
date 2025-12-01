@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./styles/complaint.css">
         <link rel="stylesheet" href="styles/Navbar.css">     <link rel="stylesheet" href="styles/modern-enhancements.css">
     <link rel="stylesheet" href="styles/PopupLogo.css">
-        
+
     <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -20,17 +20,15 @@
     <link rel="stylesheet" href="./styles/fifteen.css" />
 </head>
 <body>
-    <!-- Header will be loaded here -->
+
     <div id="header-placeholder"></div>
 
-        <!-- Main Content Area -->
 
     <div class="container mt-5 px-4">
-      <!-- Header with Link -->
+
       <div
         class="d-flex justify-content-between align-items-center mb-4 flex-wrap"
-        data-aos="fade-up"
-      >
+        data-aos="fade-up">
         <h1 class="section-title mb-0">
           शासकीय योजना – प्रधानमंत्री आवास योजना (PM Awas Yojana)
         </h1>
@@ -40,22 +38,20 @@
           rel="noopener noreferrer"
           class="btn btn-gradient-warning text-white fw-bold"
           data-aos="fade-left"
-          data-aos-delay="200"
-        >
+          data-aos-delay="200">
           योजना सविस्तर माहिती
         </a>
       </div>
 
-      <!-- Card -->
+
       <div class="card shadow-lg rounded-4 p-3" data-aos="zoom-in">
         <div
           class="card-header bg-warning text-white fw-bold fs-5"
-          data-aos="fade-down"
-        >
+          data-aos="fade-down">
           प्रधानमंत्री आवास योजना
         </div>
         <div class="card-body">
-          <!-- Top info -->
+
           <div class="row">
             <div class="col-md-6 mb-3" data-aos="fade-right">
               <p>
@@ -82,7 +78,7 @@
             </div>
           </div>
 
-          <!-- Works -->
+
           <h5 class="mt-3 section-subtitle" data-aos="fade-up">
             योजनेअंतर्गत कामे
           </h5>
@@ -93,15 +89,14 @@
             <li>घर मिळवण्यासाठी अर्ज प्रक्रिया आणि पात्रतेची पडताळणी.</li>
           </ul>
 
-          <!-- Non-expendable items -->
+
           <h5 class="mt-3 section-subtitle text-danger" data-aos="fade-up">
             खर्च करता न येणाऱ्या बाबी
           </h5>
           <ul
             class="custom-list text-danger"
             data-aos="fade-up"
-            data-aos-delay="100"
-          >
+            data-aos-delay="100">
             <li>मानधन, पगार, T.A./D.A.</li>
             <li>समारंभ, सांस्कृतिक कार्यक्रम, सजावट</li>
             <li>एकाच घरावर दुबार खर्च</li>
@@ -116,15 +111,14 @@
       });
     </script>
 
-   
- <!-- Footer will be loaded here -->
+
     <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>     <script src="./scripts/google-translate-init.js"></script>
-    
+
     <script>
         // Function to load HTML components
         async function loadComponent(elementId, filePath) {
@@ -137,7 +131,7 @@
                 const html = await response.text();
                 document.getElementById(elementId).innerHTML = html;
                 console.log(`✅ Successfully loaded ${filePath}`);
-                
+
                 // Initialize AOS after loading content
                 if (typeof AOS !== 'undefined') {
                     AOS.init({
@@ -147,7 +141,7 @@
                     });
                     console.log('🎭 AOS initialized after content load');
                 }
-                
+
                 return true;
             } catch (error) {
                 console.error('❌ Error loading component:', error);
@@ -164,11 +158,11 @@
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 DOM fully loaded');
-            
+
             // Load header and footer
             loadComponent('header-placeholder', 'Includes/header.html');
             loadComponent('footer-placeholder', 'footer.html');
-            
+
             // Initialize AOS for main content
             if (typeof AOS !== 'undefined') {
                 AOS.init({
@@ -178,10 +172,10 @@
                 });
                 console.log('🎭 AOS initialized for main content');
             }
-            
+
             // Update visitor counter after footer is loaded
             setTimeout(updateVisitorCounter, 1000);
-            
+
             // Initialize GR Alert functionality
             setTimeout(initializeGrAlert, 1500);
         });
@@ -200,7 +194,7 @@
         // GR Alert Functionality
         function initializeGrAlert() {
             console.log('📄 Initializing GR Alert functionality...');
-            
+
             // PDF data
             const grPdfs = [
                 {
@@ -242,7 +236,7 @@
             // Render PDF items
             function renderPdfItems() {
                 const pdfListContainer = document.getElementById("pdfListContainer");
-                
+
                 if (!pdfListContainer) {
                     console.error('❌ PDF list container not found');
                     return;
@@ -328,7 +322,7 @@
         }
     </script>
 
-    <!-- Google Translate -->
+
    <script>
  // Function to load HTML components
 async function loadComponent(elementId, filePath) {
@@ -341,7 +335,7 @@ async function loadComponent(elementId, filePath) {
         const html = await response.text();
         document.getElementById(elementId).innerHTML = html;
         console.log(`✅ Successfully loaded ${filePath}`);
-        
+
         // Initialize AOS after loading content
         if (typeof AOS !== 'undefined') {
             AOS.init({
@@ -351,7 +345,7 @@ async function loadComponent(elementId, filePath) {
             });
             console.log('🎭 AOS initialized after content load');
         }
-        
+
         return true;
     } catch (error) {
         console.error('❌ Error loading component:', error);
@@ -368,11 +362,11 @@ async function loadComponent(elementId, filePath) {
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 DOM fully loaded');
-    
+
     // Load header and footer
     loadComponent('header-placeholder', 'Includes/header.html');
     loadComponent('footer-placeholder', 'footer.html');
-    
+
     // Initialize AOS for main content
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -382,50 +376,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         console.log('🎭 AOS initialized for main content');
     }
-    
+
     // Update visitor counter after footer is loaded
     setTimeout(updateVisitorCounter, 1000);
-    
+
     // Initialize complaint form functionality
     initializeComplaintForm();
-    
+
     // Initialize popup functionality
     initializePopup();
 });
 
-
-
 // Complaint Form Functionality
 function initializeComplaintForm() {
     console.log('📝 Initializing complaint form...');
-    
+
     const form = document.getElementById('complainForm');
     const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
     const captchaText = document.getElementById('captchaText');
-    
+
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const captchaInput = document.getElementById('captchaInput').value;
             const currentCaptcha = captchaText.textContent.trim();
-            
+
             if (captchaInput !== currentCaptcha) {
                 alert('❌ कॅप्चा कोड चुकीचा आहे! कृपया पुन्हा प्रयत्न करा.');
                 generateCaptcha();
                 return;
             }
-            
+
             alert('✅ आपली तक्रार यशस्वीरित्या पाठवली गेली आहे! आम्ही लवकरच आपल्याशी संपर्क साधू.');
             form.reset();
             generateCaptcha();
         });
     }
-    
+
     if (refreshCaptchaBtn) {
         refreshCaptchaBtn.addEventListener('click', generateCaptcha);
     }
-    
+
     // Generate initial captcha
     generateCaptcha();
 }
@@ -436,7 +428,7 @@ function generateCaptcha() {
     for (let i = 0; i < 6; i++) {
         captcha += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    
+
     const captchaText = document.getElementById('captchaText');
     if (captchaText) {
         captchaText.textContent = captcha;
@@ -446,7 +438,7 @@ function generateCaptcha() {
 // Popup Functionality
 function initializePopup() {
     console.log('🪟 Initializing popup...');
-    
+
     const popupOverlay = document.getElementById("popupOverlay");
     const closePopup = document.getElementById("closePopup");
 
@@ -497,7 +489,7 @@ function toggleAccessibility() {
 // Google Translate
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
-        pageLanguage: 'mr', 
+        pageLanguage: 'mr',
         includedLanguages: 'mr,en,hi',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE
     }, 'google_translate_element');

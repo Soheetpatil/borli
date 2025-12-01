@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="styles/villageinfo.css">
     <link rel="stylesheet" href="styles/Navbar.css">     <link rel="stylesheet" href="styles/modern-enhancements.css">
     <link rel="stylesheet" href="styles/PopupLogo.css">
-    
+
     <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/fifteen.css" />
 
-    <!-- Dropdown Fix CSS -->
+
     <style>
         /* Dropdown Fix Only - No Color Changes */
         .navbar-nav .dropdown-menu {
@@ -38,17 +38,17 @@
                 transform: none !important;
                 float: none !important;
             }
-            
+
             .navbar-nav .dropdown-item {
                 padding: 12px 20px !important;
                 border-bottom: 1px solid rgba(255,255,255,0.1) !important;
                 color: white !important;
             }
-            
+
             .navbar-nav .dropdown-item:hover {
                 background-color: #171b47 !important;
             }
-            
+
             .navbar-nav .dropdown-toggle::after {
                 float: right;
                 margin-top: 8px;
@@ -57,10 +57,10 @@
     </style>
 </head>
 <body>
-    <!-- Header will be loaded here -->
+
     <div id="header-placeholder"></div>
 
-    <!-- Search Results Dropdown - Positioned below search box -->
+
     <div class="search-results-dropdown" style="display: none">
         <div class="search-results-header">
             <span>शोध निकाल: ""</span>
@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <!-- Main Content Area -->
+
     <div class="village-search-container" id="searchContainer">
       <div class="village-search-box">
         <div class="village-search-input-group">
@@ -93,8 +93,7 @@
             type="button"
             class="village-clear-search"
             id="clearSearch"
-            style="display: none"
-          >
+            style="display: none">
             <i class="fas fa-times"></i>
           </button>
         </div>
@@ -103,8 +102,7 @@
       <div
         class="village-search-results-dropdown"
         id="searchResults"
-        style="display: none"
-      >
+        style="display: none">
         <div class="village-search-results-header">
           <span id="searchResultsTitle">शोध निकाल: ""</span>
           <button class="village-close-results" id="closeResults">
@@ -114,7 +112,7 @@
 
         <div class="village-search-results-body">
           <div class="village-search-results-list" id="searchResultsList">
-            <!-- Results will be populated here -->
+
           </div>
           <div class="village-no-results" id="noResults" style="display: none">
             <i class="fas fa-search village-no-results-icon"></i>
@@ -130,7 +128,7 @@
           🏡 बोर्ली गावाची माहिती
         </h1>
 
-        <!-- History Section -->
+
         <div id="history" class="section card-section container mb-4">
           <h2 class="section-subtitle mb-3" data-aos="fade-right">
             📜 गावाचा इतिहास
@@ -150,8 +148,7 @@
             <h2
               id="local-life"
               class="section-subtitle mb-3"
-              data-aos="fade-right"
-            >
+              data-aos="fade-right">
               लोकजीवन माहिती
             </h2>
             <p data-aos="fade-up">
@@ -178,7 +175,7 @@
           </div>
         </div>
 
-        <!-- Gram Panchayat Info -->
+
         <div id="gram-panchayat" class="section container card-section mb-4">
           <h2 class="section-subtitle" data-aos="fade-right">
             ग्रामपंचायतीची सर्वसाधारण माहिती
@@ -241,7 +238,7 @@
           </div>
         </div>
 
-        <!-- Population -->
+
         <div id="population" class="section container card-section mb-4">
           <h3 class="section-subtitle" data-aos="fade-right">लोकसंख्या</h3>
           <div class="table-responsive">
@@ -361,7 +358,7 @@
 
           searchResultsTitle.textContent = `शोध निकाल: "${searchTerm}"`;
 
-          if (results.length > 0) {
+          if (results.length> 0) {
             searchResultsList.innerHTML = "";
             results.slice(0, 8).forEach((result) => {
               const resultElement = document.createElement("div");
@@ -433,14 +430,14 @@
       });
     </script>
 
-    <!-- Footer will be loaded here -->
+
     <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>     <script src="./scripts/google-translate-init.js"></script>
-    
+
     <script>
         // Function to load HTML components
         async function loadComponent(elementId, filePath) {
@@ -451,12 +448,12 @@
                 }
                 const html = await response.text();
                 document.getElementById(elementId).innerHTML = html;
-                
+
                 // Initialize dropdowns after loading header
                 if (elementId === 'header-placeholder') {
                     setTimeout(initializeDropdowns, 100);
                 }
-                
+
                 // Initialize AOS after loading content
                 if (typeof AOS !== 'undefined') {
                     AOS.init({
@@ -465,7 +462,7 @@
                         easing: "ease-in-out",
                     });
                 }
-                
+
                 return true;
             } catch (error) {
                 document.getElementById(elementId).innerHTML = `
@@ -485,7 +482,7 @@
             const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
                 return new bootstrap.Dropdown(dropdownToggleEl);
             });
-            
+
             // Mobile dropdown fix - ensure proper click handling
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
             dropdownToggles.forEach(toggle => {
@@ -506,7 +503,7 @@
             // Load header and footer
             loadComponent('header-placeholder', 'Includes/header.html');
             loadComponent('footer-placeholder', 'footer.html');
-            
+
             // Initialize AOS for main content
             if (typeof AOS !== 'undefined') {
                 AOS.init({
@@ -533,11 +530,11 @@
         }
     </script>
 
-    <!-- Google Translate -->
+
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'mr', 
+                pageLanguage: 'mr',
                 includedLanguages: 'mr,en,hi',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');

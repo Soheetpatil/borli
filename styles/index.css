@@ -958,15 +958,15 @@ a {
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .facility-card {
         flex-direction: column;
     }
-    
+
     .facility-image, .facility-content {
         width: 100%;
     }
-    
+
     .facility-image {
         height: 250px;
     }
@@ -976,15 +976,15 @@ a {
     .hero-title {
         font-size: 2.2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .counter-number {
         font-size: 2.5rem;
     }
-    
+
     .accessibility-btn {
         bottom: 15px;
         right: 15px;
@@ -997,11 +997,11 @@ a {
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .officer-img {
         width: 120px;
         height: 120px;
@@ -1016,104 +1016,104 @@ a {
         text-align: center;
         gap: 10px;
     }
-    
+
     .logo-section {
         flex-direction: column;
     }
-    
+
     .village-name {
         font-size: 1.5rem;
     }
-    
+
     .header-badges {
         justify-content: center;
         flex-wrap: wrap;
     }
-    
+
     /* Navigation improvements */
     .navbar-nav .nav-link {
         padding: 12px 15px !important;
         text-align: center;
     }
-    
+
     .dropdown-menu {
         position: static;
         float: none;
         width: 100%;
         margin-top: 0;
     }
-    
+
     /* Hero section */
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     /* About section */
     .about-content {
         font-size: 1rem;
         text-align: left;
     }
-    
+
     /* Officers section */
     .officer-card {
         margin-bottom: 20px;
     }
-    
+
     /* Counters section */
     .col-6 {
         width: 50%;
     }
-    
+
     .counter-number {
         font-size: 2rem;
     }
-    
+
     .counter-label {
         font-size: 0.9rem;
     }
-    
+
     /* Facilities section */
     .facility-card {
         flex-direction: column;
         margin-bottom: 30px;
     }
-    
-    .facility-image, 
+
+    .facility-image,
     .facility-content {
         width: 100%;
     }
-    
+
     .facility-image {
         height: 200px;
         order: 1;
     }
-    
+
     .facility-content {
         order: 2;
     }
-    
+
     /* Gallery section */
     .col-md-3 {
         width: 50%;
     }
-    
+
     .gallery-item {
         height: 200px;
     }
-    
+
     /* E-services section */
     .col-md-2 {
         width: 33.33%;
     }
-    
+
     .service-card {
         padding: 20px 10px;
     }
-    
+
 }
 
 @media (max-width: 576px) {
@@ -1121,32 +1121,32 @@ a {
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .section-title {
         font-size: 1.6rem;
     }
-    
-    .col-6, 
-    .col-md-3, 
+
+    .col-6,
+    .col-md-3,
     .col-md-2 {
         width: 100%;
     }
-    
+
     .counter-card,
     .service-card {
         margin-bottom: 15px;
     }
-    
+
     .header-badge {
         font-size: 0.7rem;
         padding: 6px 10px;
     }
-    
+
     .top-bar .col-md-6 {
         text-align: center;
         margin-bottom: 5px;
     }
-    
+
     .top-bar .d-flex {
         justify-content: center;
     }
@@ -1443,16 +1443,16 @@ img {
     .icon-carousel-item {
         width: 120px;
     }
-    
+
     .icon-image {
         width: 60px;
         height: 60px;
     }
-    
+
     .icon-title {
         font-size: 0.8rem;
     }
-    
+
     @keyframes infiniteScroll {
         0% {
             transform: translateX(0);
@@ -1467,16 +1467,16 @@ img {
     .icon-carousel-item {
         width: 100px;
     }
-    
+
     .icon-image {
         width: 50px;
         height: 50px;
     }
-    
+
     .icon-title {
         font-size: 0.75rem;
     }
-    
+
     @keyframes infiniteScroll {
         0% {
             transform: translateX(0);

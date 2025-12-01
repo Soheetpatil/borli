@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="./styles/complaint.css">
     <link rel="stylesheet" href="styles/Navbar.css">     <link rel="stylesheet" href="styles/modern-enhancements.css">
     <link rel="stylesheet" href="styles/PopupLogo.css">
-    
+
     <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./styles/fifteen.css" />
 
-    <!-- Dropdown Fix and Color CSS -->
+
     <style>
         /* White Background Fix */
         body {
@@ -27,7 +27,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .container-fluid {
             background-color: white !important;
         }
@@ -82,7 +82,7 @@
                 border: none;
                 padding-left: 20px;
             }
-            
+
             .navbar-nav .dropdown-item {
                 padding-left: 30px;
                 border-bottom: 1px solid #2a2f6b;
@@ -158,19 +158,18 @@
     </style>
 </head>
 <body>
-    <!-- Header will be loaded here -->
+
     <div id="header-placeholder"></div>
 
-   <!-- Main Content Area -->
+
     <div class="container-fluid mt-4 px-5">
       <h1 class="section-title mb-4 text-center">कर संकलन</h1>
 
-      <!-- Tax Message -->
+
       <div class="tax-message text-center mb-5">
         <h1 class="word-rotator slide fw-bold fs-2 mb-3">
           <span>
-            कृपया घरपट्टी पाणीपट्टि इतर कर भरणा वेळेवर करा व सहकार्य करा.</span
-          >
+            कृपया घरपट्टी पाणीपट्टि इतर कर भरणा वेळेवर करा व सहकार्य करा.</span>
         </h1>
 
         <div class="d-flex justify-content-center gap-4 payment-methods">
@@ -193,14 +192,13 @@
         </div>
       </div>
 
-      <!-- House Tax Section -->
+
       <div class="collapse-section mb-3">
         <div
           class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
           data-bs-toggle="collapse"
           data-bs-target="#houseTax"
-          role="button"
-        >
+          role="button">
           <span><i class="fas fa-home me-2"></i> घरपट्टी कर</span>
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -215,14 +213,13 @@
         </div>
       </div>
 
-      <!-- Water Tax Section -->
+
       <div class="collapse-section mb-3">
         <div
           class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
           data-bs-toggle="collapse"
           data-bs-target="#waterTax"
-          role="button"
-        >
+          role="button">
           <span><i class="fas fa-tint me-2"></i> पाणीपट्टी कर</span>
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -237,14 +234,13 @@
         </div>
       </div>
 
-      <!-- Other Taxes Section -->
+
       <div class="collapse-section">
         <div
           class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
           data-bs-toggle="collapse"
           data-bs-target="#otherTaxes"
-          role="button"
-        >
+          role="button">
           <span><i class="fas fa-receipt me-2"></i> इतर कर</span>
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -260,14 +256,14 @@
       </div>
     </div>
 
-    <!-- Footer will be loaded here -->
+
     <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
     <div id="footer-placeholder"></div>
 
-    <!-- Scripts -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>     <script src="./scripts/google-translate-init.js"></script>
-    
+
     <script>
         // Function to load HTML components
         async function loadComponent(elementId, filePath) {
@@ -280,12 +276,12 @@
                 const html = await response.text();
                 document.getElementById(elementId).innerHTML = html;
                 console.log(`✅ Successfully loaded ${filePath}`);
-                
+
                 // Initialize dropdowns after loading header
                 if (elementId === 'header-placeholder') {
                     initializeDropdowns();
                 }
-                
+
                 // Initialize AOS after loading content
                 if (typeof AOS !== 'undefined') {
                     AOS.init({
@@ -295,7 +291,7 @@
                     });
                     console.log('🎭 AOS initialized after content load');
                 }
-                
+
                 return true;
             } catch (error) {
                 console.error('❌ Error loading component:', error);
@@ -312,10 +308,10 @@
         // Initialize dropdown functionality
         function initializeDropdowns() {
             console.log('🔄 Initializing dropdown menus...');
-            
+
             // Get all dropdown toggles
             const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            
+
             dropdownToggles.forEach(toggle => {
                 // Remove any existing event listeners
                 toggle.replaceWith(toggle.cloneNode(true));
@@ -333,11 +329,11 @@
         // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 DOM fully loaded');
-            
+
             // Load header and footer
             loadComponent('header-placeholder', 'Includes/header.html');
             loadComponent('footer-placeholder', 'footer.html');
-            
+
             // Initialize AOS for main content
             if (typeof AOS !== 'undefined') {
                 AOS.init({
@@ -347,10 +343,10 @@
                 });
                 console.log('🎭 AOS initialized for main content');
             }
-            
+
             // Update visitor counter after footer is loaded
             setTimeout(updateVisitorCounter, 1000);
-            
+
             // Initialize GR Alert functionality
             setTimeout(initializeGrAlert, 1500);
         });
@@ -369,7 +365,7 @@
         // GR Alert Functionality
         function initializeGrAlert() {
             console.log('📄 Initializing GR Alert functionality...');
-            
+
             // PDF data
             const grPdfs = [
                 {
@@ -411,7 +407,7 @@
             // Render PDF items
             function renderPdfItems() {
                 const pdfListContainer = document.getElementById("pdfListContainer");
-                
+
                 if (!pdfListContainer) {
                     console.error('❌ PDF list container not found');
                     return;
@@ -497,11 +493,11 @@
         }
     </script>
 
-    <!-- Google Translate -->
+
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'mr', 
+                pageLanguage: 'mr',
                 includedLanguages: 'mr,en,hi',
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');

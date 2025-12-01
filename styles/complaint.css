@@ -208,26 +208,26 @@
     .complaint-body {
         padding: 25px;
     }
-    
+
     .captcha-container {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .captcha-code {
         min-width: 100px;
         font-size: 1.2rem;
     }
-    
+
     .btn-submit {
         width: 100%;
         padding: 15px 20px;
     }
-    
+
     .map-responsive {
         height: 300px;
     }
-    
+
     .map-responsive iframe {
         height: 300px;
     }
@@ -237,25 +237,25 @@
     .complaint-body {
         padding: 20px 15px;
     }
-    
+
     .form-control {
         padding: 10px 12px;
         font-size: 0.9rem;
     }
-    
+
     .captcha-code {
         font-size: 1.1rem;
         min-width: 90px;
     }
-    
+
     .map-responsive {
         height: 250px;
     }
-    
+
     .map-responsive iframe {
         height: 250px;
     }
-    
+
     .privacy-notice {
         padding: 15px;
     }

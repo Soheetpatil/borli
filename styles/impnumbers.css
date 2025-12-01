@@ -707,7 +707,7 @@ section h4::before {
   .contacts-table {
     font-size: 14px;
   }
-  
+
   /* Reduce animation intensity on mobile */
   @keyframes fadeInUp {
     from {
@@ -719,11 +719,11 @@ section h4::before {
       transform: translateY(0);
     }
   }
-  
+
   .contacts-table tbody tr:hover {
     transform: scale(1);
   }
-  
+
   .scroll-to-top {
     bottom: 20px;
     right: 20px;
@@ -848,21 +848,21 @@ section h4::before {
   .container {
     padding: 0 15px;
   }
-  
+
   section {
     padding: 25px 20px;
     margin-bottom: 30px !important;
   }
-  
+
   section h4 {
     font-size: 22px;
     margin-bottom: 20px;
   }
-  
+
   .table-responsive {
     padding: 15px;
   }
-  
+
   .contacts-table th,
   .contacts-table td {
     padding: 12px 10px;
@@ -876,12 +876,12 @@ section h4::before {
   * {
     animation-duration: 0.3s !important;
   }
-  
+
   /* Container adjustments */
   .container {
     padding: 0 10px;
   }
-  
+
   /* Section styling */
   section {
     padding: 20px 15px;
@@ -889,27 +889,27 @@ section h4::before {
     margin-bottom: 25px !important;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   }
-  
+
   section::before {
     width: 4px;
   }
-  
+
   section:hover::before {
     width: 4px;
   }
-  
+
   section h4 {
     font-size: 18px;
     margin-bottom: 15px;
     padding-bottom: 10px;
   }
-  
+
   section h4::before {
     left: -10px;
     width: 6px;
     height: 6px;
   }
-  
+
   /* Table responsive */
   .table-responsive {
     padding: 10px;
@@ -917,108 +917,108 @@ section h4::before {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   /* Table styling */
   .contacts-table {
     font-size: 13px;
     min-width: 100%;
   }
-  
+
   .contacts-table th,
   .contacts-table td {
     padding: 10px 8px;
     font-size: 12px;
     white-space: nowrap;
   }
-  
+
   /* Column widths for mobile */
   .contacts-table th:nth-child(1),
   .contacts-table td:nth-child(1) {
     width: 40px;
     min-width: 40px;
   }
-  
+
   .contacts-table th:nth-child(2),
   .contacts-table td:nth-child(2) {
     min-width: 180px;
     white-space: normal;
   }
-  
+
   .contacts-table th:nth-child(3),
   .contacts-table td:nth-child(3) {
     min-width: 120px;
   }
-  
+
   .contacts-table th:nth-child(4),
   .contacts-table td:nth-child(4) {
     min-width: 200px;
     white-space: normal;
   }
-  
+
   /* Remove decorative icons on mobile */
   .contacts-table td:nth-child(2)::before,
   .contacts-table td:nth-child(3)::before,
   .contacts-table td:nth-child(4)::before {
     display: none;
   }
-  
+
   .contacts-table td:nth-child(2) {
     padding-left: 8px;
   }
-  
+
   /* Simplify hover effects */
   .contacts-table tbody tr:hover {
     transform: none;
     box-shadow: none;
     background: #f0f7ff;
   }
-  
+
   .contacts-table td:hover {
     transform: none;
     box-shadow: none;
   }
-  
+
   /* Search box mobile */
   .contacts-search-container {
     margin: 20px 10px;
     max-width: 100%;
   }
-  
+
   .contacts-search-box {
     border-radius: 30px;
   }
-  
+
   .contacts-search-input {
     font-size: 14px;
     padding: 10px 0;
   }
-  
+
   .contacts-search-input::placeholder {
     font-size: 13px;
   }
-  
+
   /* Search results mobile */
   .contacts-search-results-dropdown {
     border-radius: 8px;
     margin-top: 8px;
   }
-  
+
   .contacts-search-result-item {
     padding: 12px 15px;
   }
-  
+
   .contacts-result-title {
     font-size: 14px;
   }
-  
+
   .contacts-result-contact {
     font-size: 13px;
   }
-  
+
   .contacts-result-description {
     font-size: 12px;
   }
-  
+
   /* Scroll to top button */
   .scroll-to-top {
     bottom: 20px;
@@ -1027,7 +1027,7 @@ section h4::before {
     height: 45px;
     font-size: 18px;
   }
-  
+
   /* Disable complex animations */
   section::after,
   .table-responsive::before,
@@ -1035,34 +1035,34 @@ section h4::before {
   .contacts-table td::after {
     display: none;
   }
-  
+
   /* Simplify backgrounds */
   section {
     background: white;
     animation: none;
   }
-  
+
   .contacts-table tbody tr {
     background: white;
     animation: fadeInUp 0.3s ease-out forwards;
   }
-  
+
   .contacts-table tbody tr:nth-child(even) {
     background: #fafbfc;
   }
-  
+
   /* Remove 3D effects */
   .table-responsive:hover {
     transform: none;
   }
-  
+
   /* Subtitle mobile */
   .section-subtitle {
     font-size: 20px;
     padding-left: 12px;
     margin-bottom: 15px;
   }
-  
+
   .section-subtitle::after {
     display: none;
   }
@@ -1075,63 +1075,63 @@ section h4::before {
     padding: 15px 10px;
     border-radius: 10px;
   }
-  
+
   section h4 {
     font-size: 16px;
     margin-bottom: 12px;
   }
-  
+
   .table-responsive {
     padding: 8px;
     border-radius: 8px;
   }
-  
+
   .contacts-table th,
   .contacts-table td {
     padding: 8px 6px;
     font-size: 11px;
   }
-  
+
   .contacts-table th:nth-child(1),
   .contacts-table td:nth-child(1) {
     width: 35px;
     min-width: 35px;
   }
-  
+
   .contacts-table th:nth-child(2),
   .contacts-table td:nth-child(2) {
     min-width: 150px;
   }
-  
+
   .contacts-table th:nth-child(3),
   .contacts-table td:nth-child(3) {
     min-width: 110px;
   }
-  
+
   .contacts-table th:nth-child(4),
   .contacts-table td:nth-child(4) {
     min-width: 180px;
   }
-  
+
   /* Search mobile */
   .contacts-search-container {
     margin: 15px 5px;
   }
-  
+
   .contacts-search-input {
     font-size: 13px;
   }
-  
+
   .contacts-search-input::placeholder {
     font-size: 12px;
   }
-  
+
   /* Subtitle */
   .section-subtitle {
     font-size: 18px;
     padding-left: 10px;
   }
-  
+
   /* Scroll button */
   .scroll-to-top {
     bottom: 15px;
@@ -1140,13 +1140,13 @@ section h4::before {
     height: 40px;
     font-size: 16px;
   }
-  
+
   /* Simplify all animations */
   * {
     animation: none !important;
     transition: all 0.2s ease !important;
   }
-  
+
   .contacts-table tbody tr {
     opacity: 1 !important;
     transform: none !important;
@@ -1158,12 +1158,12 @@ section h4::before {
   section {
     padding: 15px;
   }
-  
+
   .contacts-table th,
   .contacts-table td {
     padding: 8px 6px;
   }
-  
+
   .scroll-to-top {
     bottom: 10px;
     right: 10px;
@@ -1181,22 +1181,22 @@ section h4::before {
     box-shadow: none;
     animation: none;
   }
-  
+
   /* Make touch targets larger */
   .contacts-table td {
     padding: 12px 10px;
   }
-  
+
   .scroll-to-top {
     width: 50px;
     height: 50px;
   }
-  
+
   /* Improve tap feedback */
   .contacts-table tbody tr:active {
     background: #e3f2fd;
   }
-  
+
   .scroll-to-top:active {
     transform: scale(0.95);
   }
@@ -1217,16 +1217,16 @@ section h4::before {
     box-shadow: none;
     border: 1px solid #ddd;
   }
-  
+
   .contacts-search-container,
   .scroll-to-top {
     display: none;
   }
-  
+
   .contacts-table {
     font-size: 10pt;
   }
-  
+
   * {
     animation: none !important;
     transition: none !important;
@@ -1487,7 +1487,7 @@ section h4 {
 }
 
 section:hover h4 {
-  text-shadow: 
+  text-shadow:
     0 0 10px rgba(26, 82, 118, 0.5),
     0 0 20px rgba(26, 82, 118, 0.3),
     0 0 30px rgba(26, 82, 118, 0.1);
@@ -1496,12 +1496,12 @@ section:hover h4 {
 
 @keyframes neonPulse {
   0%, 100% {
-    text-shadow: 
+    text-shadow:
       0 0 10px rgba(26, 82, 118, 0.5),
       0 0 20px rgba(26, 82, 118, 0.3);
   }
   50% {
-    text-shadow: 
+    text-shadow:
       0 0 20px rgba(26, 82, 118, 0.8),
       0 0 30px rgba(26, 82, 118, 0.5),
       0 0 40px rgba(26, 82, 118, 0.3);
@@ -1528,7 +1528,7 @@ section:hover h4 {
 .table-responsive {
   position: relative;
   border: 2px solid transparent;
-  background: 
+  background:
     linear-gradient(white, white) padding-box,
     linear-gradient(45deg, #1a5276, #d4ac0d, #e74c3c, #1a5276) border-box;
   animation: rainbowRotate 4s linear infinite;
@@ -1824,7 +1824,7 @@ section::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(circle at 20% 30%, rgba(26, 82, 118, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(212, 172, 13, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 50% 50%, rgba(231, 76, 60, 0.03) 0%, transparent 50%);
@@ -2155,11 +2155,11 @@ section::before {
 
 /* Color Wave Effect */
 .contacts-table tbody tr {
-  background: linear-gradient(90deg, 
-    white 0%, 
-    #f8f9fa 25%, 
-    white 50%, 
-    #f8f9fa 75%, 
+  background: linear-gradient(90deg,
+    white 0%,
+    #f8f9fa 25%,
+    white 50%,
+    #f8f9fa 75%,
     white 100%);
   background-size: 200% 100%;
   animation: colorWave 8s linear infinite;
@@ -2318,18 +2318,18 @@ section:hover {
   .table-responsive.card-view {
     padding: 0;
   }
-  
+
   .table-responsive.card-view .contacts-table thead {
     display: none;
   }
-  
+
   .table-responsive.card-view .contacts-table,
   .table-responsive.card-view .contacts-table tbody,
   .table-responsive.card-view .contacts-table tr {
     display: block;
     width: 100%;
   }
-  
+
   .table-responsive.card-view .contacts-table tr {
     margin-bottom: 15px;
     border: 1px solid #e9ecef;
@@ -2338,7 +2338,7 @@ section:hover {
     background: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
-  
+
   .table-responsive.card-view .contacts-table td {
     display: block;
     width: 100%;
@@ -2347,7 +2347,7 @@ section:hover {
     border: none;
     white-space: normal;
   }
-  
+
   .table-responsive.card-view .contacts-table td::before {
     content: attr(data-label);
     font-weight: 600;
@@ -2356,7 +2356,7 @@ section:hover {
     width: 80px;
     margin-right: 10px;
   }
-  
+
   .table-responsive.card-view .contacts-table td:nth-child(1) {
     font-size: 18px;
     font-weight: 700;
@@ -2365,19 +2365,19 @@ section:hover {
     padding-bottom: 10px;
     margin-bottom: 10px;
   }
-  
+
   .table-responsive.card-view .contacts-table td:nth-child(1)::before {
     content: '📋 क्र. ';
   }
-  
+
   .table-responsive.card-view .contacts-table td:nth-child(2)::before {
     content: '👤 नाव: ';
   }
-  
+
   .table-responsive.card-view .contacts-table td:nth-child(3)::before {
     content: '📞 संपर्क: ';
   }
-  
+
   .table-responsive.card-view .contacts-table td:nth-child(4)::before {
     content: '📍 पत्ता: ';
   }
@@ -2419,7 +2419,7 @@ section:hover {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
   }
-  
+
   body {
     -webkit-tap-highlight-color: rgba(26, 82, 118, 0.1);
   }
@@ -2456,12 +2456,12 @@ section:hover {
     background: linear-gradient(to right, #e3f2fd, #f0f7ff);
     transform: scale(0.98);
   }
-  
+
   .scroll-to-top:active {
     transform: scale(0.9);
     background: var(--secondary-color);
   }
-  
+
   .contacts-search-box:active {
     transform: scale(0.98);
   }
@@ -2474,7 +2474,7 @@ section:hover {
       padding-left: max(10px, env(safe-area-inset-left));
       padding-right: max(10px, env(safe-area-inset-right));
     }
-    
+
     .scroll-to-top {
       bottom: max(20px, env(safe-area-inset-bottom));
       right: max(20px, env(safe-area-inset-right));
@@ -2489,29 +2489,29 @@ section:hover {
     color: #e0e0e0;
     border-color: #333;
   }
-  
+
   .contacts-table {
     background: #1a1a1a;
     color: #e0e0e0;
   }
-  
+
   .contacts-table tbody tr:nth-child(even) {
     background: #222;
   }
-  
+
   .contacts-table tbody tr:nth-child(odd) {
     background: #1a1a1a;
   }
-  
+
   .contacts-table td {
     border-color: #333;
   }
-  
+
   .contacts-search-box {
     background: #2a2a2a;
     color: #e0e0e0;
   }
-  
+
   .contacts-search-input {
     color: #e0e0e0;
   }
@@ -2533,11 +2533,11 @@ section:hover {
   * {
     will-change: auto !important;
   }
-  
+
   .contacts-table tbody tr {
     contain: layout style paint;
   }
-  
+
   section {
     contain: layout style;
   }

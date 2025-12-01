@@ -131,15 +131,15 @@ a {
     .hero-title {
         font-size: 2.8rem;
     }
-    
+
     .facility-card {
         flex-direction: column;
     }
-    
+
     .facility-image, .facility-content {
         width: 100%;
     }
-    
+
     .facility-image {
         height: 250px;
     }
@@ -149,15 +149,15 @@ a {
     .hero-title {
         font-size: 2.2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .counter-number {
         font-size: 2.5rem;
     }
-    
+
     .accessibility-btn {
         bottom: 15px;
         right: 15px;
@@ -170,11 +170,11 @@ a {
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
     }
-    
+
     .officer-img {
         width: 120px;
         height: 120px;

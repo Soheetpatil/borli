@@ -258,15 +258,15 @@
     .search-section-container {
         padding: 30px 15px;
     }
-    
+
     .search-section {
         max-width: 100%;
     }
-    
+
     .search-input-group {
         padding: 15px;
     }
-    
+
     .search-results-dropdown {
         position: fixed;
         top: auto;

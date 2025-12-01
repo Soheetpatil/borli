@@ -179,10 +179,10 @@
             📍 आमचा गावाचा नकाशा
         </h2>
         <div class="map-responsive">
-            <!-- Simplified Google Maps embed URL -->
+            <!-- Fixed Google Maps embed -->
             <iframe
-                title="वेळास्ते गावाचा नकाशा"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15195.15354379811!2d72.9850966!3d18.3799942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be8422045595e55%3A0x7ed3f972da303a0b!2sVelaste%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                title="बोरली गावाचा नकाशा"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15208.87050274314!2d72.91047536977537!3d18.512770799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be86f41f03ac713%3A0x2bdc48058d1cdc5f!2sBorli%2C%20Maharashtra%20402104!5e0!3m2!1sen!2sin!4v1743612345678!5m2!1sen!2sin"
                 width="100%"
                 height="450"
                 style="border:0;"
@@ -193,6 +193,24 @@
         </div>
     </div>
 </div>
+
+<!-- Optional: Add responsive styling if not already present -->
+<style>
+.map-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+</style>
         </section>
     </main>
 

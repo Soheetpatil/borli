@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>तक्रार द्या</title>
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/Footer.css">
+    <link rel="stylesheet" href="styles/marqee">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/complaint.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+
+    <!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Additional CSS for map responsiveness */
+        .map-responsive {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .map-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Ensure proper spacing */
+        .complaint-main {
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Complaint Content Area -->
+    <main class="complaint-main">
+        <section class="container my-5">
+            <div class="container mt-5">
+                <h2 class="text-center mb-3 fw-bold text-primary display-6" data-aos="fade-up">
+                    <i class="fas fa-file-alt me-2"></i> तक्रार फॉर्म
+                </h2>
+
+                <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 1500px" data-aos="zoom-in">
+                    <section class="container my-5">
+                        <form id="complainForm" class="p-5 bg-white rounded-4 shadow-sm">
+                            <div class="row g-3 mb-3 align-items-center">
+                                <div class="col-md-4" data-aos="fade-right">
+                                    <label for="name" class="form-label fw-semibold">
+                                        <i class="fas fa-user me-1 text-info"></i> नाव
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input
+                                        type="text"
+                                        class="form-control rounded-3 shadow-sm"
+                                        id="name"
+                                        name="name"
+                                        placeholder="आपले पूर्ण नाव"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-md-4" data-aos="fade-up">
+                                    <label for="mobile" class="form-label fw-semibold">
+                                        <i class="fas fa-phone me-1 text-success"></i> मोबाइल नंबर
+                                        <span class="text-danger">*</span>
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        class="form-control rounded-3 shadow-sm"
+                                        id="mobile"
+                                        name="mobile"
+                                        placeholder="10 अंकी मोबाइल नंबर"
+                                        pattern="[0-9]{10}"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="col-md-4" data-aos="fade-left">
+                                    <label for="email" class="form-label fw-semibold">
+                                        <i class="fas fa-envelope me-1 text-info"></i> ईमेल
+                                    </label>
+                                    <input
+                                        type="email"
+                                        class="form-control rounded-3 shadow-sm"
+                                        id="email"
+                                        name="email"
+                                        placeholder="आपला ईमेल"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="mb-3" data-aos="fade-up">
+                                <label for="complain" class="form-label fw-semibold">
+                                    <i class="fas fa-comment-alt me-1 text-warning"></i> तक्रार
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <textarea
+                                    class="form-control rounded-3 shadow-sm"
+                                    id="complain"
+                                    name="complain"
+                                    rows="5"
+                                    placeholder="आपली तक्रार येथे लिहा..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="mb-3" data-aos="fade-up">
+                                <label class="form-label fw-semibold">
+                                    <i class="fas fa-lock me-1 text-secondary"></i> कॅप्चा कोड
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <div class="d-flex align-items-center gap-2 flex-wrap">
+                                    <div class="captcha-code border rounded-3 px-3 py-2 bg-light fw-bold shadow-sm" id="captchaText">
+                                        A7B3C
+                                    </div>
+                                    <button type="button" class="btn btn-outline-secondary rounded-3 shadow-sm" id="refreshCaptcha">
+                                        <i class="fas fa-sync-alt me-1"></i> रिफ्रेश
+                                    </button>
+                                    <input
+                                        type="text"
+                                        class="form-control rounded-3 shadow-sm"
+                                        id="captchaInput"
+                                        placeholder="वरील कोड प्रविष्ट करा"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="alert alert-light d-flex align-items-center rounded-4 shadow-sm border-start border-4 border-primary mb-4" data-aos="fade-up">
+                                <i class="fas fa-shield-alt me-2 text-info"></i>
+                                <div>
+                                    <strong>गोपनीयता सूचना:</strong>&nbsp; आपली वैयक्तिक माहिती
+                                    गोपनीय ठेवली जाईल आणि केवळ तक्रार निराकरणासाठी वापरली जाईल.
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4" data-aos="fade-up">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-3 px-5 shadow-sm">
+                                    <i class="fas fa-paper-plane me-2"></i> तक्रार पाठवा
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+
+                <div class="alert alert-info mt-5 shadow-sm rounded" data-aos="fade-up">
+                    <h5><i class="fas fa-info-circle me-2"></i> तक्रार प्रक्रिया</h5>
+                    <p>
+                        तक्रार मिळाल्यानंतर 7 कामकाजी दिवसांच्या आत आम्ही आपल्याशी संपर्क
+                        साधू. तक्रार निराकरणासाठी आवश्यक तेवढा वेळ लागू शकतो.
+                    </p>
+                </div>
+            </div>
+
+<div class="d-flex justify-content-center mt-5" data-aos="fade-up">
+    <div style="width: 100%; max-width: 800px">
+        <h2 class="text-center mb-4 fw-bold text-primary">
+            📍 आमचा गावाचा नकाशा
+        </h2>
+        <div class="map-responsive">
+            <!-- Simplified Google Maps embed URL -->
+            <iframe
+                title="वेळास्ते गावाचा नकाशा"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15195.15354379811!2d72.9850966!3d18.3799942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be8422045595e55%3A0x7ed3f972da303a0b!2sVelaste%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+        </section>
+    </main>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+ // Function to load HTML components
+async function loadComponent(elementId, filePath) {
+    try {
+        console.log(`🔄 Loading ${filePath}...`);
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filePath}: ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+        console.log(`✅ Successfully loaded ${filePath}`);
+        
+        // Initialize AOS after loading content
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: "ease-in-out",
+            });
+            console.log('🎭 AOS initialized after content load');
+        }
+        
+        return true;
+    } catch (error) {
+        console.error('❌ Error loading component:', error);
+        document.getElementById(elementId).innerHTML = `
+            <div class="alert alert-warning text-center">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+            </div>
+        `;
+        return false;
+    }
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM fully loaded');
+    
+    // Load header and footer
+    loadComponent('header-placeholder', 'Includes/header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+    
+    // Initialize AOS for main content
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: "ease-in-out",
+        });
+        console.log('🎭 AOS initialized for main content');
+    }
+    
+    // Update visitor counter after footer is loaded
+    setTimeout(updateVisitorCounter, 1000);
+    
+    // Initialize complaint form functionality
+    initializeComplaintForm();
+    
+    // Initialize popup functionality
+    initializePopup();
+});
+
+// Visitor Counter
+let visitorCount = 12896;
+function updateVisitorCounter() {
+    visitorCount++;
+    const visitorCounter = document.getElementById('visitorCounter');
+    if (visitorCounter) {
+        visitorCounter.textContent = visitorCount.toLocaleString('mr-IN');
+        console.log('👁️ Visitor counter updated');
+    }
+}
+
+// Complaint Form Functionality
+function initializeComplaintForm() {
+    console.log('📝 Initializing complaint form...');
+    
+    const form = document.getElementById('complainForm');
+    const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+    const captchaText = document.getElementById('captchaText');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const captchaInput = document.getElementById('captchaInput').value;
+            const currentCaptcha = captchaText.textContent.trim();
+            
+            if (captchaInput !== currentCaptcha) {
+                alert('❌ कॅप्चा कोड चुकीचा आहे! कृपया पुन्हा प्रयत्न करा.');
+                generateCaptcha();
+                return;
+            }
+            
+            alert('✅ आपली तक्रार यशस्वीरित्या पाठवली गेली आहे! आम्ही लवकरच आपल्याशी संपर्क साधू.');
+            form.reset();
+            generateCaptcha();
+        });
+    }
+    
+    if (refreshCaptchaBtn) {
+        refreshCaptchaBtn.addEventListener('click', generateCaptcha);
+    }
+    
+    // Generate initial captcha
+    generateCaptcha();
+}
+
+function generateCaptcha() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let captcha = '';
+    for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    const captchaText = document.getElementById('captchaText');
+    if (captchaText) {
+        captchaText.textContent = captcha;
+    }
+}
+
+// Popup Functionality
+function initializePopup() {
+    console.log('🪟 Initializing popup...');
+    
+    const popupOverlay = document.getElementById("popupOverlay");
+    const closePopup = document.getElementById("closePopup");
+
+    if (!popupOverlay || !closePopup) {
+        console.error('❌ Popup elements not found');
+        return;
+    }
+
+    // Check if page was reloaded or it's first visit
+    const isReloaded = performance.navigation.type === 1;
+    const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+    // Show popup on first visit OR page reload
+    if (!hasSeenPopup || isReloaded) {
+        setTimeout(() => {
+            popupOverlay.style.display = "flex";
+            console.log('🪟 Popup displayed');
+        }, 1000); // Show after 1 second delay
+        sessionStorage.setItem("hasSeenPopup", "true");
+    }
+
+    closePopup.addEventListener("click", function() {
+        popupOverlay.style.display = "none";
+        console.log('🪟 Popup closed by button');
+    });
+
+    popupOverlay.addEventListener("click", function(e) {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by overlay click');
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by Escape key');
+        }
+    });
+}
+
+// Accessibility Functions
+function toggleAccessibility() {
+    alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+}
+
+// Google Translate
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'mr', 
+        includedLanguages: 'mr,en,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+</body>
+</html>

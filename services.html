@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <title>नागरिकांसाठी सेवा</title>
+        <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="styles/impnumbers.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        /* Left-aligned dropdown - FAST */
+        .dropdown-menu {
+            left: 0 !important;
+            right: auto !important;
+            transform: translateX(0) !important;
+            transition: opacity 0.1s ease !important;
+        }
+        
+        .dropdown-menu.show {
+            animation: none !important;
+        }
+        
+        /* Mobile dropdown fixes */
+        @media (max-width: 991px) {
+            .dropdown-menu {
+                position: static !important;
+                float: none;
+                width: 100%;
+            }
+        }
+        
+        /* Custom styles for the page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        .section-title {
+            color: #171b47;
+            font-weight: 600;
+            border-bottom: 2px solid #171b47;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .collapse-header {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa !important;
+        }
+        
+        .collapse-header:hover {
+            background-color: #e9ecef !important;
+        }
+        
+        .collapse-content {
+            background-color: #f8f9fa;
+        }
+        
+        .coming-soon {
+            padding: 40px 20px;
+            color: #6c757d;
+        }
+        
+        /* Top Bar Styles */
+        .top-bar {
+            background-color: #171b47;
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+            border-bottom: 2px solid #2a2f6b;
+        }
+        
+        .top-bar-left {
+            font-weight: 500;
+        }
+        
+        .top-bar-right {
+            font-size: 13px;
+        }
+        
+        .email-text {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            background-color: #171b47 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            padding: 10px 15px !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link:focus {
+            color: #ffcc00 !important;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        
+        .dropdown-menu {
+            background-color: #171b47 !important;
+            border: none;
+            border-radius: 0;
+            margin-top: 0;
+            padding: 0;
+        }
+        
+        .dropdown-item {
+            color: white !important;
+            padding: 12px 20px;
+            border-bottom: 1px solid #2a2f6b;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:hover, .dropdown-item:focus {
+            background-color: #2a2f6b !important;
+            color: white !important;
+            padding-left: 25px;
+        }
+        
+        .dropdown-toggle::after {
+            margin-left: 5px;
+        }
+        
+        /* Marquee */
+        .marquee {
+            background-color: #ffcc00;
+            color: #171b47;
+            padding: 8px 0;
+            font-weight: 500;
+        }
+        
+        /* Mobile navbar toggler */
+        .navbar-toggler {
+            border-color: rgba(255,255,255,0.5);
+            padding: 4px 8px;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        /* Mobile dropdown fixes */
+        @media (max-width: 991px) {
+            .navbar-nav .dropdown-menu {
+                background-color: #171b47 !important;
+                border: none;
+                padding-left: 20px !important;
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .dropdown-item {
+                padding: 12px 15px !important;
+            }
+            
+            .navbar-collapse {
+                padding: 10px 0;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 top-bar-left">
+                    महाराष्ट्र शासन | GOVERNMENT OF MAHARASHTRA
+                </div>
+                <div class="col-md-6 d-flex justify-content-end align-items-center gap-3 flex-wrap top-bar-right">
+                    <span class="email-text">
+                        <i class="fas fa-envelope"></i>
+                       gpvelaste@gmail.com
+                    </span>
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logo Header -->
+    <div class="logo-header">
+        <div class="container">
+            <div class="header-container">
+                <div class="logo-section">
+                    <img src="./Img/main_logo.jpeg" alt="ग्रामपंचायत लोगो" class="logo">
+                    <div class="village-info">
+                        <h2 class="village-name">वेळास्ते / Velaste</h2>
+                        <div class="village-subtitle">ग्रामपंचायत | Gram Panchayat</div>
+                    </div>
+                </div>
+                <div class="header-badges">
+                    <div class="header-badge">
+                        <i class="fas fa-award me-1"></i>
+                        आदर्श ग्रामपंचायत
+                    </div>
+                    <div class="header-badge secondary">
+                        <i class="fas fa-star me-1"></i>
+                        डिजिटल ग्राम
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bar">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">
+                            <i class="fas fa-home me-1"></i> मुखपृष्ठ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./members.html">
+                            <i class="fas fa-users me-1"></i> पदाधिकारी
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./villageinfo.html">
+                            <i class="fas fa-info-circle me-1"></i> गावाची माहिती
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./impnumbers.html">
+                            <i class="fas fa-phone-alt me-1"></i> महत्वाचे नंबर
+                        </a>
+                    </li>
+                    
+                    <!-- शासकीय योजना Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="schemesDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-landmark me-1"></i>
+                            शासकीय योजना
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="schemesDropdown">
+                            <li><a class="dropdown-item" href="./fifteen.html">१५ वित्त आयोग</a></li>
+                            <li><a class="dropdown-item" href="./jaljeevan.html">जल जीवन मिशन</a></li>
+                            <li><a class="dropdown-item" href="./pmyojna.html">प्रधान मंत्री आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./mgandhi.html">महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार हमी योजना</a></li>
+                            <li><a class="dropdown-item" href="./tandavasti.html">तांडा/वस्ती योजना</a></li>
+                            <li><a class="dropdown-item" href="./scneo.html">अनुसूचीत जाती व नवबौध्द विकास</a></li>
+                            <li><a class="dropdown-item" href="./ramaiyojna.html">रमाई आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./shabriyojna.html">शबरी आदिवासी घरकुल योजना</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- लाभार्थी रजिस्टर Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="beneficiaryDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-users-line me-1"></i>
+                            लाभार्थी रजिस्टर
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="beneficiaryDropdown">
+                            <li><a class="dropdown-item" href="./pmlabh.html">प्रधानमंत्री आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./shabrilabh.html">शबरी आवास योजना</a></li>
+                            <li><a class="dropdown-item" href="./ramailabh.html">रमाई आवास योजना</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="./services.html">
+                            <i class="fas fa-user-check me-1"></i> नागरिकांसाठी सेवा
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./taxcollect.html">
+                            <i class="fas fa-money-bill-wave me-1"></i> कर संकलन
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./complaint.html">
+                            <i class="fas fa-comments me-1"></i> तक्रार द्या
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="container">
+            <marquee behavior="scroll" direction="left">
+                <i class="fas fa-bullhorn me-2"></i>
+                ग्रामपंचायत मध्ये स्वच्छता अभियान चालू आहे. सर्व नागरिकांनी सहभागी व्हावे.
+            </marquee>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container mt-4">
+        <h1 class="section-title mb-4">नागरिकांसाठी सेवा</h1>
+
+        <!-- Self Declaration Documents Section -->
+        <div class="collapse-section mb-3">
+            <div
+                class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
+                data-bs-toggle="collapse"
+                data-bs-target="#selfDeclaration"
+                role="button"
+                aria-expanded="true"
+                aria-controls="selfDeclaration"
+            >
+                <span> <i class="fas fa-file-alt me-2"></i> स्व: घोषणा पत्र </span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="selfDeclaration" class="collapse show">
+                <div class="collapse-content p-3 border rounded mt-2">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2">
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> रहिवाशी
+                                स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> वीज जोडणी
+                                स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> हयात
+                                असल्याबाबत स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> विधवा
+                                असल्याबाबत स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> परित्यक्त्या
+                                असल्याबाबत स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank" class="text-decoration-none">
+                                <i class="fas fa-file-pdf text-danger me-2"></i> विभक्त कुटुंब
+                                असल्यास स्वयंघोषणापत्र
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Application Forms Section -->
+        <div class="collapse-section mb-3">
+            <div
+                class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
+                data-bs-toggle="collapse"
+                data-bs-target="#applicationForms"
+                role="button"
+                aria-expanded="false"
+                aria-controls="applicationForms"
+            >
+                <span> <i class="fas fa-edit me-2"></i> अर्ज </span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="applicationForms" class="collapse">
+                <div class="collapse-content p-4 border rounded mt-2 text-center">
+                    <div class="coming-soon">
+                        <i class="fas fa-clock fa-3x mb-3 text-secondary"></i>
+                        <h4>Coming Soon..</h4>
+                        <p>या विभागात लवकरच सामग्री उपलब्ध होईल</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificates Section -->
+        <div class="collapse-section mb-3">
+            <div
+                class="collapse-header d-flex justify-content-between align-items-center p-3 bg-light border rounded"
+                data-bs-toggle="collapse"
+                data-bs-target="#certificates"
+                role="button"
+                aria-expanded="false"
+                aria-controls="certificates"
+            >
+                <span>
+                    <i class="fas fa-certificate me-2"></i> ग्रामपंचायती मार्फत दिले
+                    दाखले
+                </span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="certificates" class="collapse">
+                <div class="collapse-content p-4 border rounded mt-2 text-center">
+                    <div class="coming-soon">
+                        <i class="fas fa-clock fa-3x mb-3 text-secondary"></i>
+                        <h4>Coming Soon..</h4>
+                        <p>या विभागात लवकरच सामग्री उपलब्ध होईल</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Bootstrap JS for collapse functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./scripts/google-translate-init.js"></script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'mr', 
+                includedLanguages: 'mr,en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Load Footer Component -->
+    <script>
+        // Function to load footer
+        async function loadFooter() {
+            try {
+                const response = await fetch('footer.html');
+                if (!response.ok) {
+                    throw new Error(`Failed to load footer: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById('footer-placeholder').innerHTML = html;
+            } catch (error) {
+                console.error('Error loading footer:', error);
+                document.getElementById('footer-placeholder').innerHTML = `
+                    <div class="alert alert-warning text-center m-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Footer लोड करताना त्रुटी आली.
+                    </div>
+                `;
+            }
+        }
+
+        // Load footer when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFooter();
+            
+            // Initialize Google Translate after a delay to ensure header is loaded
+            setTimeout(initializeGoogleTranslate, 1500);
+        });
+        
+        // Initialize Google Translate
+        function initializeGoogleTranslate() {
+            if (typeof google !== 'undefined' && google.translate) {
+                if (!document.querySelector('.goog-te-combo')) {
+                    new google.translate.TranslateElement({
+                        pageLanguage: 'mr',
+                        includedLanguages: 'mr,en,hi',
+                        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                    }, 'google_translate_element');
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            const translateElement = document.getElementById('google_translate_element');
+            if (translateElement && !document.querySelector('.goog-te-combo')) {
+                new google.translate.TranslateElement({
+                    pageLanguage: 'mr',
+                    includedLanguages: 'mr,en,hi',
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                }, 'google_translate_element');
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

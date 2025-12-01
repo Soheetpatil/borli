@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>वेळास्ते / Velaste </title>
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    
+    <!-- CSS Files -->
+
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="styles/govtsec.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+
+<!-- CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+     <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+                <span class="hero-badge">स्वागत आहे</span>
+                <h1 class="hero-title">वेळास्ते ग्रामपंचायत</h1>
+                <p class="hero-subtitle">सर्वांगीण विकासाच्या दिशेने सतत प्रयत्नशील</p>
+                <div class="hero-line"></div>
+                <a href="#about" class="btn btn-primary hero-btn">
+                    अधिक जाणून घ्या <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <style>
+        .hero-section {
+    position: relative;
+    height: 85vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./Img/slide1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    overflow: hidden;
+}
+    </style>
+
+    <!-- Search Section - Centered with Blue Background -->
+    <div class="search-section-container">
+        <div class="search-section">
+            <div class="search-box">
+                <div class="search-input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input
+                        type="text"
+                        class="search-input"
+                        placeholder="इथे शोधा..."
+                        value=""
+                    />
+                    <button
+                        type="button"
+                        class="clear-search"
+                        aria-label="Clear search"
+                        style="display: none"
+                    >
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Search Results Dropdown - Positioned below search box -->
+            <div class="search-results-dropdown" style="display: none">
+                <div class="search-results-header">
+                    <span>शोध निकाल: ""</span>
+                    <button class="close-results" aria-label="Close results">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <div class="search-results-body">
+                    <div class="no-results">
+                        <i class="fas fa-search no-results-icon"></i>
+                        <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
+                        <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">गावा विषयी</h2>
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="about-content">
+                        <p>
+                            ग्रुप ग्राम पंचायत वेळास्ते, तालुका मुरुड-जंजिरा, जिल्हा रायगड (पिन ४०२४०१) अंतर्गत एक महत्त्वाचे ग्रामीण स्वराज्य केंद्र आहे. वेळास्ते हे या समूह ग्रामपंचायतीचे मुख्य गाव असून वांद्रेवाडी आणि वावे (वावे आदिवासीवाडी सहित) ही गावे यामध्ये समाविष्ट आहेत. ही ग्रामपंचायत रायगड जिल्हा परिषद व मुरुड पंचायत समितीच्या अखत्यारीत कार्यरत आहे.
+                            गावाची सद्य लोकसंख्या १३१२ असून गावातील बहुतांश लोकसंख्या शेतीप्रधान आहे. संपूर्ण ग्रामपंचायत क्षेत्रात १००% कर वसूली होते. "प्रत्येक शेतकरी लखपती शेतकरी" ही ग्रामपंचायतीची चालू मोहीम आहे. पाणीपुरवठ्यासाठी "हर घर जल - हर घर नल" योजनेंतर्गत जवळपास सर्व कुटुंबांना स्वतंत्र नळ जोडणी देण्यात आलेली आहे.
+                        </p>
+                        <p>
+                            गाव नैसर्गिकरित्या सह्याद्रीच्या टेकड्यांच्या सान्निध्यात वसलेले असल्याने पावसाळ्यात परिसर हिरवागार दिसतो आणि अनेक लहान-मोठे धबधबे अनुभवता येतात. गावात धाविर महाराज व करजाई देवी यांची मंदिरे आहेत, जी स्थानिकांची श्रद्धास्थाने आहेत.
+                            शिक्षणाच्या दृष्टीने वेळास्ते, वावे आणि वांद्रेवाडी येथे जिल्हा परिषद प्राथमिक शाळा आहेत. तीन अंगणवाडी केंद्रे कार्यरत आहेत. आरोग्य उपकेंद्र गावात नसले तरी नांदगाव येथे सुमारे ६ किमी अंतरावर सुविधा उपलब्ध आहे.
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="card important-links-card">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-link me-2"></i>महत्वाचे दुवे</h5>
+                        </div>
+                        <div class="card-body">
+                            <a href="https://www.india.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">भारत सरकार</a>
+                            <a href="https://www.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">महाराष्ट्र शासन</a>
+                            <a href="https://rdd.maharashtra.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">ग्रामीण विकास व पंचायतराज विभाग</a>
+                            <a href="https://Telwade.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">जिल्हाधिकारी कार्यालय</a>
+                            <a href="https://www.Telwadepolice.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">रायगड पोलीस</a>
+                            <a href="https://aaplesarkar.mahaonline.gov.in/" target="_blank" class="btn btn-outline-primary w-100 mb-2">आपले सरकार सेवा</a>
+                            <a href="https://mahadbt.maharashtra.gov.in/login/login" target="_blank" class="btn btn-outline-primary w-100">महा DBT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Officers Section -->
+    <section id="officers" class="officers-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">ग्रामपंचायत अधिकारी</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="officer-card">
+                        <img src="./Img/सरपंच.jpeg" alt="सौ.कल्पना अंकुश पवार" class="officer-img">
+                        <h3 class="officer-name">सौ.शनिता शरद खेडेकर</h3>
+                        <p class="officer-position">सरपंच</p>
+                        <p class="officer-contact">
+                            <i class="fas fa-phone me-2"></i>9579166645     
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="officer-card">
+                        <img src="./Img/उपसरपंच.jpeg" alt="श्री. निलेश हरिश्चंद्र तांबडकर" class="officer-img">
+                        <h3 class="officer-name">श्री.मिलिंद मंगेश खेडेकर</h3>
+                        <p class="officer-position">उपसरपंच</p>
+                        <p class="officer-contact">
+                            <i class="fas fa-phone me-2"></i>9226234813
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="officer-card">
+                        <img src="./Img/सागर मालजी - Grampanchayt Velaste.jpg" alt="श्री अलंकार धुमाळ" class="officer-img">
+                        <h3 class="officer-name">श्री.सागर कृष्णा मालजी</h3>
+                        <p class="officer-position">ग्रामपंचायत अधिकारी</p>
+                        <p class="officer-contact">
+                            <i class="fas fa-phone me-2"></i>9309917725
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counters Section -->
+    <section class="counters-section">
+        <div class="container">
+            <h2 class="section-title text-white" data-aos="fade-up">गावातील लोकसंख्या किती आहे</h2>
+            <div class="row">
+                <div class="col-6 col-md-3 mb-4" data-aos="flip-up" data-aos-delay="0">
+                    <div class="counter-card">
+                        <i class="fas fa-users counter-icon"></i>
+                        <div class="counter-number" id="families-counter">275</div>
+                        <div class="counter-label">कुटुंबांची संख्या</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="flip-up" data-aos-delay="100">
+                    <div class="counter-card">
+                        <i class="fas fa-users-between-lines counter-icon"></i>
+                        <div class="counter-number" id="population-counter">1303</div>
+                        <div class="counter-label">लोकसंख्या</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="flip-up" data-aos-delay="200">
+                    <div class="counter-card">
+                        <i class="fas fa-male counter-icon"></i>
+                        <div class="counter-number" id="male-counter">681</div>
+                        <div class="counter-label">पुरुष</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mb-4" data-aos="flip-up" data-aos-delay="300">
+                    <div class="counter-card">
+                        <i class="fas fa-female counter-icon"></i>
+                        <div class="counter-number" id="female-counter">631</div>
+                        <div class="counter-label">महिला</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">गावातील सुविधा</h2>
+            <p class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+                वेळास्ते / Velaste द्वारे पुरवल्या जाणाऱ्या उत्कृष्ट सुविधा
+            </p>
+
+            <div class="facilities-container">
+                <!-- Facility 1 -->
+                <div class="facility-card" data-aos="fade-right">
+                    <img src="./Img/panipuravtha.jpeg" alt="२४ तास पाणी पुरवठा" class="facility-image">
+                    <div class="facility-content">
+                        <div class="facility-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="facility-title">२४ तास पाणी पुरवठा</h3>
+                        <p class="facility-description">
+                            अनेक ग्रामपंचायतींनी पाणी टंचाईवर मात करण्यासाठी विहीर पुनर्भरण, पाणलोट क्षेत्र विकास आणि जलसंधारण प्रकल्पांसारखे उपक्रम यशस्वीपणे राबवले आहेत.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="facility-card" data-aos="fade-left">
+                    <div class="facility-content">
+                        <div class="facility-icon">
+                            <i class="fas fa-trash-alt"></i>
+                        </div>
+                        <h3 class="facility-title">घनकचरा व्यवस्थापन</h3>
+                        <p class="facility-description">
+                            गावातील स्वच्छता राखण्यासाठी प्रभावी घनकचरा व्यवस्थापन, वैयक्तिक शौचालयांची निर्मिती आणि जनजागृती मोहीम राबवून यश मिळवले आहे
+                        </p>
+                    </div>
+                    <img src="./Img/Gemini_Generated_Image_utrcm4utrcm4utrc.png" alt="घनकचरा व्यवस्थापन" class="facility-image">
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="facility-card" data-aos="fade-right">
+                    <img src="./Img/solar energy.png" alt="सौरऊर्जेचा वापर" class="facility-image">
+                    <div class="facility-content">
+                        <div class="facility-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3 class="facility-title">सौरऊर्जेचा वापर</h3>
+                        <p class="facility-description">
+                            काही ग्रामपंचायतींनी सार्वजनिक दिवे आणि पाण्याच्या पंपासाठी सौरऊर्जेचा वापर करून वीज खर्चात बचत केली आहे.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="facility-card" data-aos="fade-left">
+                    <div class="facility-content">
+                        <div class="facility-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <h3 class="facility-title">शुद्ध पाणी पुरवठा</h3>
+                        <p class="facility-description">
+                            सर्व नागरिकांना पिण्याचे शुद्ध आर.ओ. पाणी ग्रामपंचायत मार्फत उपलब्ध करून देण्यात आलेले आहे. पाईपलाईनद्वारे हे शुद्ध पाणी प्रत्येक गावात २४ तास उपलब्ध असते.
+                        </p>
+                    </div>
+                    <img src="./Img/RO.jpeg" alt="शुद्ध पाणी पुरवठा" class="facility-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">चित्रदालन</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-item">
+                        <img src="./Img/School.jpeg" alt="शालेय विद्यार्थी" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>शालेय विद्यार्थी</h5>
+                        </div>  
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="./Img/Image2.jpeg" alt="स्वातंत्र्यदिन उत्सव" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>स्वातंत्र्यदिन उत्सव</h5>
+                        </div>
+                    </div>  
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./Img/Image3.jpeg" alt="अंगणवाडी" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>अंगणवाडी</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./Img/Image5.jpeg" alt="उपकेंद्र" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>उपकेंद्र</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">अधिक चित्रे पहा</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Alert Section -->
+    <div id="ealert" class="container-fluid d-flex align-items-center justify-content-center py-4" style="background-color: #ade8f4ff">
+        <div class="row w-100 justify-content-center align-items-center">
+            <!-- E-Davandi -->
+            <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fas fa-bullhorn fa-2x text-dark mb-2"></i>
+                    <a href="./gralert.html" class="text-decoration-none" target="_self">
+                        <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ई - दवंडी</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- E-Pramanpatra -->
+            <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fas fa-certificate fa-2x text-success mb-2"></i>
+                    <a href="#" class="text-decoration-none" target="_self">
+                        <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ई - प्रमाणपत्र</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grampanchayat Kar -->
+            <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fas fa-receipt fa-2x text-warning mb-2"></i>
+                    <a href="./taxcollect.html" class="text-decoration-none" target="_self">
+                        <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ग्रामपंचायत कर</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grampanchayat Ahaval -->
+            <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <i class="fas fa-chart-bar fa-2x text-info mb-2"></i>
+                    <a href="./services.html" class="text-decoration-none" target="_self">
+                        <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">ग्रामपंचायत अहवाल</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Maharashtra Police -->
+            <div class="col-auto text-center mb-3" style="min-width: 180px; max-width: 180px; height: 140px; display: flex; align-items: center; justify-content: center;">
+                <div class="service-card p-4" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <img src="./Img/Logo_mp.png" alt="Maharashtra Police" class="service-icon mb-2" style="height: 32px; width: auto;" />
+                    <a href="https://citizen.mahapolice.gov.in/citizen/mh/index.aspx" class="text-decoration-none" target="_blank">
+                        <div class="fw-bold text-dark" style="word-wrap: break-word; text-align: center; line-height: 1.2;">महाराष्ट्र पोलीस</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plantation Section -->
+    <section class="plantation-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">वृक्षारोपण चित्रदालन</h2>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-item">
+                        <img src="./Img/tree (1).jpeg" alt="वृक्षारोपण" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>वृक्षारोपण</h5>
+                        </div>.jpeg
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item">
+                        <img src="./Img/Image.jpeg  " alt="वन महोत्सव" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>वन महोत्सव</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item">
+                        <img src="./Img/tree (2).jpeg" alt="सामुदायिक वृक्षारोपण" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>सामुदायिक वृक्षारोपण</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="gallery-item">
+                        <img src="./Img/Image6.jpeg" alt="पर्यावरण दिन" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h5>पर्यावरण दिन</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" data-aos="fade-up">
+                <a href="#" class="btn btn-primary">अधिक चित्रे पहा</a>
+            </div>
+        </div>
+    </section>
+
+ <!--Govt Section-->
+        <div class="government-officials-container">
+          <section class="officials-section">
+            <h2 class="section-main-title" data-aos="fade-up">शासन अधिकारी</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+              महाराष्ट्र शासन आणि ग्रामीण विकास विभाग
+            </p>
+
+            <div class="officials-grid">
+              <!-- State Official 1 -->
+              <div class="official-card" data-aos="zoom-in" data-aos-delay="0">
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer1.png"
+                    alt="श्री. देवेंद्र फडणवीस"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. देवेंद्र फडणवीस</h3>
+                  <p class="official-position-marathi">माननीय मुख्यमंत्री</p>
+                  <p class="official-position-english">
+                    Hon'ble Chief Minister
+                  </p>
+                  <p class="official-department">महाराष्ट्र शासन</p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+
+              <!-- State Official 2 -->
+              <div
+                class="official-card"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+              >
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer2.jpeg"
+                    alt="श्री. एकनाथ शिंदे"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. एकनाथ शिंदे</h3>
+                  <p class="official-position-marathi">माननीय उपमुख्यमंत्री</p>
+                  <p class="official-position-english">
+                    Hon'ble Deputy Chief Minister
+                  </p>
+                  <p class="official-department">महाराष्ट्र शासन</p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+
+              <!-- State Official 3 -->
+              <div
+                class="official-card"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer3.jpeg"
+                    alt="श्री. अजित पवार"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. अजित पवार</h3>
+                  <p class="official-position-marathi">माननीय उपमुख्यमंत्री</p>
+                  <p class="official-position-english">
+                    Hon'ble Deputy Chief Minister
+                  </p>
+                  <p class="official-department">महाराष्ट्र शासन</p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+
+              <!-- State Official 4 -->
+              <div
+                class="official-card"
+                data-aos="zoom-in"
+                data-aos-delay="300"
+              >
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer4.png"
+                    alt="श्री. जयकुमार गोरे"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. जयकुमार गोरे</h3>
+                  <p class="official-position-marathi">माननीय मंत्री</p>
+                  <p class="official-position-english">Hon'ble Minister</p>
+                  <p class="official-department">
+                    ग्रामीण विकास व पंचायतराज विभाग
+                  </p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+
+              <!-- State Official 5 -->
+              <div
+                class="official-card"
+                data-aos="zoom-in"
+                data-aos-delay="400"
+              >
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer5.png"
+                    alt="श्री. योगेश कदम"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. योगेश कदम</h3>
+                  <p class="official-position-marathi">माननीय राज्यमंत्री</p>
+                  <p class="official-position-english">
+                    Hon'ble Minister of State
+                  </p>
+                  <p class="official-department">
+                    ग्रामीण विकास व पंचायतराज विभाग
+                  </p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+
+              <!-- State Official 6 -->
+              <div
+                class="official-card"
+                data-aos="zoom-in"
+                data-aos-delay="500"
+              >
+                <div class="official-image-container">
+                  <img
+                    src="./Img/officer6.png"
+                    alt="श्री. एकनाथ दवले"
+                    class="official-image"
+                  />
+                </div>
+                <div class="official-content">
+                  <h3 class="official-name">श्री. एकनाथ दवले</h3>
+                  <p class="official-position-marathi">प्रमुख सचिव</p>
+                  <p class="official-position-english">Principal Secretary</p>
+                  <p class="official-department">
+                    ग्रामीण विकास व पंचायतराज विभाग
+                  </p>
+                  <div class="official-divider"></div>
+                </div>
+              </div>
+              <div class="officials-grid">
+                <!-- District Official 1 -->
+                <div
+                  class="official-card"
+                  data-aos="zoom-in"
+                  data-aos-delay="0"
+                >
+                  <div class="official-image-container">
+                    <img
+                      src="./Img/jawale.jpg"
+                      alt="श्री. प्रजित नायर"
+                      class="official-image"
+                    />
+                  </div>
+                  <div class="official-content">
+                    <h3 class="official-name">
+                      श्री.किशन नारायणराव जावळे(IAS)
+                    </h3>
+                    <p class="official-position-marathi">
+                      जिल्हाधिकारी आणि जिल्हा दंडाधिकारी
+                    </p>
+                    <p class="official-position-english">
+                      District Collector & Magistrate
+                    </p>
+                    <p class="official-department">रायगड जिल्हा</p>
+                    <div class="official-divider"></div>
+                  </div>
+                </div>
+
+                <!-- District Official 2 -->
+                <div
+                  class="official-card"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                >
+                  <div class="official-image-container">
+                    <img
+                      src="./Img/dummy.png"
+                      alt="श्री. सत्यजित बडे"
+                      class="official-image"
+                    />
+                  </div>
+                  <div class="official-content">
+                    <h3 class="official-name">श्री. सत्यजित बडे</h3>
+                    <p class="official-position-marathi">
+                      अतिरिक्त जिल्हाधिकारी
+                    </p>
+                    <p class="official-position-english">
+                      Additional District Collector
+                    </p>
+                    <p class="official-department">रायगड जिल्हा</p>
+                    <div class="official-divider"></div>
+                  </div>
+                </div>
+
+                <!-- District Official 4 -->
+                <div
+                  class="official-card"
+                  data-aos="zoom-in"
+                  data-aos-delay="300"
+                >
+                  <div class="official-image-container">
+                    <img
+                      src="./Img/cheifexec.jpg"
+                      alt="श्री. मुरुंगनाथम एम"
+                      class="official-image"
+                    />
+                  </div>
+                  <div class="official-content">
+                    <h3 class="official-name">माननीय नेहा भोसले (आयएएस)</h3>
+                    <p class="official-position-marathi">
+                      मुख्य कार्यकारी अधिकारी
+                    </p>
+                    <p class="official-position-english">
+                      Chief Executive Officer
+                    </p>
+                    <p class="official-department">जिल्हा परिषद, रायगड</p>
+                    <div class="official-divider"></div>
+                  </div>
+                </div>
+
+                <!-- District Official 5 -->
+                <div
+                  class="official-card"
+                  data-aos="zoom-in"
+                  data-aos-delay="400"
+                >
+                  <div class="official-image-container">
+                    <img src="./Img/dummy.png" alt="" class="official-image" />
+                  </div>
+                  <div class="official-content">
+                    <h3 class="official-name">श्री. जालिंदर बाळासाहेब पठारे</h3>
+                    <p class="official-position-marathi">
+                      उप मुख्य कार्यकारी अधिकारी
+                    </p>
+                    <p class="official-position-english">
+                      Deputy Chief Executive Officer
+                    </p>
+                    <p class="official-department">जिल्हा परिषद, रायगड</p>
+                    <div class="official-divider"></div>
+                  </div>
+                </div>
+
+                <!-- District Official 6 -->
+                <div
+                  class="official-card"
+                  data-aos="zoom-in"
+                  data-aos-delay="500"
+                >
+                  <div class="official-image-container">
+                    <img src="./Img/bdo.jpg" alt="श" class="official-image" />
+                  </div>
+                  <div class="official-content">
+                    <h3 class="official-name">राजेंद्रकुमार खताळ</h3>
+                    <p class="official-position-marathi">ब्लॉक विकास अधिकारी</p>
+                    <p class="official-position-english">
+                      Block Development Officer
+                    </p>
+                    <p class="official-department">मुरुड तालुका</p>
+                    <div class="official-divider"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+            
+<section class="icon-carousel-section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">सरकारी योजना आणि सेवा</h2>
+        <p class="text-center mb-4" data-aos="fade-up" data-aos-delay="100">
+            महत्वाच्या सरकारी योजना आणि सेवांचे दुवे
+        </p>
+        
+        <div class="icon-carousel-container">
+            <div class="icon-carousel-track">
+                <!-- Icons will be dynamically added here -->
+            </div>
+        </div>
+        
+        <div class="carousel-controls">
+    
+<p class="carousel-control prev"></p>
+    <div class="carousel-control next"></div>
+</div>
+    </div>
+</section>
+
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+        // Function to load HTML components
+        async function loadComponent(elementId, filePath) {
+            try {
+                console.log(`🔄 Loading ${filePath}...`);
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+                console.log(`✅ Successfully loaded ${filePath}`);
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                    console.log('🎭 AOS initialized after content load');
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Error loading component:', error);
+                document.getElementById(elementId).innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+                    </div>
+                `;
+                return false;
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM fully loaded');
+            
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+            
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                });
+                console.log('🎭 AOS initialized for main content');
+            }
+            
+            // Update visitor counter after footer is loaded
+            setTimeout(updateVisitorCounter, 1000);
+            
+            // Initialize counter animations
+            setTimeout(initializeCounters, 1500);
+            
+            // Initialize search functionality
+            setTimeout(initializeSearch, 2000);
+            
+            // Initialize icon carousel
+            setTimeout(initializeIconCarousel, 2500);
+        });
+
+        // Visitor Counter
+        let visitorCount = 12896;
+        function updateVisitorCounter() {
+            visitorCount++;
+            const visitorCounter = document.getElementById('visitorCounter');
+            if (visitorCounter) {
+                visitorCounter.textContent = visitorCount.toLocaleString('mr-IN');
+                console.log('👁️ Visitor counter updated');
+            }
+        }
+
+        // Counter Animation
+        function initializeCounters() {
+            const counters = document.querySelectorAll('.counter-number');
+            console.log(`🔢 Found ${counters.length} counters to animate`);
+            
+            if (counters.length === 0) {
+                console.log('ℹ️ No counters found on this page');
+                return;
+            }
+            
+            const speed = 200;
+            counters.forEach(counter => {
+                const target = +counter.innerText;
+                const increment = target / speed;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if (current < target) {
+                        counter.innerText = Math.ceil(current);
+                        setTimeout(updateCounter, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Search Functionality
+        function initializeSearch() {
+            console.log('🔍 Initializing search functionality...');
+            
+            const searchInput = document.querySelector('.search-input');
+            const clearSearchBtn = document.querySelector('.clear-search');
+            const searchResults = document.querySelector('.search-results-dropdown');
+            
+            if (searchInput && clearSearchBtn && searchResults) {
+                searchInput.addEventListener('input', function(e) {
+                    const searchTerm = e.target.value.trim();
+                    
+                    if (searchTerm === '') {
+                        searchResults.style.display = 'none';
+                        clearSearchBtn.style.display = 'none';
+                        return;
+                    }
+                    
+                    clearSearchBtn.style.display = 'block';
+                    searchResults.style.display = 'block';
+                });
+                
+                clearSearchBtn.addEventListener('click', function() {
+                    searchInput.value = '';
+                    searchResults.style.display = 'none';
+                    clearSearchBtn.style.display = 'none';
+                });
+            }
+        }
+
+           // Icon Carousel Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const iconTrack = document.querySelector('.icon-carousel-track');
+        const prevBtn = document.querySelector('.carousel-control.prev');
+        const nextBtn = document.querySelector('.carousel-control.next');
+        
+        // Icon data - replace with your actual icons and links
+        const icons = [
+            { src: './Img/sc1.png', title: 'मही वसुंधरा', link: 'https://majhivasundhara.in/en' },
+            { src: './Img/sc2.png', title: 'सरकारी निर्णय', link: 'https://maharashtra.gov.in/Site/1603/Government-Decisions' },
+            { src: './Img/sc3.png', title: 'अटल जल योजना', link: 'https://ataljal.mowr.gov.in/' },
+            { src: './Img/sc4.png', title: 'सशक्त पंचायत', link: 'https://logosofindia.blogspot.com/2025/01/sashakt-panchayat-satat-vikas.html' },
+            { src: './Img/sc5.png', title: 'पंचायतराज सेवार्थ', link: 'https://www.panchayatrajsevarth.maharashtra.gov.in/' },
+            { src: './Img/sc6.png', title: 'जलयुक्त शिवार', link: 'http://mrsac.maharashtra.gov.in/jalyukt/' },
+            { src: './Img/sc7.png', title: 'भारत सरकार', link: 'https://www.india.gov.in/' },
+            { src: './Img/sc8.png', title: 'राष्ट्रीय पोर्टल', link: 'https://www.india.gov.in/' },
+            { src: './Img/sc9.png', title: 'डिजिटल इंडिया', link: 'https://www.digitalindia.gov.in/' },
+            { src: './Img/sc10.png', title: 'जी२०', link: 'https://www.g20.in/en/' },
+            { src: './Img/sc11.png', title: 'ग्रामीण विकास', link: 'https://rdd.maharashtra.gov.in/' },
+            { src: './Img/sc12.png', title: 'महापूड', link: 'https://www.mahapwd.com/' }
+        ];
+        
+        // Create icon elements with infinite loop
+        function createIconElements() {
+            // Clear existing content
+            iconTrack.innerHTML = '';
+            
+            // Add multiple copies for seamless infinite scroll
+            for (let i = 0; i < 3; i++) { // Create 3 copies for smooth looping
+                icons.forEach(icon => {
+                    const iconItem = document.createElement('a');
+                    iconItem.href = icon.link;
+                    iconItem.target = '_blank';
+                    iconItem.rel = 'noopener noreferrer';
+                    iconItem.className = 'icon-carousel-item';
+                    
+                    iconItem.innerHTML = `
+                        <img src="${icon.src}" alt="${icon.title}" class="icon-image">
+                        <p class="icon-title">${icon.title}</p>
+                    `;
+                    
+                    iconTrack.appendChild(iconItem);
+                });
+            }
+        }
+        
+        // Initialize carousel with automatic infinite scroll
+        function initializeAutoScroll() {
+            // Add auto-scroll class for CSS animation
+            iconTrack.classList.add('auto-scroll');
+        }
+        
+        // Manual navigation functions
+        function nextSlide() {
+            // For manual navigation, temporarily disable auto-scroll
+            iconTrack.classList.remove('auto-scroll');
+            
+            const itemWidth = 150 + 20; // width + gap
+            const currentTransform = getComputedStyle(iconTrack).transform;
+            const matrix = new DOMMatrix(currentTransform);
+            const currentX = matrix.m41;
+            
+            iconTrack.style.transform = `translateX(${currentX - itemWidth}px)`;
+            
+            // Restart auto-scroll after a delay
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 3000);
+        }
+        
+        function prevSlide() {
+            // For manual navigation, temporarily disable auto-scroll
+            iconTrack.classList.remove('auto-scroll');
+            
+            const itemWidth = 150 + 20; // width + gap
+            const currentTransform = getComputedStyle(iconTrack).transform;
+            const matrix = new DOMMatrix(currentTransform);
+            const currentX = matrix.m41;
+            
+            iconTrack.style.transform = `translateX(${currentX + itemWidth}px)`;
+            
+            // Restart auto-scroll after a delay
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 3000);
+        }
+        
+        // Event listeners for manual controls
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Initialize
+        createIconElements();
+        initializeAutoScroll();
+        
+        // Handle responsive adjustments
+        function handleResize() {
+            // Reinitialize on resize to adjust animation
+            iconTrack.classList.remove('auto-scroll');
+            setTimeout(() => {
+                iconTrack.classList.add('auto-scroll');
+            }, 100);
+        }
+        
+        window.addEventListener('resize', handleResize);
+        
+        // Reset animation on visibility change (when tab becomes active again)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden) {
+                iconTrack.classList.remove('auto-scroll');
+                setTimeout(() => {
+                    iconTrack.classList.add('auto-scroll');
+                }, 100);
+            }
+        });
+    });
+
+        // Accessibility Functions
+        function toggleAccessibility() {
+            alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+        }
+    </script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'mr', 
+                includedLanguages: 'mr,en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+         <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopup = document.getElementById("closePopup");
+
+        // Check if page was reloaded or it's first visit
+        const isReloaded = performance.navigation.type === 1;
+        const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+        // Show popup on first visit OR page reload
+        if (!hasSeenPopup || isReloaded) {
+          popupOverlay.style.display = "flex";
+          sessionStorage.setItem("hasSeenPopup", "true");
+        }
+
+        closePopup.addEventListener("click", function () {
+          popupOverlay.style.display = "none";
+        });
+
+        popupOverlay.addEventListener("click", function (e) {
+          if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+          }
+        });
+
+        // Close with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+          }
+        });
+      });
+    </script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "mr",
+            includedLanguages: "mr,en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+      <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const popupOverlay = document.getElementById("popupOverlay");
+        const closePopup = document.getElementById("closePopup");
+
+        // Check if page was reloaded or it's first visit
+        const isReloaded = performance.navigation.type === 1;
+        const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+        // Show popup on first visit OR page reload
+        if (!hasSeenPopup || isReloaded) {
+          popupOverlay.style.display = "flex";
+          sessionStorage.setItem("hasSeenPopup", "true");
+        }
+
+        closePopup.addEventListener("click", function () {
+          popupOverlay.style.display = "none";
+        });
+
+        popupOverlay.addEventListener("click", function (e) {
+          if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+          }
+        });
+
+        // Close with Escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+          }
+        });
+      });
+
+</script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <title>पदाधिकारी</title>
+
+    <!-- CSS Imports -->
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/search.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+    
+
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    
+    <!-- External CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Dropdown Fix CSS -->
+    <style>
+        /* Dropdown Menu Fixes */
+        .navbar-nav .dropdown-menu {
+            background-color: #171b47;
+            border: none;
+            border-radius: 0;
+            margin-top: 0;
+        }
+
+        .navbar-nav .dropdown-item {
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #171b47;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #171b47;
+            color: white;
+        }
+
+        .navbar-nav .dropdown-toggle::after {
+            margin-left: 5px;
+        }
+
+        /* Fix for mobile view */
+        @media (max-width: 991px) {
+            .navbar-nav .dropdown-menu {
+                background-color: transparent;
+                border: none;
+                padding-left: 20px;
+            }
+            
+            .navbar-nav .dropdown-item {
+                padding-left: 30px;
+            }
+        }
+
+        /* Enhanced Search Bar Styles */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .member-search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 3px solid #1a237e;
+            border-radius: 50px;
+            padding: 15px 25px;
+            box-shadow: 0 5px 20px rgba(26, 35, 126, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .member-search-wrapper:focus-within {
+            border-color: #534bae;
+            box-shadow: 0 8px 30px rgba(26, 35, 126, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .member-search-icon {
+            font-size: 1.4rem;
+            color: #1a237e;
+            margin-right: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .member-search-wrapper:focus-within .member-search-icon {
+            color: #534bae;
+            transform: scale(1.1);
+        }
+
+        .member-search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1.1rem;
+            color: #333;
+            background: transparent;
+            font-weight: 500;
+        }
+
+        .member-search-input::placeholder {
+            color: #757575;
+            font-weight: 400;
+        }
+
+        .member-search-clear {
+            position: absolute;
+            right: 15px;
+            background: #f0f0f0;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            padding: 0;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .member-search-clear:hover {
+            background: #ff6f00;
+            color: white;
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .member-search-clear i {
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .member-search-wrapper {
+                padding: 12px 20px;
+            }
+
+            .member-search-icon {
+                font-size: 1.2rem;
+                margin-right: 12px;
+            }
+
+            .member-search-input {
+                font-size: 1rem;
+            }
+
+            .member-search-clear {
+                width: 32px;
+                height: 32px;
+                right: 12px;
+            }
+        }
+
+        /* Member Photo Styling */
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            object-position: center top;
+            aspect-ratio: 1 / 1;
+            display: block;
+            margin: 0 auto;
+            border: 3px solid #e3f2fd;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .member-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(26, 35, 126, 0.2);
+            border-color: #1a237e;
+        }
+
+        .hover-card {
+            transition: all 0.3s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content Area -->
+    <div class="container mt-5">
+        <!-- Enhanced Search Bar -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="search-container" data-aos="fade-down" data-aos-duration="800">
+                    <div class="member-search-wrapper">
+                        <i class="fas fa-search member-search-icon"></i>
+                        <input
+                            type="text"
+                            class="member-search-input"
+                            id="searchInput"
+                            placeholder="नाव किंवा पदनामानुसार शोधा..."
+                            autocomplete="off"
+                        />
+                        <button
+                            class="member-search-clear"
+                            id="clearSearch"
+                            type="button"
+                            style="display: none"
+                            aria-label="Clear search"
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="row mb-3" id="resultsCount" style="display: none">
+            <div class="col-12">
+                <p class="text-muted results-count" data-aos="fade-up" id="resultsText">
+                    <!-- Results text will be populated here -->
+                </p>
+            </div>
+        </div>
+
+        <!-- Village Employees -->
+        <h2 class="section-title text-center mb-4" data-aos="fade-right">
+            ग्रामस्तरिय कर्मचारी
+        </h2>
+
+        <div id="membersGrid">
+            <!-- Members will be populated here -->
+        </div>
+
+        <div class="text-center py-5" id="noResults" style="display: none" data-aos="fade-up">
+            <i class="fas fa-search fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">कोणतेही सदस्य सापडले नाहीत</h4>
+            <p class="text-muted">कृपया वेगळे शोधनाव वापरून पुन्हा प्रयत्न करा</p>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+        // Function to load HTML components
+        async function loadComponent(elementId, filePath) {
+            try {
+                console.log(`🔄 Loading ${filePath}...`);
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+                console.log(`✅ Successfully loaded ${filePath}`);
+                
+                // Initialize dropdowns after loading header
+                if (elementId === 'header-placeholder') {
+                    initializeDropdowns();
+                }
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                    console.log('🎭 AOS initialized after content load');
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Error loading component:', error);
+                document.getElementById(elementId).innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+                    </div>
+                `;
+                return false;
+            }
+        }
+
+        // Initialize dropdown functionality
+        function initializeDropdowns() {
+            console.log('🔄 Initializing dropdown menus...');
+            
+            // Get all dropdown toggles
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(toggle => {
+                // Remove any existing event listeners
+                toggle.replaceWith(toggle.cloneNode(true));
+            });
+
+            // Re-initialize Bootstrap dropdowns
+            const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+
+            console.log(`✅ ${dropdownList.length} dropdown menus initialized`);
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM fully loaded');
+            
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+            
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                });
+                console.log('🎭 AOS initialized for main content');
+            }
+            
+            // Load member data and initialize search
+            initializeMemberSearch();
+            
+            // Update visitor counter after footer is loaded
+            setTimeout(updateVisitorCounter, 1000);
+            
+            // Initialize GR Alert functionality
+            setTimeout(initializeGrAlert, 1500);
+        });
+
+        // Member search functionality
+        function initializeMemberSearch() {
+            console.log('👥 Initializing member search...');
+            
+            // Village employees data
+            const villageEmployees = [
+                {
+                    id: 1,
+                    name: "श्री सागर कृष्णा मालजी",
+                    position: "ग्रामपंचायत अधिकारी",
+                    contact: "9309917725",
+                    photo: "./Img/सागर मालजी - Grampanchayt Velaste.jpg",
+                },
+                {
+                    id: 2,
+                    name: "सौ.शनिता शरद खेडेकर",
+                    position: "सरपंच",
+                    contact: "9579166645",
+                    photo: "./Img/सरपंच.jpeg",
+                },
+                {
+                    id: 3,
+                    name: "श्री.मिलिंद मंगेश खेडेकर",
+                    position: "उपसरपंच",
+                    contact: "9226234813",
+                    photo: "./Img/उपसरपंच.jpeg",
+                },
+                {
+                    id: 4,
+                    name: "श्री.विकास भिकु दिवेकर",
+                    position: "सदस्य नंबर 1",
+                    contact: "9221540193",
+                    photo: "./Img/sadasya1.jpeg",
+                },
+                {
+                    id: 5,
+                    name: "सौ.चंद्रभागा काशीनाथ वाघामरे",
+                    position: "सदस्य नंबर 2",
+                    contact: "7823089678",
+                    photo: "./Img/sadasya2.jpg",
+                },
+                {
+                    id: 6,
+                    name: "सौ.प्रियंका प्रकाश पारदले",
+                    position: "सदस्य नंबर 3",
+                    contact: "9022793071",
+                    photo: "./Img/sadasya3.jpg",
+                },
+                {
+                    id: 7,
+                    name: "सौ.क्रांती कल्पेश राणे",
+                    position: "सदस्य नंबर 4",
+                    contact: "7620723865",
+                    photo: "./Img/sadasya4.jpeg",
+                },
+                {
+                    id: 8,
+                    name: "सौ.भूमिका भगवान शिंदे",
+                    position: "सदस्य नंबर 5",
+                    contact: "9373303116",
+                    photo: "./Img/sadasya5.jpg",
+                },
+            ];
+
+            // DOM Elements
+            const searchInput = document.getElementById("searchInput");
+            const clearSearch = document.getElementById("clearSearch");
+            const resultsCount = document.getElementById("resultsCount");
+            const resultsText = document.getElementById("resultsText");
+            const membersGrid = document.getElementById("membersGrid");
+            const noResults = document.getElementById("noResults");
+
+            // Initial render
+            if (membersGrid) {
+                renderMembers(villageEmployees);
+            }
+
+            // Search functionality
+            function handleSearch(e) {
+                const searchTerm = e.target.value;
+
+                if (searchTerm.trim() === "") {
+                    clearSearch.style.display = "none";
+                    resultsCount.style.display = "none";
+                    renderMembers(villageEmployees);
+                    return;
+                }
+
+                clearSearch.style.display = "block";
+
+                const filteredMembers = villageEmployees.filter(
+                    (member) =>
+                        member.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        member.position.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+
+                updateResultsCount(filteredMembers.length, searchTerm);
+                renderMembers(filteredMembers);
+            }
+
+            function updateResultsCount(count, searchTerm) {
+                if (resultsCount) {
+                    resultsCount.style.display = "block";
+                    if (count === 0) {
+                        resultsText.textContent = "0 सदस्य सापडले - कृपया वेगळे शोध प्रयत्न करा";
+                    } else {
+                        resultsText.textContent = `${count} सदस्य सापडले`;
+                    }
+                }
+            }
+
+            function renderMembers(members) {
+                if (!membersGrid) return;
+
+                if (members.length === 0) {
+                    membersGrid.style.display = "none";
+                    if (noResults) noResults.style.display = "block";
+                    return;
+                }
+
+                membersGrid.style.display = "block";
+                if (noResults) noResults.style.display = "none";
+
+                membersGrid.innerHTML = `
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+                        ${members.map((member) => `
+                            <div class="col">
+                                <div class="card shadow-sm h-100 border-0 rounded-4 hover-card p-3 text-center" data-aos="fade-left">
+                                    <div class="avatar mb-3" data-aos="fade-left">
+                                        ${member.photo ? 
+                                            `<img src="${member.photo}" alt="${member.name}" class="img-fluid rounded-circle member-photo" style="width: 120px; height: 120px; object-fit: cover; object-position: center top; aspect-ratio: 1 / 1; display: block; margin: 0 auto;">` : 
+                                            `<div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 120px; height: 120px;">
+                                                <i class="fas fa-user-circle text-primary fa-3x"></i>
+                                            </div>`
+                                        }
+                                    </div>
+                                    <h5 class="card-title fw-bold fs-5">${member.name}</h5>
+                                    <p class="card-text mb-2 text-secondary">${member.position}</p>
+                                    <p class="card-text text-primary fw-semibold">
+                                        <i class="fas fa-phone me-2"></i>
+                                        ${member.contact}
+                                    </p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+
+                // Re-initialize AOS for new elements
+                if (typeof AOS !== 'undefined') {
+                    AOS.refresh();
+                }
+            }
+
+            function clearSearchInput() {
+                if (searchInput) {
+                    searchInput.value = "";
+                    clearSearch.style.display = "none";
+                    if (resultsCount) resultsCount.style.display = "none";
+                    renderMembers(villageEmployees);
+                }
+            }
+
+            // Event listeners
+            if (searchInput) {
+                searchInput.addEventListener("input", handleSearch);
+            }
+            if (clearSearch) {
+                clearSearch.addEventListener("click", clearSearchInput);
+            }
+
+            console.log('✅ Member search initialized');
+        }
+
+ // Function to load HTML components
+async function loadComponent(elementId, filePath) {
+    try {
+        console.log(`🔄 Loading ${filePath}...`);
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filePath}: ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+        console.log(`✅ Successfully loaded ${filePath}`);
+        
+        // Initialize AOS after loading content
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: "ease-in-out",
+            });
+            console.log('🎭 AOS initialized after content load');
+        }
+        
+        return true;
+    } catch (error) {
+        console.error('❌ Error loading component:', error);
+        document.getElementById(elementId).innerHTML = `
+            <div class="alert alert-warning text-center">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+            </div>
+        `;
+        return false;
+    }
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM fully loaded');
+    
+    // Load header and footer
+    loadComponent('header-placeholder', 'Includes/header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+    
+    // Initialize AOS for main content
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: "ease-in-out",
+        });
+        console.log('🎭 AOS initialized for main content');
+    }
+    
+    // Update visitor counter after footer is loaded
+    setTimeout(updateVisitorCounter, 1000);
+    
+    // Initialize complaint form functionality
+    initializeComplaintForm();
+    
+    // Initialize popup functionality
+    initializePopup();
+});
+
+// Visitor Counter
+let visitorCount = 12896;
+function updateVisitorCounter() {
+    visitorCount++;
+    const visitorCounter = document.getElementById('visitorCounter');
+    if (visitorCounter) {
+        visitorCounter.textContent = visitorCount.toLocaleString('mr-IN');
+        console.log('👁️ Visitor counter updated');
+    }
+}
+
+// Complaint Form Functionality
+function initializeComplaintForm() {
+    console.log('📝 Initializing complaint form...');
+    
+    const form = document.getElementById('complainForm');
+    const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+    const captchaText = document.getElementById('captchaText');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const captchaInput = document.getElementById('captchaInput').value;
+            const currentCaptcha = captchaText.textContent.trim();
+            
+            if (captchaInput !== currentCaptcha) {
+                alert('❌ कॅप्चा कोड चुकीचा आहे! कृपया पुन्हा प्रयत्न करा.');
+                generateCaptcha();
+                return;
+            }
+            
+            alert('✅ आपली तक्रार यशस्वीरित्या पाठवली गेली आहे! आम्ही लवकरच आपल्याशी संपर्क साधू.');
+            form.reset();
+            generateCaptcha();
+        });
+    }
+    
+    if (refreshCaptchaBtn) {
+        refreshCaptchaBtn.addEventListener('click', generateCaptcha);
+    }
+    
+    // Generate initial captcha
+    generateCaptcha();
+}
+
+function generateCaptcha() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let captcha = '';
+    for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    const captchaText = document.getElementById('captchaText');
+    if (captchaText) {
+        captchaText.textContent = captcha;
+    }
+}
+
+// Popup Functionality
+function initializePopup() {
+    console.log('🪟 Initializing popup...');
+    
+    const popupOverlay = document.getElementById("popupOverlay");
+    const closePopup = document.getElementById("closePopup");
+
+    if (!popupOverlay || !closePopup) {
+        console.error('❌ Popup elements not found');
+        return;
+    }
+
+    // Check if page was reloaded or it's first visit
+    const isReloaded = performance.navigation.type === 1;
+    const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+    // Show popup on first visit OR page reload
+    if (!hasSeenPopup || isReloaded) {
+        setTimeout(() => {
+            popupOverlay.style.display = "flex";
+            console.log('🪟 Popup displayed');
+        }, 1000); // Show after 1 second delay
+        sessionStorage.setItem("hasSeenPopup", "true");
+    }
+
+    closePopup.addEventListener("click", function() {
+        popupOverlay.style.display = "none";
+        console.log('🪟 Popup closed by button');
+    });
+
+    popupOverlay.addEventListener("click", function(e) {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by overlay click');
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by Escape key');
+        }
+    });
+}
+
+// Accessibility Functions
+function toggleAccessibility() {
+    alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+}
+
+// Google Translate
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'mr', 
+        includedLanguages: 'mr,en,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>

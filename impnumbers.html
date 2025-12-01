@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#1a5276">
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <title>महत्वाचे नंबर</title>
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="styles/impnumbers.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+    
+    <!-- Dropdown Fix CSS -->
+    <style>
+ /* Dropdown Menu Fixes */
+        .navbar-nav .dropdown-menu {
+            background-color: #171b47;
+            border: none;
+            border-radius: 0;
+            margin-top: 0;
+        }
+
+        .navbar-nav .dropdown-item {
+            color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #171b47;
+        }
+
+        .navbar-nav .dropdown-item:hover {
+            background-color: #171b47;
+            color: white;
+        }
+
+        .navbar-nav .dropdown-toggle::after {
+            margin-left: 5px;
+        }
+
+
+        /* Mobile Dropdown Fix */
+        @media (max-width: 991px) {
+            .navbar-nav .dropdown-menu {
+                padding-left: 15px;
+            }
+        }
+    </style>
+
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Page load animation */
+        body {
+            animation: pageLoad 0.5s ease-out;
+        }
+        
+        @keyframes pageLoad {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content Area -->
+    <div class="contacts-search-container" id="searchContainer">
+      <div class="contacts-search-box">
+        <div class="contacts-search-input-group">
+          <i class="fas fa-search contacts-search-icon"></i>
+          <input
+            type="text"
+            class="contacts-search-input"
+            id="searchInput"
+            placeholder="संपर्क क्रमांक, नाव किंवा पत्ता शोधा..."
+          />
+          <button
+            type="button"
+            class="contacts-clear-search"
+            id="clearSearch"
+            style="display: none"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="contacts-search-results-dropdown"
+        id="searchResults"
+        style="display: none"
+      >
+        <div class="contacts-search-results-header">
+          <span id="searchResultsTitle">शोध निकाल: ""</span>
+          <button class="contacts-close-results" id="closeResults">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="contacts-search-results-body">
+          <div class="contacts-search-results-list" id="searchResultsList">
+            <!-- Results will be populated here -->
+          </div>
+          <div class="contacts-no-results" id="noResults" style="display: none">
+            <i class="fas fa-search contacts-no-results-icon"></i>
+            <p id="noResultsText">साठी कोणतेही संपर्क सापडले नाहीत</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <h2 class="section-subtitle mb-3" data-aos="fade-right">
+        महत्वाचे संपर्क — रायगड
+      </h2>
+
+      <!-- Toll Free Helplines -->
+      <section class="mb-5"></section>
+
+      <!-- Colleges -->
+      <section id="colleges-section" class="mb-5">
+        <h4 data-aos="fade-right">🎓 महाविद्यालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="collegesTable">
+              <!-- Colleges data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Municipalities -->
+      <section id="municipalities-section" class="mb-5">
+        <h4 data-aos="fade-right">🏛️ नगरपालिका</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="municipalitiesTable">
+              <!-- Municipalities data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Hospitals -->
+      <section id="hospitals-section" class="mb-5">
+        <h4 data-aos="fade-right">🏥 रुग्णालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="hospitalsTable">
+              <!-- Hospitals data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Electricity -->
+      <section id="electricity-section" class="mb-5">
+        <h4 data-aos="fade-right">⚡ वीज कार्यालये</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="electricityTable">
+              <!-- Electricity data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Postal -->
+      <section id="postal-section" class="mb-5">
+        <h4 data-aos="fade-right">📮 पोस्ट ऑफिस</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="postalTable">
+              <!-- Postal data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Banks -->
+      <section id="banks-section" class="mb-5">
+        <h4 data-aos="fade-right">🏦 बँका</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>संपर्क</th>
+                <th>पत्ता</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="banksTable">
+              <!-- Banks data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Medical Contacts -->
+      <section id="medical-contacts-section" class="mb-5">
+        <h4 data-aos="fade-right">👨‍⚕️ वैद्यकीय संपर्क</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>तालुका</th>
+                <th>रुग्णालय</th>
+                <th>प्रभारी</th>
+                <th>संपर्क</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="medicalContactsTable">
+              <!-- Medical contacts data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ODOP Grievance Contacts -->
+      <section id="odop-section" class="mb-5">
+        <h4 data-aos="fade-right">📋 ODOP तक्रार संपर्क</h4>
+        <div class="table-responsive">
+          <table class="table table-bordered text-center">
+            <thead class="table-light" data-aos="fade-down">
+              <tr>
+                <th>क्र.</th>
+                <th>नाव</th>
+                <th>पद</th>
+                <th>संपर्क</th>
+              </tr>
+            </thead>
+            <tbody data-aos="fade-up" id="odopTable">
+              <!-- ODOP data will be populated here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" title="वर जा">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+        // Function to load HTML components
+        async function loadComponent(elementId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+                
+                // Initialize dropdowns after loading header
+                if (elementId === 'header-placeholder') {
+                    setTimeout(initializeDropdowns, 100);
+                }
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                }
+                
+                return true;
+            } catch (error) {
+                document.getElementById(elementId).innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+                    </div>
+                `;
+                return false;
+            }
+        }
+
+        // Initialize dropdown functionality
+        function initializeDropdowns() {
+            // Re-initialize Bootstrap dropdowns
+            const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+            
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                    offset: 100,
+                });
+            }
+            
+            // Initialize search functionality
+            initializeSearchFunctionality();
+            
+            // Initialize scroll to top button
+            initializeScrollToTop();
+            
+            // Add stagger animation to table rows after they're rendered
+            setTimeout(addTableRowAnimations, 500);
+        });
+        
+        // Scroll to top functionality
+        function initializeScrollToTop() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            if (!scrollToTopBtn) return;
+            
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.add('show');
+                } else {
+                    scrollToTopBtn.classList.remove('show');
+                }
+            });
+            
+            // Scroll to top when clicked
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Add animation classes to table rows
+        function addTableRowAnimations() {
+            const tables = document.querySelectorAll('.table tbody');
+            tables.forEach(table => {
+                const rows = table.querySelectorAll('tr');
+                rows.forEach((row, index) => {
+                    row.style.animationDelay = `${index * 0.05}s`;
+                    
+                    // Add click ripple effect
+                    row.addEventListener('click', function(e) {
+                        this.style.animation = 'none';
+                        setTimeout(() => {
+                            this.style.animation = '';
+                        }, 10);
+                    });
+                });
+            });
+            
+            // Add intersection observer for scroll animations
+            addScrollAnimations();
+        }
+        
+        // Scroll-triggered animations
+        function addScrollAnimations() {
+            const sections = document.querySelectorAll('section');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+                        
+                        // Animate table rows when section is visible
+                        const rows = entry.target.querySelectorAll('tbody tr');
+                        rows.forEach((row, index) => {
+                            setTimeout(() => {
+                                row.style.opacity = '1';
+                                row.style.transform = 'translateY(0)';
+                            }, index * 50);
+                        });
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => observer.observe(section));
+        }
+        
+        // Add parallax effect to sections
+        function addParallaxEffect() {
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section');
+                const scrolled = window.pageYOffset;
+                
+                sections.forEach((section, index) => {
+                    const speed = 0.5;
+                    const yPos = -(scrolled * speed * 0.1);
+                    section.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        }
+        
+        // Add mouse tracking effect
+        function addMouseTrackingEffect() {
+            const tables = document.querySelectorAll('.table-responsive');
+            
+            tables.forEach(table => {
+                table.addEventListener('mousemove', (e) => {
+                    const rect = table.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 50;
+                    const rotateY = (centerX - x) / 50;
+                    
+                    table.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+                
+                table.addEventListener('mouseleave', () => {
+                    table.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                });
+            });
+        }
+        
+        // Add sparkle effect on hover
+        function addSparkleEffect() {
+            const cells = document.querySelectorAll('.contacts-table td');
+            
+            cells.forEach(cell => {
+                cell.addEventListener('mouseenter', function(e) {
+                    const sparkle = document.createElement('span');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.cssText = `
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        background: radial-gradient(circle, #ffd700, transparent);
+                        border-radius: 50%;
+                        pointer-events: none;
+                        animation: sparkleAnim 0.6s ease-out forwards;
+                        left: ${e.offsetX}px;
+                        top: ${e.offsetY}px;
+                    `;
+                    this.appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 600);
+                });
+            });
+        }
+        
+        // Initialize all advanced animations (only on desktop)
+        setTimeout(() => {
+            if (window.innerWidth > 768) {
+                addParallaxEffect();
+                addMouseTrackingEffect();
+                addSparkleEffect();
+            } else {
+                // Mobile-specific optimizations
+                initMobileOptimizations();
+            }
+        }, 1000);
+        
+        // Mobile-specific optimizations
+        function initMobileOptimizations() {
+            // Disable heavy animations on mobile
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile || window.innerWidth <= 768) {
+                // Remove complex animations
+                document.querySelectorAll('section, .table-responsive, .contacts-table tbody tr').forEach(el => {
+                    el.style.animation = 'none';
+                });
+                
+                // Add simple fade-in for sections
+                const sections = document.querySelectorAll('section');
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+                
+                sections.forEach(section => {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    section.style.transition = 'all 0.3s ease';
+                    observer.observe(section);
+                });
+                
+                // Improve touch scrolling
+                document.querySelectorAll('.table-responsive').forEach(table => {
+                    let isScrolling = false;
+                    
+                    table.addEventListener('touchstart', () => {
+                        isScrolling = true;
+                    });
+                    
+                    table.addEventListener('touchend', () => {
+                        setTimeout(() => {
+                            isScrolling = false;
+                        }, 100);
+                    });
+                });
+                
+                // Add swipe indicator for tables
+                addSwipeIndicator();
+            }
+        }
+        
+        // Add swipe indicator for mobile tables
+        function addSwipeIndicator() {
+            const tables = document.querySelectorAll('.table-responsive');
+            
+            tables.forEach(table => {
+                const indicator = document.createElement('div');
+                indicator.className = 'swipe-indicator';
+                indicator.innerHTML = '<i class="fas fa-arrows-alt-h"></i> स्वाइप करा';
+                indicator.style.cssText = `
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    background: rgba(26, 82, 118, 0.9);
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 20px;
+                    font-size: 11px;
+                    z-index: 10;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                
+                table.style.position = 'relative';
+                table.appendChild(indicator);
+                
+                // Show indicator on first touch
+                let hasShownIndicator = false;
+                table.addEventListener('touchstart', () => {
+                    if (!hasShownIndicator && table.scrollWidth > table.clientWidth) {
+                        indicator.style.opacity = '1';
+                        setTimeout(() => {
+                            indicator.style.opacity = '0';
+                        }, 2000);
+                        hasShownIndicator = true;
+                    }
+                });
+            });
+        }
+        
+        // Handle orientation change
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.location.reload();
+            }, 200);
+        });
+        
+        // Prevent zoom on double tap for specific elements
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (event) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+        
+        // Add pull-to-refresh indicator
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+        });
+        
+        document.addEventListener('touchmove', (e) => {
+            const touchY = e.touches[0].clientY;
+            const touchDiff = touchY - touchStartY;
+            
+            if (touchDiff > 0 && window.scrollY === 0) {
+                // User is pulling down at top of page
+                document.body.style.transform = `translateY(${Math.min(touchDiff / 3, 50)}px)`;
+            }
+        });
+        
+        document.addEventListener('touchend', () => {
+            document.body.style.transform = '';
+            document.body.style.transition = 'transform 0.3s ease';
+            setTimeout(() => {
+                document.body.style.transition = '';
+            }, 300);
+        });
+
+        // Search functionality
+        function initializeSearchFunctionality() {
+            // Data arrays
+const colleges = [
+    {
+        sr: 1,
+        name: "वसंतराव नाईक आर्ट्स अँड कॉमर्स कॉलेज - श्री. प्रकाश पाटील",
+        contact: "02149-232040",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 2,
+        name: "डी. एस. सी. कॉलेज, मुरुड-जंजीरा - सौ. सुलभा शिंदे",
+        contact: "02144-274310",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 3,
+        name: "एस. एम. कॉलेज, अलिबाग - श्री. सचिन कांबळे",
+        contact: "02141-222123",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 4,
+        name: "राजेंद्रभाऊ हाईस्कूल कॉलेज, रायगड - सौ. नेहा देशमुख",
+        contact: "02141-223456",
+        address: "रायगड शहर, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 5,
+        name: "मुरुड एज्युकेशन कॉलेज - श्री. अजित पाटील",
+        contact: "02144-275678",
+        address: "मुरुड, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+            const municipalities = [
+    {
+        sr: 1,
+        name: "मुरुड नगरपरिषद - श्री. अनिल पाटील",
+        contact: "02144-274032",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "अलिबाग नगरपरिषद - सौ. रेखा देशमुख",
+        contact: "02141-222388",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "म्हसळा नगरपरिषद - श्री. दीपक शिंदे",
+        contact: "02149-232567",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "कर्जत नगरपरिषद - सौ. स्वाती कांबळे",
+        contact: "02147-223344",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+const hospitals = [
+    {
+        sr: 1,
+        name: "उप जिल्हा रुग्णालय, मुरुड - श्री. अनिल पाटील",
+        contact: "02144-274420",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "जिल्हा रुग्णालय, अलिबाग - सौ. रेखा देशमुख",
+        contact: "02141-222081",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "उप जिल्हा रुग्णालय, म्हसळा - श्री. दीपक शिंदे",
+        contact: "02149-232890",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "सार्वजनिक रुग्णालय, कर्जत - सौ. स्वाती कांबळे",
+        contact: "02147-223355",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+          const electricity = [
+    {
+        sr: 1,
+        name: "महावितरण कार्यालय, मुरुड - श्री. अनिल पाटील",
+        contact: "02144-274125",
+        address: "महावितरण उपकेंद्र, मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "महावितरण कार्यालय, अलिबाग - सौ. रेखा देशमुख",
+        contact: "02141-222456",
+        address: "महावितरण मुख्य कार्यालय, अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "महावितरण कार्यालय, म्हसळा - श्री. दीपक शिंदे",
+        contact: "02149-232567",
+        address: "महावितरण उपकेंद्र, म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "महावितरण कार्यालय, कर्जत - सौ. स्वाती कांबळे",
+        contact: "02147-223678",
+        address: "महावितरण उपकेंद्र, कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+           const postal = [
+    {
+        sr: 1,
+        name: "मुरुड पोस्ट ऑफिस - श्री. संजय पाटील",
+        contact: "02144-274310",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "अलिबाग पोस्ट ऑफिस - सौ. कविता देशमुख",
+        contact: "02141-222189",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+    {
+        sr: 3,
+        name: "म्हसळा पोस्ट ऑफिस - श्री. दीपक शिंदे",
+        contact: "02149-232445",
+        address: "म्हसळा, तालुका म्हसळा, जिल्हा रायगड, महाराष्ट्र - 402105",
+    },
+    {
+        sr: 4,
+        name: "कर्जत पोस्ट ऑफिस - सौ. स्वाती कांबळे",
+        contact: "02147-223567",
+        address: "कर्जत, तालुका कर्जत, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+];
+
+
+            const banks = [
+    {
+        sr: 1,
+        name: "स्टेट बँक ऑफ इंडिया, मुरुड शाखा",
+        contact: "02144-274225",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        name: "बँक ऑफ इंडिया, मुरुड शाखा",
+        contact: "02144-274555",
+        address: "मुरुड, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 3,
+        name: "स्टेट बँक ऑफ इंडिया, अलिबाग शाखा",
+        contact: "02141-222456",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+];
+
+const medicalContacts = [
+    {
+        sr: 1,
+        taluka: "मुरुड",
+        hospital: "उप जिल्हा रुग्णालय, मुरुड",
+        incharge: "डॉ. प्रभारी संजय पाटील",
+        contact: "02144-274420",
+        address: "मुरुड-जंजीरा, तालुका मुरुड, जिल्हा रायगड, महाराष्ट्र - 402401",
+    },
+    {
+        sr: 2,
+        taluka: "अलिबाग",
+        hospital: "जिल्हा रुग्णालय, अलिबाग",
+        incharge: "डॉ. प्रभारी कविता देशमुख",
+        contact: "02141-222081",
+        address: "अलिबाग, तालुका अलिबाग, जिल्हा रायगड, महाराष्ट्र - 402201",
+    },
+];
+
+const oddopGrievanceContacts = [
+    {
+        srNo: 1,
+        name: "श्री. रवीश पाटील",
+        designation: "जिल्हा कलेक्टर",
+        contact: "02141-222001",
+        office: "जिल्हा कार्यालय, रायगड",
+    },
+    {
+        srNo: 2,
+        name: "श्री. अजय शिंदे",
+        designation: "उप जिल्हा कलेक्टर",
+        contact: "02144-274001",
+        office: "उप जिल्हा कार्यालय, मुरुड",
+    },
+];
+
+
+            // DOM Elements
+            const searchInput = document.getElementById("searchInput");
+            const clearSearch = document.getElementById("clearSearch");
+            const searchResults = document.getElementById("searchResults");
+            const searchResultsList = document.getElementById("searchResultsList");
+            const noResults = document.getElementById("noResults");
+            const noResultsText = document.getElementById("noResultsText");
+            const searchResultsTitle = document.getElementById("searchResultsTitle");
+            const closeResults = document.getElementById("closeResults");
+            const searchContainer = document.getElementById("searchContainer");
+
+            // Combine all data for search
+            const allContacts = [];
+
+            // Add all data arrays with proper categorization
+            colleges.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "महाविद्यालये",
+                    type: "educational",
+                })
+            );
+            municipalities.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "नगरपालिका",
+                    type: "government",
+                })
+            );
+            hospitals.forEach((item) =>
+                allContacts.push({ ...item, category: "रुग्णालये", type: "medical" })
+            );
+            electricity.forEach((item) =>
+                allContacts.push({ ...item, category: "वीज", type: "utility" })
+            );
+            postal.forEach((item) =>
+                allContacts.push({ ...item, category: "पोस्ट", type: "government" })
+            );
+            banks.forEach((item) =>
+                allContacts.push({ ...item, category: "बँका", type: "financial" })
+            );
+            medicalContacts.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "वैद्यकीय संपर्क",
+                    type: "medical",
+                })
+            );
+            oddopGrievanceContacts.forEach((item) =>
+                allContacts.push({
+                    ...item,
+                    category: "ODOP तक्रार",
+                    type: "government",
+                })
+            );
+
+            // Initial render of tables
+            renderTables();
+
+            // Search functionality
+            function handleSearch(e) {
+                const searchTerm = e.target.value;
+
+                if (searchTerm.trim() === "") {
+                    searchResults.style.display = "none";
+                    clearSearch.style.display = "none";
+                    return;
+                }
+
+                clearSearch.style.display = "block";
+
+                const results = allContacts.filter(
+                    (item) =>
+                        item.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        item.contact?.toString().includes(searchTerm) ||
+                        item.address?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        item.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        (item.designation &&
+                            item.designation
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase())) ||
+                        (item.incharge &&
+                            item.incharge
+                                .toLowerCase()
+                                .includes(searchTerm.toLowerCase())) ||
+                        (item.taluka &&
+                            item.taluka.toLowerCase().includes(searchTerm.toLowerCase())) ||
+                        (item.hospital &&
+                            item.hospital.toLowerCase().includes(searchTerm.toLowerCase()))
+                );
+
+                searchResultsTitle.textContent = `शोध निकाल: "${searchTerm}"`;
+
+                if (results.length > 0) {
+                    searchResultsList.innerHTML = "";
+                    results.slice(0, 10).forEach((result, index) => {
+                        const resultElement = document.createElement("div");
+                        resultElement.className = "contacts-search-result-item";
+                        resultElement.innerHTML = `
+                            <div class="contacts-result-content">
+                                <div class="contacts-result-header">
+                                    <h6 class="contacts-result-title">${
+                                        result.name ||
+                                        result.hospital ||
+                                        result.taluka
+                                    }</h6>
+                                    <span class="contacts-result-category ${
+                                        result.type
+                                    }">
+                                        ${result.category}
+                                    </span>
+                                </div>
+                                <p class="contacts-result-contact">
+                                    <i class="fas fa-phone me-1"></i>
+                                    ${result.contact}
+                                </p>
+                                ${
+                                    result.address ||
+                                    result.hospital ||
+                                    result.designation
+                                        ? `<p class="contacts-result-description">
+                                            ${
+                                                result.address ||
+                                                result.hospital ||
+                                                result.designation
+                                            }
+                                        </p>`
+                                        : ""
+                                }
+                            </div>
+                            <i class="fas fa-chevron-right contacts-result-arrow"></i>
+                        `;
+                        resultElement.addEventListener("click", () =>
+                            handleResultClick(result)
+                        );
+                        searchResultsList.appendChild(resultElement);
+                    });
+                    searchResults.style.display = "block";
+                    noResults.style.display = "none";
+                } else {
+                    searchResults.style.display = "block";
+                    noResults.style.display = "block";
+                    noResultsText.textContent = `'${searchTerm}' साठी कोणतेही संपर्क सापडले नाहीत`;
+                }
+            }
+
+            function handleResultClick(result) {
+                searchResults.style.display = "none";
+                searchInput.value = "";
+                clearSearch.style.display = "none";
+
+                // Scroll to the specific section based on category
+                const sectionMap = {
+                    महाविद्यालये: "#colleges-section",
+                    नगरपालिका: "#municipalities-section",
+                    रुग्णालये: "#hospitals-section",
+                    वीज: "#electricity-section",
+                    पोस्ट: "#postal-section",
+                    बँका: "#banks-section",
+                    "वैद्यकीय संपर्क": "#medical-contacts-section",
+                    "ODOP तक्रार": "#odop-section",
+                };
+
+                const sectionId = sectionMap[result.category];
+                if (sectionId) {
+                    const element = document.querySelector(sectionId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }
+                }
+            }
+
+            function clearSearchInput() {
+                searchInput.value = "";
+                searchResults.style.display = "none";
+                clearSearch.style.display = "none";
+            }
+
+            function closeResultsPanel() {
+                searchResults.style.display = "none";
+            }
+
+            // Close dropdown when clicking outside
+            function handleClickOutside(event) {
+                if (searchContainer && !searchContainer.contains(event.target)) {
+                    searchResults.style.display = "none";
+                }
+            }
+
+            // Render tables with data
+            function renderTables() {
+                // Colleges table
+                document.getElementById("collegesTable").innerHTML = colleges
+                    .map(
+                        (c) => `
+                            <tr>
+                                <td>${c.sr}</td>
+                                <td>${c.name}</td>
+                                <td>${c.contact}</td>
+                                <td>${c.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Municipalities table
+                document.getElementById("municipalitiesTable").innerHTML =
+                    municipalities
+                        .map(
+                            (m) => `
+                            <tr>
+                                <td>${m.sr}</td>
+                                <td>${m.name}</td>
+                                <td>${m.contact}</td>
+                                <td>${m.address}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+
+                // Hospitals table
+                document.getElementById("hospitalsTable").innerHTML = hospitals
+                    .map(
+                        (h) => `
+                            <tr>
+                                <td>${h.sr}</td>
+                                <td>${h.name}</td>
+                                <td>${h.contact}</td>
+                                <td>${h.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Electricity table
+                document.getElementById("electricityTable").innerHTML = electricity
+                    .map(
+                        (e) => `
+                            <tr>
+                                <td>${e.sr}</td>
+                                <td>${e.name}</td>
+                                <td>${e.contact}</td>
+                                <td>${e.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Postal table
+                document.getElementById("postalTable").innerHTML = postal
+                    .map(
+                        (p) => `
+                            <tr>
+                                <td>${p.sr}</td>
+                                <td>${p.name}</td>
+                                <td>${p.contact}</td>
+                                <td>${p.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Banks table
+                document.getElementById("banksTable").innerHTML = banks
+                    .map(
+                        (b) => `
+                            <tr>
+                                <td>${b.sr}</td>
+                                <td>${b.name}</td>
+                                <td>${b.contact}</td>
+                                <td>${b.address}</td>
+                            </tr>
+                        `
+                    )
+                    .join("");
+
+                // Medical contacts table
+                document.getElementById("medicalContactsTable").innerHTML =
+                    medicalContacts
+                        .map(
+                            (m) => `
+                            <tr>
+                                <td>${m.sr}</td>
+                                <td>${m.taluka}</td>
+                                <td>${m.hospital}</td>
+                                <td>${m.incharge}</td>
+                                <td>${m.contact}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+
+                // ODOP table
+                document.getElementById("odopTable").innerHTML =
+                    oddopGrievanceContacts
+                        .map(
+                            (o) => `
+                            <tr>
+                                <td>${o.srNo}</td>
+                                <td>${o.name}</td>
+                                <td>${o.designation}</td>
+                                <td>${o.contact}</td>
+                            </tr>
+                        `
+                        )
+                        .join("");
+            }
+
+            // Event listeners
+            searchInput.addEventListener("input", handleSearch);
+            searchInput.addEventListener("focus", function () {
+                if (searchInput.value.trim() !== "") {
+                    searchResults.style.display = "block";
+                }
+            });
+            clearSearch.addEventListener("click", clearSearchInput);
+            closeResults.addEventListener("click", closeResultsPanel);
+            document.addEventListener("mousedown", handleClickOutside);
+        }
+    </script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'mr', 
+                includedLanguages: 'mr,en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

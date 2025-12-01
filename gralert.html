@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <title>ई - दवंडी</title>
+    
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/GrAlert.css" />
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content Area -->
+    <div class="gr-alert-container">
+        <div class="gr-header" data-aos="fade-up">
+            <div class="government-logo">
+                <div class="logo-text">
+                    <span class="marathi">महाराष्ट्र शासन</span>
+                    <span class="english">Government of Maharashtra</span>
+                </div>
+            </div>
+            <div class="alert-badge">
+                <span class="alert-text">सर्वसाधारण प्रशासन</span>
+                <span class="alert-subtext">General Administration</span>
+            </div>
+        </div>
+
+        <div class="gr-alert-content" data-aos="fade-up" data-aos-delay="100">
+            <div class="alert-icon">⚠️</div>
+            <div class="alert-main">
+                <h2 class="alert-title">सरकारी निर्णय क्रमांक २०२४/१२३/जीआर</h2>
+                <p class="alert-description">
+                    महाराष्ट्र शासनाच्या नवीनतम जीआर नुसार, सर्व कर्मचाऱ्यांनी खालील
+                    मार्गदर्शक तत्त्वांचे काटेकोरपणे पालन करावे. हा सर्वसाधारण प्रशासन
+                    खंड अंतर्गतचा आदेश आहे.
+                </p>
+                <p class="alert-description-english">
+                    As per the latest GR from Government of Maharashtra, all employees
+                    must strictly adhere to the following guidelines. This order falls
+                    under the General Administration department.
+                </p>
+            </div>
+        </div>
+
+        <div class="pdf-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="pdf-section-header">
+                <h3 class="pdf-section-title">
+                    <i class="fas fa-file-download me-2"></i>
+                    संबंधित दस्तऐवज डाउनलोड
+                </h3>
+                <small class="pdf-section-subtitle">
+                    महत्वाचे जीआर दस्तऐवज आणि फॉर्म
+                </small>
+            </div>
+
+            <div class="pdf-list-container" id="pdfListContainer">
+                <!-- PDF items will be dynamically inserted here -->
+            </div>
+
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-primary view-all-btn" id="viewAllBtn">
+                    <i class="fas fa-external-link-alt me-2"></i>
+                    सर्व जीआर दस्तऐवज पहा
+                    <i class="fas fa-chevron-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+        // Function to load HTML components
+        async function loadComponent(elementId, filePath) {
+            try {
+                console.log(`🔄 Loading ${filePath}...`);
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+                console.log(`✅ Successfully loaded ${filePath}`);
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                    console.log('🎭 AOS initialized after content load');
+                }
+                
+                return true;
+            } catch (error) {
+                console.error('❌ Error loading component:', error);
+                document.getElementById(elementId).innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+                    </div>
+                `;
+                return false;
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM fully loaded');
+            
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+            
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                });
+                console.log('🎭 AOS initialized for main content');
+            }
+            
+            // Update visitor counter after footer is loaded
+            setTimeout(updateVisitorCounter, 1000);
+            
+            // Initialize GR Alert functionality
+            setTimeout(initializeGrAlert, 1500);
+        });
+        // GR Alert Functionality
+        function initializeGrAlert() {
+            console.log('📄 Initializing GR Alert functionality...');
+            
+            // PDF data
+            const grPdfs = [
+                {
+                    id: 1,
+                    title: "राज्यकर उप आयुक्त पदावरुन राज्यकर सह आयुक्त पदावर पदोन्नतीने पदस्थापना",
+                    url: "https://gr.maharashtra.gov.in/Site/Upload/Government%20Resolutions/Marathi/202510241213244205.pdf",
+                    type: "PDF",
+                    icon: "fa-file-pdf",
+                    color: "danger",
+                },
+                {
+                    id: 2,
+                    title: "महाराष्ट्र कृषि सेवा, गट-अ (कृषि उपसंचालक) संवर्गातील अधिकाऱ्यांच्या विनंती बदल्या/अंशतः बदल..",
+                    url: "https://gr.maharashtra.gov.in/Site/Upload/Government%20Resolutions/Marathi/202510241506310101....pdf",
+                    type: "PDF",
+                    icon: "fa-file-pdf",
+                    color: "danger",
+                },
+                {
+                    id: 3,
+                    title: "निरीक्षण अधिकारी (पुरवठा)/ परिमंडळ अधिकारी, गट-ब (राजपत्रित) यांच्या बदलीबाबत..",
+                    url: "https://gr.maharashtra.gov.in/Site/Upload/Government%20Resolutions/Marathi/202510241735325606.pdf",
+                    type: "PDF",
+                    icon: "fa-file-pdf",
+                    color: "danger",
+                },
+            ];
+
+            // Handle download function
+            function handleDownload(pdf) {
+                window.open(pdf.url, "_blank", "noopener,noreferrer");
+            }
+
+            // Handle view all forms
+            function handleViewAllForms() {
+                window.open("/all-gr-forms", "_blank");
+            }
+
+            // Render PDF items
+            function renderPdfItems() {
+                const pdfListContainer = document.getElementById("pdfListContainer");
+                
+                if (!pdfListContainer) {
+                    console.error('❌ PDF list container not found');
+                    return;
+                }
+
+                grPdfs.forEach((pdf) => {
+                    const pdfItem = document.createElement("div");
+                    pdfItem.className = "pdf-item";
+                    pdfItem.setAttribute('data-aos', 'fade-up');
+                    pdfItem.innerHTML = `
+                        <div class="pdf-content">
+                            <div class="pdf-icon-title">
+                                <div class="file-icon bg-${pdf.color} text-white rounded d-flex align-items-center justify-content-center">
+                                    <i class="fas ${pdf.icon}"></i>
+                                </div>
+                                <div class="pdf-details">
+                                    <a href="${pdf.url}" class="pdf-title-link" target="_blank" rel="noopener noreferrer">
+                                        <h6 class="pdf-title text-${pdf.color}">${pdf.title}</h6>
+                                    </a>
+                                    <div class="pdf-meta">
+                                        <span class="file-type text-${pdf.color} fw-bold">${pdf.type}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="download-btn" data-pdf-id="${pdf.id}">
+                                <i class="fas fa-download"></i>
+                                <span class="download-text">डाउनलोड</span>
+                            </button>
+                        </div>
+                    `;
+                    pdfListContainer.appendChild(pdfItem);
+                });
+            }
+
+            // Add event listeners
+            function initializeEventListeners() {
+                // View all button
+                const viewAllBtn = document.getElementById("viewAllBtn");
+                if (viewAllBtn) {
+                    viewAllBtn.addEventListener("click", handleViewAllForms);
+                }
+
+                // Download buttons (event delegation)
+                document.addEventListener("click", function (e) {
+                    if (e.target.closest(".download-btn")) {
+                        const button = e.target.closest(".download-btn");
+                        const pdfId = parseInt(button.getAttribute("data-pdf-id"));
+                        const pdf = grPdfs.find((p) => p.id === pdfId);
+                        if (pdf) {
+                            handleDownload(pdf);
+                        }
+                    }
+                });
+
+                // PDF title links
+                document.addEventListener("click", function (e) {
+                    if (e.target.closest(".pdf-title-link")) {
+                        e.preventDefault();
+                        const link = e.target.closest(".pdf-title-link");
+                        const pdfId = parseInt(
+                            link
+                                .closest(".pdf-item")
+                                .querySelector(".download-btn")
+                                .getAttribute("data-pdf-id")
+                        );
+                        const pdf = grPdfs.find((p) => p.id === pdfId);
+                        if (pdf) {
+                            handleDownload(pdf);
+                        }
+                    }
+                });
+            }
+
+            // Initialize GR Alert components
+            renderPdfItems();
+            initializeEventListeners();
+            console.log('✅ GR Alert functionality initialized');
+        }
+
+        // Accessibility Functions
+        function toggleAccessibility() {
+            alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+        }
+    </script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'mr', 
+                includedLanguages: 'mr,en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+
+ // Function to load HTML components
+async function loadComponent(elementId, filePath) {
+    try {
+        console.log(`🔄 Loading ${filePath}...`);
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${filePath}: ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+        console.log(`✅ Successfully loaded ${filePath}`);
+        
+        // Initialize AOS after loading content
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                easing: "ease-in-out",
+            });
+            console.log('🎭 AOS initialized after content load');
+        }
+        
+        return true;
+    } catch (error) {
+        console.error('❌ Error loading component:', error);
+        document.getElementById(elementId).innerHTML = `
+            <div class="alert alert-warning text-center">
+                <i class="fas fa-exclamation-triangle me-2"></i>
+                ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+            </div>
+        `;
+        return false;
+    }
+}
+
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 DOM fully loaded');
+    
+    // Load header and footer
+    loadComponent('header-placeholder', 'Includes/header.html');
+    loadComponent('footer-placeholder', 'footer.html');
+    
+    // Initialize AOS for main content
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            easing: "ease-in-out",
+        });
+        console.log('🎭 AOS initialized for main content');
+    }
+    
+    // Update visitor counter after footer is loaded
+    setTimeout(updateVisitorCounter, 1000);
+    
+    // Initialize complaint form functionality
+    initializeComplaintForm();
+    
+    // Initialize popup functionality
+    initializePopup();
+});
+
+// Visitor Counter
+let visitorCount = 12896;
+function updateVisitorCounter() {
+    visitorCount++;
+    const visitorCounter = document.getElementById('visitorCounter');
+    if (visitorCounter) {
+        visitorCounter.textContent = visitorCount.toLocaleString('mr-IN');
+        console.log('👁️ Visitor counter updated');
+    }
+}
+
+// Complaint Form Functionality
+function initializeComplaintForm() {
+    console.log('📝 Initializing complaint form...');
+    
+    const form = document.getElementById('complainForm');
+    const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+    const captchaText = document.getElementById('captchaText');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const captchaInput = document.getElementById('captchaInput').value;
+            const currentCaptcha = captchaText.textContent.trim();
+            
+            if (captchaInput !== currentCaptcha) {
+                alert('❌ कॅप्चा कोड चुकीचा आहे! कृपया पुन्हा प्रयत्न करा.');
+                generateCaptcha();
+                return;
+            }
+            
+            alert('✅ आपली तक्रार यशस्वीरित्या पाठवली गेली आहे! आम्ही लवकरच आपल्याशी संपर्क साधू.');
+            form.reset();
+            generateCaptcha();
+        });
+    }
+    
+    if (refreshCaptchaBtn) {
+        refreshCaptchaBtn.addEventListener('click', generateCaptcha);
+    }
+    
+    // Generate initial captcha
+    generateCaptcha();
+}
+
+function generateCaptcha() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let captcha = '';
+    for (let i = 0; i < 6; i++) {
+        captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    const captchaText = document.getElementById('captchaText');
+    if (captchaText) {
+        captchaText.textContent = captcha;
+    }
+}
+
+// Popup Functionality
+function initializePopup() {
+    console.log('🪟 Initializing popup...');
+    
+    const popupOverlay = document.getElementById("popupOverlay");
+    const closePopup = document.getElementById("closePopup");
+
+    if (!popupOverlay || !closePopup) {
+        console.error('❌ Popup elements not found');
+        return;
+    }
+
+    // Check if page was reloaded or it's first visit
+    const isReloaded = performance.navigation.type === 1;
+    const hasSeenPopup = sessionStorage.getItem("hasSeenPopup");
+
+    // Show popup on first visit OR page reload
+    if (!hasSeenPopup || isReloaded) {
+        setTimeout(() => {
+            popupOverlay.style.display = "flex";
+            console.log('🪟 Popup displayed');
+        }, 1000); // Show after 1 second delay
+        sessionStorage.setItem("hasSeenPopup", "true");
+    }
+
+    closePopup.addEventListener("click", function() {
+        popupOverlay.style.display = "none";
+        console.log('🪟 Popup closed by button');
+    });
+
+    popupOverlay.addEventListener("click", function(e) {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by overlay click');
+        }
+    });
+
+    // Close with Escape key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && popupOverlay.style.display === "flex") {
+            popupOverlay.style.display = "none";
+            console.log('🪟 Popup closed by Escape key');
+        }
+    });
+}
+
+// Accessibility Functions
+function toggleAccessibility() {
+    alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+}
+
+// Google Translate
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'mr', 
+        includedLanguages: 'mr,en,hi',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+      <div id="popupOverlay" class="popup-overlay" style="display: none">
+      <div class="popup-content">
+        <button class="close-btn" id="closePopup">&times;</button>
+        <img src="./Img/popup.jpeg" alt="Popup" class="popup-image" />
+      </div>
+    </div>
+
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

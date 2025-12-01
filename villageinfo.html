@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <title>गावाची माहिती</title>
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/villageinfo.css">
+    <link rel="stylesheet" href="styles/Navbar.css">
+    <link rel="stylesheet" href="styles/PopupLogo.css">
+    
+    <link rel="icon" type="image/x-icon" href="./Img/main_logo.jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/fifteen.css" />
+
+    <!-- Dropdown Fix CSS -->
+    <style>
+        /* Dropdown Fix Only - No Color Changes */
+        .navbar-nav .dropdown-menu {
+            margin-top: 0;
+        }
+
+        /* Mobile Dropdown Fix */
+        @media (max-width: 991px) {
+            .navbar-nav .dropdown-menu {
+                background-color: #171b47 !important;
+                border: none !important;
+                padding-left: 15px !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+                position: static !important;
+                transform: none !important;
+                float: none !important;
+            }
+            
+            .navbar-nav .dropdown-item {
+                padding: 12px 20px !important;
+                border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+                color: white !important;
+            }
+            
+            .navbar-nav .dropdown-item:hover {
+                background-color: #171b47 !important;
+            }
+            
+            .navbar-nav .dropdown-toggle::after {
+                float: right;
+                margin-top: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header will be loaded here -->
+    <div id="header-placeholder"></div>
+
+    <!-- Search Results Dropdown - Positioned below search box -->
+    <div class="search-results-dropdown" style="display: none">
+        <div class="search-results-header">
+            <span>शोध निकाल: ""</span>
+            <button class="close-results" aria-label="Close results">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="search-results-body">
+            <div class="no-results">
+                <i class="fas fa-search no-results-icon"></i>
+                <p>'' साठी कोणतेही निकाल सापडले नाहीत</p>
+                <small>कृपया वेगळे कीवर्ड वापरून पहा</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="village-search-container" id="searchContainer">
+      <div class="village-search-box">
+        <div class="village-search-input-group">
+          <i class="fas fa-search village-search-icon"></i>
+          <input
+            type="text"
+            class="village-search-input"
+            placeholder="गावाची माहिती शोधा..."
+            id="searchInput"
+          />
+          <button
+            type="button"
+            class="village-clear-search"
+            id="clearSearch"
+            style="display: none"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="village-search-results-dropdown"
+        id="searchResults"
+        style="display: none"
+      >
+        <div class="village-search-results-header">
+          <span id="searchResultsTitle">शोध निकाल: ""</span>
+          <button class="village-close-results" id="closeResults">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="village-search-results-body">
+          <div class="village-search-results-list" id="searchResultsList">
+            <!-- Results will be populated here -->
+          </div>
+          <div class="village-no-results" id="noResults" style="display: none">
+            <i class="fas fa-search village-no-results-icon"></i>
+            <p id="noResultsText">साठी कोणतेही निकाल सापडले नाहीत</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="village-info-container">
+      <div class="village-info-content">
+        <h1 class="section-title text-center mt-4 mb-3" data-aos="fade-right">
+          🏡 वेळास्ते गावाची माहिती
+        </h1>
+
+        <!-- History Section -->
+        <div id="history" class="section card-section container mb-4">
+          <h2 class="section-subtitle mb-3" data-aos="fade-right">
+            📜 गावाचा इतिहास
+          </h2>
+          <div class="history-container">
+            <p data-aos="fade-up">
+              वेळास्ते हे रायगड जिल्ह्यातील मुरुड-जंजिरा तालुक्यात वसलेले एक ऐतिहासिक व निसर्गरम्य गाव आहे. या गावाची स्थापना सुमारे तीनशे वर्षांपूर्वी झाल्याचे वयोवृद्धांच्या कथांवरून समजते. सुरुवातीच्या काळात गावाचा परिसर दाट जंगलांनी व्यापलेला होता आणि येथे शेती व पशुपालन हेच प्रमुख व्यवसाय होते.
+
+प्रारंभी गावात काही मोजकी कुटुंबे स्थायिक झाली होती. पुढे लोकसंख्या वाढल्याने गावात वेगवेगळ्या वाड्या निर्माण झाल्या. गव्हाणवाडी, कुंभारवाडी, खेडेकरवाडी आणि दिवेकरवाडी या मुख्य वाड्या गावाच्या ओळखीचा भाग आहेत.
+
+मराठा साम्राज्याच्या काळात वेळास्ते परिसर जंजिरा संस्थानाच्या हद्दीत होता. त्या काळात गावात कर व महसूल गोळा करण्याची व्यवस्था होती. गावकऱ्यांनी मराठा आणि सिद्दी यांच्यातील संघर्ष काळात अनेक घटना अनुभवलेल्या आहेत.
+            </p>
+
+            <p data-aos="fade-up">
+              स्वातंत्र्यपूर्व काळात गावातील तरुणांनी राष्ट्रीय चळवळीत सक्रिय सहभाग घेतला. स्वातंत्र्यानंतर ग्रामपंचायत प्रणाली लागू झाल्यामुळे गावाच्या विकासाला नवे वळण मिळाले. शिक्षण, आरोग्य, पाणीपुरवठा, रस्ते व स्वच्छता या क्षेत्रांमध्ये ग्रामपंचायतीने उल्लेखनीय कार्य केले आहे.
+
+आज वेळास्ते गाव हे शिक्षण, शेती, मत्स्यव्यवसाय, आणि सामाजिक एकतेसाठी ओळखले जाते. गावातील प्रमुख सणांमध्ये गणेशोत्सव, होळी, आणि देवीचा जत्रोत्सव हे महत्त्वाचे सण आहेत. गावातील लोक पारंपरिक संस्कृती, परंपरा आणि निसर्गाशी एकरूप जीवन जगतात.
+
+वेळास्ते गावाने गेल्या काही दशकांमध्ये आधुनिकतेकडे वाटचाल केली असली तरी त्याची ओळख आजही संस्कृती, ऐक्य आणि श्रमशीलतेत आहे.
+            </p>
+            <h2
+              id="local-life"
+              class="section-subtitle mb-3"
+              data-aos="fade-right"
+            >
+              लोकजीवन माहिती
+            </h2>
+            <p data-aos="fade-up">
+              वेळास्ते गावातील लोक साधे, मेहनती आणि प्रामाणिक आहेत. गावाचा मुख्य व्यवसाय शेती असून बहुतांश लोक भात, नारळ, सुपारी, हळद व भाज्या पिकवतात. काही लोक मत्स्यव्यवसाय, दैनंदिन मजुरी आणि लहान व्यावसायिक कामांमध्येही गुंतलेले आहेत. गावातील जीवनशैली पारंपरिक असून लोक आजही निसर्गाशी घट्ट जोडलेले आहेत. सकाळी शेतात काम, दुपारी विश्रांती आणि संध्याकाळी देवपूजा व ग्रामसभा ही जीवनशैलीचा भाग आहे. गावातील महिलाही शेती, अंगणवाडी आणि स्वयं-सहायता गटांमधून कुटुंबाच्या अर्थकारणात महत्त्वाची भूमिका बजावतात.  वेळास्ते गावात सामाजिक एकता आणि पारस्परिक सहकार्याची भावना ठळकपणे दिसून येते. सण-उत्सव एकत्र साजरे केले जातात. गणेशोत्सव, होळी, गावरान देवीचा जत्रोत्सव, नवरात्री, दिवाळी आणि मकरसंक्रांत हे प्रमुख सण आहेत
+            </p>
+          </div>
+
+          <div class="info-grid my-3">
+            <div data-aos="fade-right">
+              <i class="fas fa-water text-info me-2"></i>
+              पाणीपुरवठा नियमित
+            </div>
+            <div data-aos="fade-right">
+              <i class="fas fa-road text-success me-2"></i>
+              100% काँक्रिटिकृत रस्ते
+            </div>
+            <div data-aos="fade-right">
+              <i class="fas fa-trash text-warning me-2"></i>
+              दैनिक कचरा संकलन
+            </div>
+            <div data-aos="fade-right">
+              <i class="fas fa-users text-info me-2"></i>
+              विविध धर्माचे लोक एकत्र
+            </div>
+          </div>
+        </div>
+
+        <!-- Gram Panchayat Info -->
+        <div id="gram-panchayat" class="section container card-section mb-4">
+          <h2 class="section-subtitle" data-aos="fade-right">
+            ग्रामपंचायतीची सर्वसाधारण माहिती
+          </h2>
+
+          <div class="info-grid">
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-home"></i>
+              <strong>ग्रामपंचायतीचे नाव:</strong>
+              <div class="info-value">वेळास्ते</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-calendar-alt"></i>
+              <strong>स्थापना वर्ष :</strong>
+              <div class="info-value">1956</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-envelope"></i>
+              <strong>Email ID:</strong>
+              <div class="info-value">gpvelaste@gmail.com</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-barcode"></i>
+              <strong>सेन्सस कोड:</strong>
+              <div class="info-value">553587</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-road"></i>
+              <strong>तालुक्यापासून अंतर:</strong>
+              <div class="info-value">अंदाजे 18 किमी</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-city"></i>
+              <strong>जिल्हा मुख्यालयापासून अंतर:</strong>
+              <div class="info-value">अंदाजे 52 किमी</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-store"></i>
+              <strong>स्वस्त धान्य दुकान:</strong>
+              <div class="info-value">1</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-school"></i>
+              <strong>प्राथमिक शाळा:</strong>
+              <div class="info-value">1 जिल्हा परिषद शाळा</div>
+            </div>
+
+            <div data-aos="fade-right" class="info-grid-item">
+              <i class="fas fa-baby"></i>
+              <strong>अंगणवाडी केंद्र:</strong>
+              <div class="info-value">2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Population -->
+        <div id="population" class="section container card-section mb-4">
+          <h3 class="section-subtitle" data-aos="fade-right">लोकसंख्या</h3>
+          <div class="table-responsive">
+            <table class="info-table population-table">
+              <thead data-aos="fade-down">
+                <tr>
+                  <th><i class="fas fa-list"></i> तपशील</th>
+                  <th><i class="fas fa-male text-info"></i> पुरुष</th>
+                  <th><i class="fas fa-female text-pink"></i> स्त्रिया</th>
+                  <th><i class="fas fa-users text-success"></i> एकूण</th>
+                </tr>
+              </thead>
+              <tbody data-aos="fade-up">
+                <tr>
+                  <td>एकुण लोकसंख्या</td>
+                  <td>681</td>
+                  <td>631</td>
+                  <td>1303</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    <script>
+      // Initialize AOS
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof AOS !== "undefined") {
+          AOS.init({
+            duration: 1000,
+            once: false,
+            easing: "ease-in-out",
+          });
+        }
+
+        // Search data for village information
+        const villageSearchData = [
+          {
+            id: 1,
+            title: "गावाचा इतिहास",
+            category: "इतिहास",
+            description: "वेळास्ते गावाचा संपूर्ण इतिहास",
+            keywords: ["इतिहास", "स्थापना", "ऐतिहासिक", "विकास"],
+            link: "#history",
+          },
+          {
+            id: 2,
+            title: "लोकजीवन माहिती",
+            category: "संस्कृती",
+            description: "गावातील लोकजीवन, संस्कृती आणि परंपरा",
+            keywords: ["लोकजीवन", "संस्कृती", "परंपरा", "जीवनशैली"],
+            link: "#local-life",
+          },
+          {
+            id: 3,
+            title: "ग्रामपंचायत माहिती",
+            category: "प्रशासन",
+            description: "ग्रामपंचायतीची सर्वसाधारण माहिती",
+            keywords: ["ग्रामपंचायत", "स्थापना", "ईमेल", "सेन्सस कोड"],
+            link: "#gram-panchayat",
+          },
+          {
+            id: 4,
+            title: "लोकसंख्या",
+            category: "आकडेवारी",
+            description: "गावातील एकूण लोकसंख्या, पुरुष-स्त्री प्रमाण",
+            keywords: ["लोकसंख्या", "पुरुष", "स्त्रिया", "एकूण", "संख्या"],
+            link: "#population",
+          },
+          {
+            id: 5,
+            title: "सुविधा",
+            category: "सुविधा",
+            description: "गावातील विविध सुविधा आणि सार्वजनिक सेवा",
+            keywords: ["सुविधा", "पाणी", "वीज", "रस्ते", "कचरा"],
+            link: "#facilities",
+          },
+        ];
+
+        // DOM Elements
+        const searchInput = document.getElementById("searchInput");
+        const clearSearch = document.getElementById("clearSearch");
+        const searchResults = document.getElementById("searchResults");
+        const searchResultsList = document.getElementById("searchResultsList");
+        const noResults = document.getElementById("noResults");
+        const noResultsText = document.getElementById("noResultsText");
+        const searchResultsTitle =
+          document.getElementById("searchResultsTitle");
+        const closeResults = document.getElementById("closeResults");
+        const searchContainer = document.getElementById("searchContainer");
+
+        // Search functionality
+        function handleSearch(e) {
+          const searchTerm = e.target.value;
+
+          if (searchTerm.trim() === "") {
+            searchResults.style.display = "none";
+            clearSearch.style.display = "none";
+            return;
+          }
+
+          clearSearch.style.display = "block";
+
+          const results = villageSearchData.filter(
+            (item) =>
+              item.keywords?.some((keyword) =>
+                keyword.toLowerCase().includes(searchTerm.toLowerCase())
+              ) ||
+              item.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.category?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              item.description?.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+
+          searchResultsTitle.textContent = `शोध निकाल: "${searchTerm}"`;
+
+          if (results.length > 0) {
+            searchResultsList.innerHTML = "";
+            results.slice(0, 8).forEach((result) => {
+              const resultElement = document.createElement("div");
+              resultElement.className = "village-search-result-item";
+              resultElement.innerHTML = `
+                            <div class="village-result-content">
+                                <div class="village-result-header">
+                                    <h6 class="village-result-title">${result.title}</h6>
+                                    <span class="village-result-category">${result.category}</span>
+                                </div>
+                                <p class="village-result-description">${result.description}</p>
+                            </div>
+                            <i class="fas fa-chevron-right village-result-arrow"></i>
+                        `;
+              resultElement.addEventListener("click", () =>
+                handleResultClick(result)
+              );
+              searchResultsList.appendChild(resultElement);
+            });
+            searchResults.style.display = "block";
+            noResults.style.display = "none";
+          } else {
+            searchResults.style.display = "block";
+            noResults.style.display = "block";
+            noResultsText.textContent = `'${searchTerm}' साठी कोणतेही निकाल सापडले नाहीत`;
+          }
+        }
+
+        function handleResultClick(result) {
+          searchResults.style.display = "none";
+          searchInput.value = "";
+          clearSearch.style.display = "none";
+
+          if (result.link) {
+            const element = document.querySelector(result.link);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }
+
+        function clearSearchInput() {
+          searchInput.value = "";
+          searchResults.style.display = "none";
+          clearSearch.style.display = "none";
+        }
+
+        function closeResultsPanel() {
+          searchResults.style.display = "none";
+        }
+
+        // Close dropdown when clicking outside
+        function handleClickOutside(event) {
+          if (searchContainer && !searchContainer.contains(event.target)) {
+            searchResults.style.display = "none";
+          }
+        }
+
+        // Event listeners
+        searchInput.addEventListener("input", handleSearch);
+        searchInput.addEventListener("focus", function () {
+          if (searchInput.value.trim() !== "") {
+            searchResults.style.display = "block";
+          }
+        });
+        clearSearch.addEventListener("click", clearSearchInput);
+        closeResults.addEventListener("click", closeResultsPanel);
+        document.addEventListener("mousedown", handleClickOutside);
+      });
+    </script>
+
+    <!-- Footer will be loaded here -->
+    <hr class="footer-divider" style="border: 0; height: 2px; background: linear-gradient(to right, transparent, #1a237e, transparent); margin: 50px 0 0 0;">
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>`n    <script src="./scripts/google-translate-init.js"></script>
+    
+    <script>
+        // Function to load HTML components
+        async function loadComponent(elementId, filePath) {
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filePath}: ${response.status}`);
+                }
+                const html = await response.text();
+                document.getElementById(elementId).innerHTML = html;
+                
+                // Initialize dropdowns after loading header
+                if (elementId === 'header-placeholder') {
+                    setTimeout(initializeDropdowns, 100);
+                }
+                
+                // Initialize AOS after loading content
+                if (typeof AOS !== 'undefined') {
+                    AOS.init({
+                        duration: 1000,
+                        once: true,
+                        easing: "ease-in-out",
+                    });
+                }
+                
+                return true;
+            } catch (error) {
+                document.getElementById(elementId).innerHTML = `
+                    <div class="alert alert-warning text-center">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        ${filePath} लोड करताना त्रुटी आली. कृपया पृष्ठ रीफ्रेश करा.
+                    </div>
+                `;
+                return false;
+            }
+        }
+
+        // Initialize dropdown functionality
+        function initializeDropdowns() {
+            // Re-initialize Bootstrap dropdowns
+            const dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
+            const dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+            
+            // Mobile dropdown fix - ensure proper click handling
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 991) {
+                        e.preventDefault();
+                        const dropdown = bootstrap.Dropdown.getInstance(this);
+                        if (dropdown) {
+                            dropdown.toggle();
+                        }
+                    }
+                });
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load header and footer
+            loadComponent('header-placeholder', 'Includes/header.html');
+            loadComponent('footer-placeholder', 'footer.html');
+            
+            // Initialize AOS for main content
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 1000,
+                    once: true,
+                    easing: "ease-in-out",
+                });
+            }
+        });
+
+        // Visitor Counter
+        let visitorCount = 12896;
+        function updateVisitorCounter() {
+            visitorCount++;
+            const visitorCounter = document.getElementById('visitorCounter');
+            if (visitorCounter) {
+                visitorCounter.textContent = visitorCount.toLocaleString('mr-IN');
+            }
+        }
+
+        // Accessibility Functions
+        function toggleAccessibility() {
+            alert('सुलभता पर्याय सक्रिय केले आहेत. ही वैशिष्ट्ये लवकरच उपलब्ध होतील.');
+        }
+    </script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'mr', 
+                includedLanguages: 'mr,en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

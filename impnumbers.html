@@ -67,8 +67,6 @@
         /* Page load animation */
         body {
             animation: pageLoad 0.5s ease-out;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
         }
         
         @keyframes pageLoad {
@@ -79,169 +77,7 @@
                 opacity: 1;
             }
         }
-
-        /* Main Content Styling */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .page-title {
-            text-align: center;
-            color: white;
-            margin-bottom: 15px;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .page-subtitle {
-            text-align: center;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 35px;
-            font-size: 1.1rem;
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 18px 50px 18px 20px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            transform: translateY(-2px);
-        }
-
-        .clear-btn {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #999;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .clear-btn:hover {
-            color: #667eea;
-            transform: translateY(-50%) scale(1.2);
-        }
-
-        .categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .category {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease;
-        }
-
-        .category:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .category-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        .contact-list {
-            padding: 0;
-        }
-
-        .contact-item {
-            padding: 20px;
-            border-bottom: 1px solid #f0f0f0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 4px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover::before {
-            transform: scaleY(1);
-        }
-
-        .contact-item:last-child {
-            border-bottom: none;
-        }
-
-        .contact-item:hover {
-            background: linear-gradient(to right, #f8f9ff, white);
-            padding-left: 25px;
-        }
-
-        .contact-name {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-
-        .contact-phone {
-            color: #667eea;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-
-        .contact-address {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .search-results {
-            position: absolute;
-          
+    </style>
 </head>
 <body>
     <!-- Header will be loaded here -->
@@ -303,7 +139,7 @@
 
       <!-- Colleges -->
       <section id="colleges-section" class="mb-5">
-        <h4 data-aos="fade-right">🎓 महाविद्यालये</h4>
+        <h4 data-aos="fade-right">📚 महाविद्यालये</h4>
         <div class="table-responsive">
           <table class="table table-bordered text-center">
             <thead class="table-light" data-aos="fade-down">
